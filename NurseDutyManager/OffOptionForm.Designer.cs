@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApplication2
+﻿namespace NurseDutyManager
 {
     partial class OffOptionForm
     {

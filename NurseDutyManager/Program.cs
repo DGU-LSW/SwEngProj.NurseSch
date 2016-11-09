@@ -16,7 +16,10 @@ namespace NurseDutyManager
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new Form1());
+			Application.Run(new ApplyOff());
+			Application.Run(new DutyList());
+			Application.Run(new NightShiftForm());
+			Application.Run(new OffOptionForm());
 		}
 	}
 }
