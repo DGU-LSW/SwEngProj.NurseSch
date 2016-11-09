@@ -1,7 +1,7 @@
-﻿namespace WindowsFormsApplication3
+﻿namespace NurseDutyManager
 {
-    partial class Form2
-    {
+    partial class SignupForm
+	{
         /// <summary>
         /// Required designer variable.
         /// </summary>
