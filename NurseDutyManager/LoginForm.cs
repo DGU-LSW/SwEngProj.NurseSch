@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApplication3
+namespace NurseDutyManager
 {
     public partial class LoginForm : Form
     {
@@ -19,7 +19,7 @@ namespace WindowsFormsApplication3
 
         private void button1_Click(object sender, EventArgs e)
         {
-            SignupForm f2 = new SignupForm();
+			SignupForm f2 = new SignupForm();
             f2.Owner = this;   //Form1 지정
             f2.Show();         //Form2 열기
         }

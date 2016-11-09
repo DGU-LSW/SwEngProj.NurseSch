@@ -1,4 +1,4 @@
-﻿namespace TeamProject_SoftwareEngineering
+﻿namespace NurseDutyManager
 {
     partial class ManageMemberForm
     {
