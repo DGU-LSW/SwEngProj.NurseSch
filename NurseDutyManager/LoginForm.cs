@@ -19,7 +19,7 @@ namespace NurseDutyManager
 
         private void button1_Click(object sender, EventArgs e)
         {
-            SignupForm f2 = new SignupForm();
+			SignupForm f2 = new SignupForm();
             f2.Owner = this;   //Form1 지정
             f2.Show();         //Form2 열기
         }

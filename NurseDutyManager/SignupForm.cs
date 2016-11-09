@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace NurseDutyManager
 {
-    public partial class Form2 : Form
+    public partial class SignupForm : Form
     {
-        public Form2()
+        public SignupForm()
         {
             InitializeComponent();
         }

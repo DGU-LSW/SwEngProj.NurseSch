@@ -54,6 +54,12 @@
       <DependentUpon>ApplyOff.cs</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="ChiefMenuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChiefMenuForm.Designer.cs">
+      <DependentUpon>ChiefMenuForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DutyList.cs">
       <SubType>Form</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -67,6 +73,12 @@
     </Compile>
     <Compile Include="LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageMemberForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageMemberForm.Designer.cs">
+      <DependentUpon>ManageMemberForm.cs</DependentUpon>
     </Compile>
     <Compile Include="NightShiftForm.cs">
       <SubType>Form</SubType>
@@ -92,12 +104,18 @@
       <DependentUpon>ApplyOff.cs</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="ChiefMenuForm.resx">
+      <DependentUpon>ChiefMenuForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DutyList.resx">
       <DependentUpon>DutyList.cs</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageMemberForm.resx">
+      <DependentUpon>ManageMemberForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NightShiftForm.resx">
       <DependentUpon>NightShiftForm.cs</DependentUpon>
