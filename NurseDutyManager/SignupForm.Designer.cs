@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApplication3
+﻿namespace NurseDutyManager
 {
     partial class Form2
     {
