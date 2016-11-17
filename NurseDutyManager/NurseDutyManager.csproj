@@ -68,6 +68,12 @@
       <DependentUpon>DutyList.cs</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="GeneralMenuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GeneralMenuForm.Designer.cs">
+      <DependentUpon>GeneralMenuForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +116,9 @@
     <EmbeddedResource Include="DutyList.resx">
       <DependentUpon>DutyList.cs</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GeneralMenuForm.resx">
+      <DependentUpon>GeneralMenuForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

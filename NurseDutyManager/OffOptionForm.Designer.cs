@@ -28,20 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.laborNum = new System.Windows.Forms.Label();
+            this.holiday = new System.Windows.Forms.Label();
+            this.weekend = new System.Windows.Forms.Label();
+            this.monday = new System.Windows.Forms.Label();
+            this.tuesday = new System.Windows.Forms.Label();
+            this.wednesday = new System.Windows.Forms.Label();
+            this.friday = new System.Windows.Forms.Label();
+            this.thursday = new System.Windows.Forms.Label();
+            this.Day = new System.Windows.Forms.Label();
+            this.evening = new System.Windows.Forms.Label();
+            this.night = new System.Windows.Forms.Label();
+            this.nightshiftform = new System.Windows.Forms.Button();
+            this.confirm = new System.Windows.Forms.Button();
+            this.cancle = new System.Windows.Forms.Button();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
@@ -86,140 +86,138 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown21)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // laborNum
             // 
-            this.label1.AutoSize = true;
-            this.label1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.label1.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(81, 7);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(115, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "근무자 수 입력";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.laborNum.AutoSize = true;
+            this.laborNum.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.laborNum.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.laborNum.Location = new System.Drawing.Point(81, 7);
+            this.laborNum.Name = "laborNum";
+            this.laborNum.Size = new System.Drawing.Size(115, 15);
+            this.laborNum.TabIndex = 0;
+            this.laborNum.Text = "근무자 수 입력";
             // 
-            // label2
+            // holiday
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 51);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(29, 12);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "휴일";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.holiday.AutoSize = true;
+            this.holiday.Location = new System.Drawing.Point(12, 51);
+            this.holiday.Name = "holiday";
+            this.holiday.Size = new System.Drawing.Size(29, 12);
+            this.holiday.TabIndex = 1;
+            this.holiday.Text = "휴일";
             // 
-            // label3
+            // weekend
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 78);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(29, 12);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "주말";
+            this.weekend.AutoSize = true;
+            this.weekend.Location = new System.Drawing.Point(12, 78);
+            this.weekend.Name = "weekend";
+            this.weekend.Size = new System.Drawing.Size(29, 12);
+            this.weekend.TabIndex = 2;
+            this.weekend.Text = "주말";
             // 
-            // label4
+            // monday
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(18, 106);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(17, 12);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "월";
+            this.monday.AutoSize = true;
+            this.monday.Location = new System.Drawing.Point(18, 106);
+            this.monday.Name = "monday";
+            this.monday.Size = new System.Drawing.Size(17, 12);
+            this.monday.TabIndex = 3;
+            this.monday.Text = "월";
             // 
-            // label5
+            // tuesday
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(18, 132);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(17, 12);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "화";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
+            this.tuesday.AutoSize = true;
+            this.tuesday.Location = new System.Drawing.Point(18, 132);
+            this.tuesday.Name = "tuesday";
+            this.tuesday.Size = new System.Drawing.Size(17, 12);
+            this.tuesday.TabIndex = 4;
+            this.tuesday.Text = "화";
             // 
-            // label6
+            // wednesday
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(18, 159);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(17, 12);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "수";
+            this.wednesday.AutoSize = true;
+            this.wednesday.Location = new System.Drawing.Point(18, 159);
+            this.wednesday.Name = "wednesday";
+            this.wednesday.Size = new System.Drawing.Size(17, 12);
+            this.wednesday.TabIndex = 5;
+            this.wednesday.Text = "수";
             // 
-            // label7
+            // friday
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(18, 212);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(17, 12);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "금";
+            this.friday.AutoSize = true;
+            this.friday.Location = new System.Drawing.Point(18, 212);
+            this.friday.Name = "friday";
+            this.friday.Size = new System.Drawing.Size(17, 12);
+            this.friday.TabIndex = 6;
+            this.friday.Text = "금";
             // 
-            // label8
+            // thursday
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(18, 185);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(17, 12);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "목";
+            this.thursday.AutoSize = true;
+            this.thursday.Location = new System.Drawing.Point(18, 185);
+            this.thursday.Name = "thursday";
+            this.thursday.Size = new System.Drawing.Size(17, 12);
+            this.thursday.TabIndex = 7;
+            this.thursday.Text = "목";
             // 
-            // label9
+            // Day
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label9.Location = new System.Drawing.Point(55, 29);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(30, 12);
-            this.label9.TabIndex = 8;
-            this.label9.Text = "Day";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
+            this.Day.AutoSize = true;
+            this.Day.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Day.Location = new System.Drawing.Point(55, 29);
+            this.Day.Name = "Day";
+            this.Day.Size = new System.Drawing.Size(30, 12);
+            this.Day.TabIndex = 8;
+            this.Day.Text = "Day";
             // 
-            // label10
+            // evening
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label10.Location = new System.Drawing.Point(122, 29);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(57, 12);
-            this.label10.TabIndex = 9;
-            this.label10.Text = "Evening";
+            this.evening.AutoSize = true;
+            this.evening.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.evening.Location = new System.Drawing.Point(122, 29);
+            this.evening.Name = "evening";
+            this.evening.Size = new System.Drawing.Size(57, 12);
+            this.evening.TabIndex = 9;
+            this.evening.Text = "Evening";
             // 
-            // label11
+            // night
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label11.Location = new System.Drawing.Point(206, 29);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(39, 12);
-            this.label11.TabIndex = 10;
-            this.label11.Text = "Night";
+            this.night.AutoSize = true;
+            this.night.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.night.Location = new System.Drawing.Point(206, 29);
+            this.night.Name = "night";
+            this.night.Size = new System.Drawing.Size(39, 12);
+            this.night.TabIndex = 10;
+            this.night.Text = "Night";
             // 
-            // button1
+            // nightshiftform
             // 
-            this.button1.Location = new System.Drawing.Point(74, 240);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(137, 25);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "그룹 별 나이트 설정";
-            this.button1.UseVisualStyleBackColor = true;
+            this.nightshiftform.Location = new System.Drawing.Point(74, 240);
+            this.nightshiftform.Name = "nightshiftform";
+            this.nightshiftform.Size = new System.Drawing.Size(137, 25);
+            this.nightshiftform.TabIndex = 11;
+            this.nightshiftform.Text = "그룹 별 나이트 설정";
+            this.nightshiftform.UseVisualStyleBackColor = true;
+            this.nightshiftform.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // confirm
             // 
-            this.button2.Location = new System.Drawing.Point(74, 267);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(67, 22);
-            this.button2.TabIndex = 12;
-            this.button2.Text = "확인";
-            this.button2.UseVisualStyleBackColor = true;
+            this.confirm.Location = new System.Drawing.Point(74, 267);
+            this.confirm.Name = "confirm";
+            this.confirm.Size = new System.Drawing.Size(67, 22);
+            this.confirm.TabIndex = 12;
+            this.confirm.Text = "확인";
+            this.confirm.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // cancle
             // 
-            this.button3.Location = new System.Drawing.Point(147, 267);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(64, 22);
-            this.button3.TabIndex = 13;
-            this.button3.Text = "취소";
-            this.button3.UseVisualStyleBackColor = true;
+            this.cancle.Location = new System.Drawing.Point(147, 267);
+            this.cancle.Name = "cancle";
+            this.cancle.Size = new System.Drawing.Size(64, 22);
+            this.cancle.TabIndex = 13;
+            this.cancle.Text = "취소";
+            this.cancle.UseVisualStyleBackColor = true;
+            this.cancle.Click += new System.EventHandler(this.button3_Click);
             // 
             // numericUpDown1
             // 
@@ -394,23 +392,22 @@
             this.Controls.Add(this.numericUpDown3);
             this.Controls.Add(this.numericUpDown2);
             this.Controls.Add(this.numericUpDown1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cancle);
+            this.Controls.Add(this.confirm);
+            this.Controls.Add(this.nightshiftform);
+            this.Controls.Add(this.night);
+            this.Controls.Add(this.evening);
+            this.Controls.Add(this.Day);
+            this.Controls.Add(this.thursday);
+            this.Controls.Add(this.friday);
+            this.Controls.Add(this.wednesday);
+            this.Controls.Add(this.tuesday);
+            this.Controls.Add(this.monday);
+            this.Controls.Add(this.weekend);
+            this.Controls.Add(this.holiday);
+            this.Controls.Add(this.laborNum);
             this.Name = "OffOptionForm";
             this.Text = "OFF ";
-            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
@@ -439,20 +436,20 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label laborNum;
+        private System.Windows.Forms.Label holiday;
+        private System.Windows.Forms.Label weekend;
+        private System.Windows.Forms.Label monday;
+        private System.Windows.Forms.Label tuesday;
+        private System.Windows.Forms.Label wednesday;
+        private System.Windows.Forms.Label friday;
+        private System.Windows.Forms.Label thursday;
+        private System.Windows.Forms.Label Day;
+        private System.Windows.Forms.Label evening;
+        private System.Windows.Forms.Label night;
+        private System.Windows.Forms.Button nightshiftform;
+        private System.Windows.Forms.Button confirm;
+        private System.Windows.Forms.Button cancle;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.NumericUpDown numericUpDown2;
         private System.Windows.Forms.NumericUpDown numericUpDown3;
