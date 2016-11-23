@@ -16,7 +16,7 @@ namespace NurseDutyManager
         Group2,
         Group3
     };
-    public class Nurse
+    public class Nurse : Object
     {
         string name;
         SEX sex;
@@ -26,6 +26,35 @@ namespace NurseDutyManager
         string phNum;
         GROUP groupID;
         bool isChief;
+        public Nurse(string _info) { }
+        public override string ToString()
+        {
+            string result = null;
+            result += name;
+            result += ",";
+            if (sex == SEX.Male)
+            {
+                result += "Male";
+            }
+            else
+            {
+                result += "Female";
+            }
+            result += ",";
+            result += id;
+            result += ",";
+            result += pw;
+            result += ",";
+            result += licNum;
+            result += ",";
+            result += phNum;
+            result += ",";
+            if (groupID == GROUP.Group1)
+            {
+
+            }
+            return result;
+        }
         public string Name
         {
             get
