@@ -12,11 +12,7 @@ namespace NurseDutyManager
 {
     public partial class UI : Form
     {
-        static readonly string pathNurse = "C"; //간호사 리스트 위치
-        static readonly string pathOption = ""; //옵션 저장 위치
-        static readonly string pathOffList = "";//off신청 리스트 위치
-        static readonly string pathSch = "";    //Schedul 리스트 위치
-
+        
         ApplyOff applyOffForm;
         ChiefMenuForm chidfMenuForm;
         DutyList dutyListForm;
@@ -25,6 +21,8 @@ namespace NurseDutyManager
         NightShiftForm nightShiftForm;
         OffOptionForm offOptionForm;
         SignupForm signupForm;
+
+        ClientSocket clientsoket;
 
         public UI()
         {
