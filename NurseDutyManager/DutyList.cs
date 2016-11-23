@@ -16,7 +16,7 @@ namespace NurseDutyManager
 		int thisyear;
 		int thismonth;
 		int timerCount=0;
-
+        ClientSocket clientsocket;
 		#region 프로그레스바 테스트
 		// 프로그레스바 테스트용 임시변수
 		Timer timer;
@@ -53,7 +53,10 @@ namespace NurseDutyManager
 
 			#endregion
 		}
-
+        public DutyList(ClientSocket _clientsocket) : this()
+        {
+            clientsocket = _clientsocket;
+        }
 		private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			if (comboBox1.SelectedIndex != 0)

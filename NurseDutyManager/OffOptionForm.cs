@@ -12,9 +12,15 @@ namespace NurseDutyManager
 {
     public partial class OffOptionForm : Form
     {
+        ClientSocket clientsocket;
         public OffOptionForm()
         {
             InitializeComponent();
+        }
+
+        public OffOptionForm(ClientSocket _clientsocket) : this()
+        {
+            clientsocket = _clientsocket;
         }
 
         private void Form1_Load(object sender, EventArgs e)

@@ -17,6 +17,8 @@ namespace NurseDutyManager
 		int thismonth;
 		Panel[] panelList;
 
+        ClientSocket clientsocket;
+
 		public ApplyOff()
 		{
 			InitializeComponent();
@@ -46,6 +48,11 @@ namespace NurseDutyManager
 			label9.Text = "금";
 			label10.Text = "토";
 		}
+
+        public ApplyOff(ClientSocket _clientsocket) : this()
+        {
+            clientsocket = _clientsocket;
+        }
 
 		private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
 		{

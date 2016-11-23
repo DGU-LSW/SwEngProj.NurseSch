@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NurseDutyManager
 {
-    class MonthSchedule
+    public class MonthSchedule
     {
     }
 }

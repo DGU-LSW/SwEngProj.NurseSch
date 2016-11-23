@@ -47,7 +47,7 @@ namespace NurseDutyManager
         //표생성
         private void buttonCreateSch_Click(object sender, EventArgs e)
         {
-            dutyListForm.ShowDialog();  //매개변경필요
+            
         }
         //간호사 관리
         private void buttonMangNur_Click(object sender, EventArgs e)
@@ -86,6 +86,11 @@ namespace NurseDutyManager
         }
         //개인정보수정_일반
         private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+        //그룹별나이트근무설정
+        private void buttonNightShift_Click(object sender, EventArgs e)
         {
 
         }
