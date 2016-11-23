@@ -10,12 +10,11 @@ using System.Windows.Forms;
 
 namespace NurseDutyManager
 {
-    public partial class SignupForm : Form
+    public partial class Find_Info : Form
     {
-        public SignupForm()
+        public Find_Info()
         {
             InitializeComponent();
-            //test for change
         }
     }
 }
