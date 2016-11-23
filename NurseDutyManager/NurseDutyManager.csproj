@@ -68,11 +68,19 @@
       <DependentUpon>DutyList.cs</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="GeneralMenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GeneralMenuForm.Designer.cs">
       <DependentUpon>GeneralMenuForm.cs</DependentUpon>
+=======
+    <Compile Include="Find_Info.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Find_Info.Designer.cs">
+      <DependentUpon>Find_Info.cs</DependentUpon>
+>>>>>>> refs/remotes/origin/master
     </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
@@ -124,8 +132,13 @@
       <DependentUpon>DutyList.cs</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+<<<<<<< HEAD
     <EmbeddedResource Include="GeneralMenuForm.resx">
       <DependentUpon>GeneralMenuForm.cs</DependentUpon>
+=======
+    <EmbeddedResource Include="Find_Info.resx">
+      <DependentUpon>Find_Info.cs</DependentUpon>
+>>>>>>> refs/remotes/origin/master
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
