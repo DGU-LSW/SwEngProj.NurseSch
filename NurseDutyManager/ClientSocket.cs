@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Windows.Forms;
@@ -55,6 +54,8 @@ namespace NurseDutyManager
 			{
 				isConnected = false;
 			}
+
+			gConnected = isConnected;
 
 			if(isConnected)
 			{
@@ -153,23 +154,48 @@ namespace NurseDutyManager
 		#endregion
 
 		#region 만든 부분
+		
+		/* 서버와 Message 통신방식 : 코드,구성요소,구성요소,요소수
+		 * 코드 : 무슨 내용인지, 써야하는 함수를 파악하기위한 코드번호
+		 * 요소수 : 코드와 구성요소 갯수의 합. 구성요소 2개라면 3이다.
+		 * 
+		 * 실세 사용
+		 * 로그인 메시지 : LOGIN,ID,PW,요소수
+		 * 오프신청 : OFF,ID,날짜,날짜,날짜,요소수
+		 * 아이디찾기 : FINDID,이름,라이센스번호,요소수
+		 * 비밀번호찾기 : FINDPW,아이디,이름,라이센스번호,요소수
+		 */
 
 		//ID, PW를 보내서 로그인 시도
 		//0은 실패, 1은 chief, 2는 general
 		public int logIn(string ID, string PW)
         {
-            int result = 0;
+			SendMessage("LOGIN," + ID + ',' + PW);
 
-			try
+			int i = 0;
+
+			while (messageReturned == null && i < 1000)
 			{
-
-			}
-			catch(Exception e)
-			{
-
+				i++;
 			}
 
-			return result;
+			if (messageReturned == null)
+			{
+				MessageBox.Show("전송시간 초과!");
+
+				return 0;
+			}
+
+			Nurse returnMessage = new Nurse(messageReturned);
+
+			if(returnMessage.IsChiefNurse)
+			{
+				return 1;
+			}
+			else
+			{
+				return 2;
+			}
         }
 
         //서버에 저장된 Off 목록을 가지고 온다.
@@ -181,10 +207,36 @@ namespace NurseDutyManager
 
         //신청할 off를 서버로 보낸다.
         //성공이면 true 실패면 false
-        public bool sendOff(Off off)
+        public bool sendOff(List<Off> offList)
         {
-            bool result = false;
-            return result;
+			string message = "OFF,";
+			message += offList[0];
+			int i = 1;
+
+			while(i < offList.Count)
+			{
+				message += "," + offList[i];
+
+				i++;
+			}
+
+			SendMessage(message);
+
+			i = 0;
+
+			while (messageReturned == null && i < 1000)
+			{
+				i++;
+			}
+
+			if (messageReturned == null)
+			{
+				MessageBox.Show("전송시간 초과!");
+
+				return false;
+			}
+
+			return true;
         }
 
         //서버에 있는 nurse 목록을 가지고 온다.
@@ -194,15 +246,9 @@ namespace NurseDutyManager
             return list;
         }
 
-        //ID에 해당하는 nurse 정보를 가지고 온다.
-        public Nurse getNurse(string ID)
-        {
-            Nurse result = null;
-            return result;
-        }
-
         //개인정보 수정한 것을 서버로 보낸다.
         //성공하면 true 실패하면 false
+		// id는 개인정보를 수정할 간호사의 id, nurse는 수정된 개인정보
         public bool modifyNurse(string ID, Nurse nurse)
         {
             bool result = false;
@@ -238,14 +284,19 @@ namespace NurseDutyManager
         {
             MonthSchedule result = null;
             return result;
-        }
+		}
+
+		//ID에 해당하는 nurse 정보를 가지고 온다.
+		public Nurse getNurse(string ID)
+		{
+			Nurse result = null;
+			return result;
+		}
 
 		//id찾기에 답을 돌려줄 함수
 		public Nurse ReturnInfo(string name, string lisenceNumber)
 		{
-			Nurse result;
-
-			SendMessage("findID," + name + ',' + lisenceNumber);
+			SendMessage("FINDID," + name + ',' + lisenceNumber);
 
 			int i = 0;
 
@@ -261,7 +312,7 @@ namespace NurseDutyManager
 				return null;
 			}
 
-			result = new Nurse(messageReturned);
+			Nurse result = new Nurse(messageReturned);
 
 			return result;
 		}
@@ -269,9 +320,7 @@ namespace NurseDutyManager
 		//비밀번호 찾기에 답을 들려줄 함수
 		public Nurse ReturnInfo(string id, string name, string lisenceNumber)
 		{
-			Nurse result;
-
-			SendMessage("findPW," + id + ',' + name + ',' + lisenceNumber);
+			SendMessage("FINDPW," + id + ',' + name + ',' + lisenceNumber);
 
 			int i = 0;
 
@@ -287,7 +336,7 @@ namespace NurseDutyManager
 				return null;
 			}
 
-			result = new Nurse(messageReturned);
+			Nurse result = new Nurse(messageReturned);
 
 			return result;
 		}
