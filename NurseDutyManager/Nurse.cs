@@ -10,6 +10,12 @@ namespace NurseDutyManager
         Male,
         Female
     };
+    public enum GROUP
+    {
+        Group1,
+        Group2,
+        Group3
+    };
     public class Nurse
     {
         string name;
@@ -18,8 +24,9 @@ namespace NurseDutyManager
         string pw;
         string licNum;
         string phNum;
+        GROUP groupID;
         bool isChief;
-        private string Name
+        public string Name
         {
             get
             {
@@ -30,7 +37,7 @@ namespace NurseDutyManager
                 name = value;
             }
         }
-        private SEX Sex
+        public SEX Sex
         {
             get
             {
@@ -41,7 +48,7 @@ namespace NurseDutyManager
                 sex = value;
             }
         }
-        private string ID
+        public string ID
         {
 
             get
@@ -53,7 +60,7 @@ namespace NurseDutyManager
                 id = value;
             }
         }
-        private string Password
+        public string Password
         {
             get
             {
@@ -64,7 +71,7 @@ namespace NurseDutyManager
                 pw = value;
             }
         }
-        private string LicenseNum
+        public string LicenseNum
         {
             get
             {
@@ -75,7 +82,7 @@ namespace NurseDutyManager
                 licNum = value;
             }
         }
-        private string PhoneNum
+        public string PhoneNum
         {
             get
             {
@@ -86,7 +93,18 @@ namespace NurseDutyManager
                 phNum = value;
             }
         }
-        private bool IsChiefNurse
+        public GROUP Group
+        {
+            get
+            {
+                return groupID;
+            }
+            set
+            {
+                groupID = value;
+            }
+        }
+        public bool IsChiefNurse
         {
             get
             {
