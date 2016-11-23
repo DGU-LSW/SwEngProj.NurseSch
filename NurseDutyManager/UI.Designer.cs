@@ -301,7 +301,8 @@
 
         private System.Windows.Forms.Panel panelLogin;
         private System.Windows.Forms.Panel panelChiefMenu;
-        private System.Windows.Forms.Label label4;
+		private System.Windows.Forms.Panel panelNurseMenu;
+		private System.Windows.Forms.Label label4;
         public System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -316,7 +317,6 @@
         private System.Windows.Forms.Button buttonOpt;
         private System.Windows.Forms.Button buttonMangNur;
         private System.Windows.Forms.Button buttonCreateSch;
-        private System.Windows.Forms.Panel panelNurseMenu;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
