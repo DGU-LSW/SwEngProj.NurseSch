@@ -224,7 +224,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Register";
             this.ResumeLayout(false);
             this.PerformLayout();
 
