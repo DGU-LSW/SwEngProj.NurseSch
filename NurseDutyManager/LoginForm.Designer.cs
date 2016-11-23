@@ -74,7 +74,6 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(139, 21);
             this.textBox1.TabIndex = 3;
-            //this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // textBox2
             // 
@@ -91,7 +90,6 @@
             this.label1.Size = new System.Drawing.Size(16, 12);
             this.label1.TabIndex = 5;
             this.label1.Text = "ID";
-            //this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -114,7 +112,6 @@
             this.label3.Size = new System.Drawing.Size(197, 24);
             this.label3.TabIndex = 7;
             this.label3.Text = "Nursing Manpower";
-            //this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
@@ -126,7 +123,6 @@
             this.label4.Size = new System.Drawing.Size(213, 24);
             this.label4.TabIndex = 8;
             this.label4.Text = " Scheduling System";
-            //this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // LoginForm
             // 
@@ -143,8 +139,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "LoginForm";
-            this.Text = "LoginForm";
-            //this.Load += new System.EventHandler(this.LoginForm_Load);
+            this.Text = "로그인";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -65,27 +65,27 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(12, 61);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(16, 12);
+            this.label4.Size = new System.Drawing.Size(41, 12);
             this.label4.TabIndex = 3;
-            this.label4.Text = "ID";
+            this.label4.Text = "아이디";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(12, 88);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(23, 12);
+            this.label5.Size = new System.Drawing.Size(53, 12);
             this.label5.TabIndex = 4;
-            this.label5.Text = "PW";
+            this.label5.Text = "비밀번호";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(12, 115);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(47, 12);
+            this.label6.Size = new System.Drawing.Size(77, 12);
             this.label6.TabIndex = 5;
-            this.label6.Text = "PW확인";
+            this.label6.Text = "비밀번호확인";
             // 
             // label7
             // 
@@ -259,7 +259,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Name = "SignupForm";
-            this.Text = "Register";
+            this.Text = "회원가입";
             this.ResumeLayout(false);
             this.PerformLayout();
 
