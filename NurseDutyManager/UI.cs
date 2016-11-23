@@ -21,11 +21,14 @@ namespace NurseDutyManager
         NightShiftForm nightShiftForm;
         OffOptionForm offOptionForm;
         SignupForm signupForm;
-		
+
+		ClientSocket clientSocket;
+
         public UI()
         {
             InitializeComponent();
         }
+
         //로그인버튼 클릭
         private void buttonLogin_Click(object sender, EventArgs e)
         {

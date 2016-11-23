@@ -10,17 +10,16 @@ using System.Windows.Forms;
 
 namespace NurseDutyManager
 {
-    public partial class SignupForm : Form
+    public partial class GeneralMenuForm : Form
     {
-        //public SignupForm()
-        //{
-        //    InitializeComponent();
-        //    //test for change
-        //}
-        public SignupForm(ClientSocket _clientsocket)
+        public GeneralMenuForm()
         {
             InitializeComponent();
-            clientsocket = _clientsocket;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
