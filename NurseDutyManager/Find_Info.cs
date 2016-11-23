@@ -21,5 +21,10 @@ namespace NurseDutyManager
         {
             clientsocket = _clientsocket;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
