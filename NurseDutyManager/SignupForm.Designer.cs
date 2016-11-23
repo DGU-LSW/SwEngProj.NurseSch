@@ -99,7 +99,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(12, 190);
+            this.label8.Location = new System.Drawing.Point(12, 191);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(41, 12);
             this.label8.TabIndex = 7;
@@ -155,7 +155,7 @@
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(90, 187);
+            this.textBox5.Location = new System.Drawing.Point(90, 188);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(100, 21);
             this.textBox5.TabIndex = 14;
@@ -169,7 +169,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(61, 220);
+            this.button1.Location = new System.Drawing.Point(61, 215);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 16;
@@ -178,7 +178,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(143, 220);
+            this.button2.Location = new System.Drawing.Point(143, 215);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 17;
@@ -197,7 +197,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(196, 190);
+            this.label1.Location = new System.Drawing.Point(195, 191);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 12);
             this.label1.TabIndex = 19;
@@ -259,7 +259,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Name = "SignupForm";
-            this.Text = "Form1";
+            this.Text = "Register";
             this.ResumeLayout(false);
             this.PerformLayout();
 
