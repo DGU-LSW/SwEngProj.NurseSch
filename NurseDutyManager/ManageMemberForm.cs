@@ -12,14 +12,14 @@ namespace NurseDutyManager
 {
     public partial class ManageMemberForm : Form
     {
-        static string pathNurse;
+        ClientSocket clientsocket;
         public ManageMemberForm()
         {
             InitializeComponent();
         }
-        public ManageMemberForm(string _pathNurse) : this()
+        public ManageMemberForm(ClientSocket _clientsocket) : this()
         {
-            pathNurse = _pathNurse;
+            clientsocket = _clientsocket;
         } 
         private void button1_Click(object sender, EventArgs e)
         {

@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace NurseDutyManager
 {
-    enum SEX{
+    public enum SEX{
         Male,
         Female
     };
-    class Nurse
+    public class Nurse
     {
         string name;
         SEX sex;
