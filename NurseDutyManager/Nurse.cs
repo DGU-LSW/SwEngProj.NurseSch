@@ -12,81 +12,89 @@ namespace NurseDutyManager
     };
     class Nurse
     {
+        string name;
+        SEX sex;
+        string id;
+        string pw;
+        string licNum;
+        string phNum;
+        bool isChief;
         private string Name
         {
             get
             {
-                return Name;
+                return name;
             }
             set
             {
-                Name = value;
+                name = value;
             }
         }
         private SEX Sex
         {
             get
             {
-                return Sex;
+                return sex;
             }
             set
             {
-                Sex = value;
+                sex = value;
             }
         }
         private string ID
         {
+
             get
             {
-                return ID;
+                return id;
             }
             set
             {
-                ID = value;
+                id = value;
             }
         }
         private string Password
         {
             get
             {
-                return Password;
+                return pw;
             }
             set
             {
-                Password = value;
+                pw = value;
             }
         }
         private string LicenseNum
         {
             get
             {
-                return LicenseNum;
+                return licNum;
             }
             set
             {
-                LicenseNum = value;
+                licNum = value;
             }
         }
         private string PhoneNum
         {
             get
             {
-                return PhoneNum;
+                return phNum;
             }
             set
             {
-                PhoneNum = value;
+                phNum = value;
             }
         }
         private bool IsChiefNurse
         {
             get
             {
-                return IsChiefNurse;
+                return isChief;
             }
             set
             {
-                IsChiefNurse = value;
+                isChief = value;
             }
         }
     }
