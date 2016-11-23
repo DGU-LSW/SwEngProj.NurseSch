@@ -32,10 +32,6 @@ LOC    : 30
         public SignupForm(ClientSocket _clientsocket) : this()
         {
             clientsocket = _clientsocket;
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
             if (comboBox1.SelectedItem.Equals("수간호사"))
                 nurse.IsChiefNurse = true;
             else
@@ -50,6 +46,11 @@ LOC    : 30
             nurse.LicenseNum = textBox5.Text;
             nurse.PhoneNum = textBox6.Text;
             nurse.Group = GROUP.Group3;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }
