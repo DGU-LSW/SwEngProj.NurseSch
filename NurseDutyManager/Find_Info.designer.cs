@@ -217,7 +217,7 @@
             this.ClientSize = new System.Drawing.Size(284, 261);
             this.Controls.Add(this.tabControl1);
             this.Name = "Find_Info";
-            this.Text = "Find_Info";
+            this.Text = "ID,PW 찾기";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
