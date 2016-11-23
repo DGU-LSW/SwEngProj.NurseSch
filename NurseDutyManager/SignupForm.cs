@@ -17,5 +17,10 @@ namespace NurseDutyManager
             InitializeComponent();
             //test for change
         }
+        //public SignupForm(ClientSocket _clientsocket)
+        //{
+        //    InitializeComponent();
+        //    clientsocket = _clientsocket;
+        //}
     }
 }
