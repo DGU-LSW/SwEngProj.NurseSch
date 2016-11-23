@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApplication6
+namespace NurseDutyManager
 {
     public partial class Find_Info : Form
     {

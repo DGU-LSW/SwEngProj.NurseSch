@@ -4,23 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApplication6
+namespace NurseDutyManager
 {
-<<<<<<< HEAD
-    static class Program
-    {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
-        [STAThread]
-        static void Main()
-        {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Find_Info());
-        }
-    }
-=======
+
 	static class Program
 	{
 		/// <summary>
@@ -42,5 +28,4 @@ namespace WindowsFormsApplication6
             Application.Run(new UI());
 		}
 	}
->>>>>>> refs/remotes/origin/master
 }

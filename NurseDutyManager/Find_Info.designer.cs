@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApplication6
+﻿namespace NurseDutyManager
 {
     partial class Find_Info
     {
