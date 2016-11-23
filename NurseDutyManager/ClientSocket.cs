@@ -1,45 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Net;
-using System.Net.Sockets;
-using System.Windows.Forms;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace NurseDutyManager
 {
-    public class ClientSocket
+    class ClientSocket
     {
-		Socket client;
-		byte[] data = new byte[1024];
-
-		public ClientSocket()
-		{
-			try
-			{
-				Socket newsock = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-				IPEndPoint iep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 9090);
-				newsock.BeginConnect(iep, new AsyncCallback(iep, new AsyncCallback(Connected), newsock);
-			}
-			catch (Exception e)
-			{
-				MessageBox.Show("서버에 접속할 수 없습니다!");
-			}
-		}
         //ID, PW를 보내서 로그인 시도
         //0은 실패, 1은 chief, 2는 general
         public int logIn(string ID, string PW)
         {
             int result = 0;
-
-			try
-			{
-
-			}
-			catch(Exception e)
-			{
-
-			}
-
-			return result;
+            return result;
         }
 
         //서버에 저장된 Off 목록을 가지고 온다.
