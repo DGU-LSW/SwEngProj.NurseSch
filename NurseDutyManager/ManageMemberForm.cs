@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace NurseDutyManager
 {
+    /*
+     * 작성자 : 이신우
+     */
     public partial class ManageMemberForm : Form
     {
         ClientSocket clientsocket = null;
@@ -23,6 +26,7 @@ namespace NurseDutyManager
             clientsocket = _clientsocket;
             loadNurse();
         }
+        //서버에 있는 간호사 리스트를 listbox에 불러온다.
         private void loadNurse()
         {
             list = clientsocket.getNurseList();
@@ -32,7 +36,7 @@ namespace NurseDutyManager
                 listBox1.Items.Add(list[i].Name);
             }
         }
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonSave_Click(object sender, EventArgs e)
         {
             int index = listBox1.SelectedIndex; //선택된 간호사의 index
             Nurse newInfo = list[index];
