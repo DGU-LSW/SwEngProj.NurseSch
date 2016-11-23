@@ -8,6 +8,7 @@ namespace NurseDutyManager
 {
     public class ClientSocket
     {
+	    /*
 		Socket client;
 		byte[] data = new byte[1024];
 
@@ -110,4 +111,6 @@ namespace NurseDutyManager
             return result;
         }
     }
+    
+    */
 }
