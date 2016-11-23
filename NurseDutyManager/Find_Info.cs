@@ -12,9 +12,14 @@ namespace NurseDutyManager
 {
     public partial class Find_Info : Form
     {
+        ClientSocket clientsocket;
         public Find_Info()
         {
             InitializeComponent();
+        }
+        public Find_Info(ClientSocket _clientsocket) : this()
+        {
+            clientsocket = _clientsocket;
         }
     }
 }

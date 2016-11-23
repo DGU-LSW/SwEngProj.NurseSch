@@ -47,7 +47,7 @@ namespace NurseDutyManager
         //표생성
         private void buttonCreateSch_Click(object sender, EventArgs e)
         {
-            dutyListForm.ShowDialog();  //매개변경필요
+            
         }
         //간호사 관리
         private void buttonMangNur_Click(object sender, EventArgs e)
