@@ -12,11 +12,15 @@ namespace NurseDutyManager
 {
     public partial class ManageMemberForm : Form
     {
+        static string pathNurse;
         public ManageMemberForm()
         {
             InitializeComponent();
         }
-
+        public ManageMemberForm(string _pathNurse) : this()
+        {
+            pathNurse = _pathNurse;
+        } 
         private void button1_Click(object sender, EventArgs e)
         {
 
