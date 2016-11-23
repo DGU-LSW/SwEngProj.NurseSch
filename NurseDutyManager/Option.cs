@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NurseDutyManager
 {
-    public class Option
+    class Option
     {
         int[] monday;   //월
         int[] tuesday;  //화

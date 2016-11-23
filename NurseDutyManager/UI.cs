@@ -21,9 +21,7 @@ namespace NurseDutyManager
         NightShiftForm nightShiftForm;
         OffOptionForm offOptionForm;
         SignupForm signupForm;
-
-        ClientSocket clientsocket;
-
+		
         public UI()
         {
             InitializeComponent();
@@ -31,29 +29,7 @@ namespace NurseDutyManager
         //로그인버튼 클릭
         private void buttonLogin_Click(object sender, EventArgs e)
         {
-            string id = textBoxID.Text;
-            string pw = textBoxPW.Text;
 
-            int result = clientsocket.logIn(id, pw);
-
-            switch (result)
-            {
-                case 0:
-                    MessageBox.Show("로그인 실패");
-                    break;
-                case 1:
-                    MessageBox.Show("수간호사 메뉴");
-                    this.panelLogin.Visible = false;
-                    this.panelNurseMenu.Visible = false;
-                    this.panelChiefMenu.Visible = true;
-                    break;
-                case 2:
-                    MessageBox.Show("일반간호사 메뉴");
-                    this.panelLogin.Visible = false;
-                    this.panelChiefMenu.Visible = false;
-                    this.panelNurseMenu.Visible = true;
-                    break;
-            }
         }
         //회원가입
         private void buttonRegist_Click(object sender, EventArgs e)
