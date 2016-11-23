@@ -21,9 +21,7 @@ namespace NurseDutyManager
         NightShiftForm nightShiftForm;
         OffOptionForm offOptionForm;
         SignupForm signupForm;
-
-        ClientSocket clientsoket;
-
+		
         public UI()
         {
             InitializeComponent();
