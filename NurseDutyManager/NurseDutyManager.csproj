@@ -92,6 +92,7 @@
     <Compile Include="NightShiftForm.Designer.cs">
       <DependentUpon>NightShiftForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Nurse.cs" />
     <Compile Include="OffOptionForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,6 +106,12 @@
     </Compile>
     <Compile Include="SignupForm.Designer.cs">
       <DependentUpon>SignupForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI.Designer.cs">
+      <DependentUpon>UI.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="ApplyOff.resx">
       <DependentUpon>ApplyOff.cs</DependentUpon>
@@ -140,6 +147,9 @@
     </Compile>
     <EmbeddedResource Include="SignupForm.resx">
       <DependentUpon>SignupForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI.resx">
+      <DependentUpon>UI.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
