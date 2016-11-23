@@ -53,12 +53,18 @@ namespace NurseDutyManager
                     break;
                 case 1://chief menu
                     MessageBox.Show("수간호사 로그인");
+                    currentID = id;
+                    textBoxID.Text = "";
+                    textBoxID.Text = "";
                     panelLogin.Visible = false;
                     panelNurseMenu.Visible = false;
                     panelChiefMenu.Visible = true;
                     break;
                 case 2://general menu
                     MessageBox.Show("일반 간호사 로그인");
+                    currentID = id;
+                    textBoxID.Text = "";
+                    textBoxPW.Text = "";
                     panelLogin.Visible = false;
                     panelChiefMenu.Visible = false;
                     panelNurseMenu.Visible = true;
