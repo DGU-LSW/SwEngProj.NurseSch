@@ -10,8 +10,19 @@ using System.Windows.Forms;
 
 namespace NurseDutyManager
 {
+	// 작성자	: 임제희
+	// Module	: ApplyOff
+	// LOC		: 
 	public partial class ApplyOff : Form
 	{
+		enum Color
+		{
+			RED,
+			BLUE
+		}
+
+		Color radiobuttonSelected;
+
 		DateTime today = DateTime.Today;
 		int thisyear;
 		int thismonth;
@@ -54,6 +65,7 @@ namespace NurseDutyManager
             clientsocket = _clientsocket;
         }
 
+		// 연도 바꿀때.
 		private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			if(comboBox1.SelectedIndex != 0)
@@ -77,6 +89,7 @@ namespace NurseDutyManager
 			}
 		}
 
+		// 조회 누를때
 		private void button1_Click(object sender, EventArgs e)
 		{
 			if (panelList != null)
@@ -86,6 +99,7 @@ namespace NurseDutyManager
 					panelList[i].Dispose();
 				}
 			}
+
 			int year = (int)comboBox1.SelectedItem;
 			int month = (int)comboBox2.SelectedItem;
 
@@ -106,6 +120,9 @@ namespace NurseDutyManager
 
 		}
 
+
+		// 조교한테 물어볼것
+		// TableLayoutPanel에 동적생성한 panel에 반복문으로 클릭 이벤트를 추가했는데 안되는 경우
 		private void printCalendar(int year, int month)
 		{
 			DateTime thismonth = new DateTime(year, month, 1);
@@ -113,28 +130,45 @@ namespace NurseDutyManager
 			int day = (int)thismonth.DayOfWeek;
 			int date = 1;
 			int row = 1;
-			int col = 0;
-			
-			for(int i = 0; i < day; i++) { col++;}
 
 			panelList = new Panel[DateTime.DaysInMonth(year, month)];
 			
 			while (date <= DateTime.DaysInMonth(year, month))
 			{
-				tableLayoutPanel1.Controls.Add(panelList[date-1] = new Panel(), col, row);
+				tableLayoutPanel1.Controls.Add(panelList[date-1] = new Panel(), day, row);
 				panelList[date - 1].Controls.Add(new Label() { Text = date.ToString() });
-
-				col++;
+				this.panelList[date - 1].Click += panelClick;
 				day++;
 				date++;
 
 				if(day % 7 == 0)
 				{
 					day = 0;
-					col = 0;
 					row++;
 				}
 			}
+		}
+
+		private void panelClick(object sender, EventArgs e)
+		{
+			if(radiobuttonSelected == Color.RED)
+			{
+				((Panel)sender).BackColor = System.Drawing.Color.Red;
+			}
+			else if(radiobuttonSelected == Color.BLUE)
+			{
+				((Panel)sender).BackColor = System.Drawing.Color.Blue;
+			}
+		}
+
+		private void radioButton1_CheckedChanged(object sender, EventArgs e)
+		{
+			radiobuttonSelected = Color.RED;
+		}
+
+		private void radioButton2_CheckedChanged(object sender, EventArgs e)
+		{
+			radiobuttonSelected = Color.BLUE;
 		}
 	}
 }
