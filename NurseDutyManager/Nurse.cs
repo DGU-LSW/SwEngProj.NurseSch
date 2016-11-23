@@ -10,7 +10,7 @@ namespace NurseDutyManager
         Male,
         Female
     };
-    class Nurse
+    public class Nurse
     {
         string name;
         SEX sex;

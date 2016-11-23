@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NurseDutyManager
 {
-    class ClientSocket
+    public class ClientSocket
     {
         //ID, PW를 보내서 로그인 시도
         //0은 실패, 1은 chief, 2는 general

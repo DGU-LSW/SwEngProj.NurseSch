@@ -12,10 +12,16 @@ namespace NurseDutyManager
 {
     public partial class SignupForm : Form
     {
+        ClientSocket clientsocket;
         public SignupForm()
         {
             InitializeComponent();
             //test for change
+        }
+        public SignupForm(ClientSocket _clientsocket)
+        {
+            InitializeComponent();
+            clientsocket = _clientsocket;
         }
     }
 }
