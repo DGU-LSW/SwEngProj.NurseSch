@@ -30,19 +30,18 @@
         {
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxName = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.textBoxID = new System.Windows.Forms.TextBox();
+            this.textBoxPW = new System.Windows.Forms.TextBox();
+            this.textBoxSex = new System.Windows.Forms.TextBox();
+            this.textBoxLicNum = new System.Windows.Forms.TextBox();
+            this.textBoxPhNum = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -50,36 +49,38 @@
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 12;
-            this.listBox1.Location = new System.Drawing.Point(10, 35);
+            this.listBox1.ItemHeight = 15;
+            this.listBox1.Location = new System.Drawing.Point(11, 44);
             this.listBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(120, 244);
+            this.listBox1.Size = new System.Drawing.Size(137, 304);
             this.listBox1.TabIndex = 0;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(138, 63);
+            this.label2.Location = new System.Drawing.Point(158, 79);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(29, 12);
+            this.label2.Size = new System.Drawing.Size(37, 15);
             this.label2.TabIndex = 2;
             this.label2.Text = "이름";
             // 
-            // textBox1
+            // textBoxName
             // 
-            this.textBox1.Location = new System.Drawing.Point(197, 60);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(118, 21);
-            this.textBox1.TabIndex = 3;
+            this.textBoxName.Location = new System.Drawing.Point(225, 75);
+            this.textBoxName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxName.Name = "textBoxName";
+            this.textBoxName.ReadOnly = true;
+            this.textBoxName.Size = new System.Drawing.Size(134, 25);
+            this.textBoxName.TabIndex = 3;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(179, 252);
+            this.button1.Location = new System.Drawing.Point(225, 314);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(65, 27);
+            this.button1.Size = new System.Drawing.Size(74, 34);
             this.button1.TabIndex = 4;
             this.button1.Text = "저장";
             this.button1.UseVisualStyleBackColor = true;
@@ -88,136 +89,134 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(138, 91);
+            this.label3.Location = new System.Drawing.Point(158, 114);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 12);
+            this.label3.Size = new System.Drawing.Size(52, 15);
             this.label3.TabIndex = 5;
             this.label3.Text = "아이디";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(138, 118);
+            this.label4.Location = new System.Drawing.Point(158, 148);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 12);
+            this.label4.Size = new System.Drawing.Size(67, 15);
             this.label4.TabIndex = 6;
             this.label4.Text = "비밀번호";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(138, 145);
+            this.label5.Location = new System.Drawing.Point(158, 181);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(29, 12);
+            this.label5.Size = new System.Drawing.Size(37, 15);
             this.label5.TabIndex = 7;
             this.label5.Text = "성별";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(138, 203);
+            this.label6.Location = new System.Drawing.Point(158, 254);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(41, 12);
+            this.label6.Size = new System.Drawing.Size(52, 15);
             this.label6.TabIndex = 8;
             this.label6.Text = "휴대폰";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(138, 176);
+            this.label7.Location = new System.Drawing.Point(158, 220);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(53, 12);
+            this.label7.Size = new System.Drawing.Size(67, 15);
             this.label7.TabIndex = 9;
             this.label7.Text = "면허번호";
             // 
-            // textBox2
+            // textBoxID
             // 
-            this.textBox2.Location = new System.Drawing.Point(197, 88);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(118, 21);
-            this.textBox2.TabIndex = 10;
+            this.textBoxID.Location = new System.Drawing.Point(225, 110);
+            this.textBoxID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxID.Name = "textBoxID";
+            this.textBoxID.ReadOnly = true;
+            this.textBoxID.Size = new System.Drawing.Size(134, 25);
+            this.textBoxID.TabIndex = 10;
             // 
-            // textBox3
+            // textBoxPW
             // 
-            this.textBox3.Location = new System.Drawing.Point(197, 115);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(118, 21);
-            this.textBox3.TabIndex = 11;
+            this.textBoxPW.Location = new System.Drawing.Point(225, 144);
+            this.textBoxPW.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxPW.Name = "textBoxPW";
+            this.textBoxPW.ReadOnly = true;
+            this.textBoxPW.Size = new System.Drawing.Size(134, 25);
+            this.textBoxPW.TabIndex = 11;
             // 
-            // textBox4
+            // textBoxSex
             // 
-            this.textBox4.Location = new System.Drawing.Point(197, 142);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(118, 21);
-            this.textBox4.TabIndex = 12;
+            this.textBoxSex.Location = new System.Drawing.Point(225, 178);
+            this.textBoxSex.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxSex.Name = "textBoxSex";
+            this.textBoxSex.ReadOnly = true;
+            this.textBoxSex.Size = new System.Drawing.Size(134, 25);
+            this.textBoxSex.TabIndex = 12;
             // 
-            // textBox5
+            // textBoxLicNum
             // 
-            this.textBox5.Location = new System.Drawing.Point(197, 172);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(118, 21);
-            this.textBox5.TabIndex = 13;
+            this.textBoxLicNum.Location = new System.Drawing.Point(225, 215);
+            this.textBoxLicNum.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxLicNum.Name = "textBoxLicNum";
+            this.textBoxLicNum.ReadOnly = true;
+            this.textBoxLicNum.Size = new System.Drawing.Size(134, 25);
+            this.textBoxLicNum.TabIndex = 13;
             // 
-            // textBox6
+            // textBoxPhNum
             // 
-            this.textBox6.Location = new System.Drawing.Point(197, 200);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(118, 21);
-            this.textBox6.TabIndex = 14;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(250, 252);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(65, 27);
-            this.button2.TabIndex = 15;
-            this.button2.Text = "취소";
-            this.button2.UseVisualStyleBackColor = true;
+            this.textBoxPhNum.Location = new System.Drawing.Point(225, 250);
+            this.textBoxPhNum.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxPhNum.Name = "textBoxPhNum";
+            this.textBoxPhNum.ReadOnly = true;
+            this.textBoxPhNum.Size = new System.Drawing.Size(134, 25);
+            this.textBoxPhNum.TabIndex = 14;
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(197, 35);
+            this.comboBox1.Items.AddRange(new object[] {
+            "Group1",
+            "Group2",
+            "Group3"});
+            this.comboBox1.Location = new System.Drawing.Point(225, 44);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(118, 20);
+            this.comboBox1.Size = new System.Drawing.Size(134, 23);
             this.comboBox1.TabIndex = 16;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(138, 38);
+            this.label1.Location = new System.Drawing.Point(158, 48);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 12);
+            this.label1.Size = new System.Drawing.Size(67, 15);
             this.label1.TabIndex = 17;
             this.label1.Text = "그룹지정";
             // 
             // ManageMemberForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(327, 325);
+            this.ClientSize = new System.Drawing.Size(374, 406);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBoxPhNum);
+            this.Controls.Add(this.textBoxLicNum);
+            this.Controls.Add(this.textBoxSex);
+            this.Controls.Add(this.textBoxPW);
+            this.Controls.Add(this.textBoxID);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.listBox1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -232,19 +231,18 @@
 
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox textBoxID;
+        private System.Windows.Forms.TextBox textBoxPW;
+        private System.Windows.Forms.TextBox textBoxSex;
+        private System.Windows.Forms.TextBox textBoxLicNum;
+        private System.Windows.Forms.TextBox textBoxPhNum;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label1;
     }
