@@ -61,6 +61,7 @@
       <DependentUpon>ChiefMenuForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ClientSocket.cs" />
+    <Compile Include="ClientSocketTest.cs" />
     <Compile Include="DaySchedule.cs" />
     <Compile Include="DutyList.cs">
       <SubType>Form</SubType>
