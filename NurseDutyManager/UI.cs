@@ -19,6 +19,7 @@ namespace NurseDutyManager
     {
         
         ApplyOff applyOffForm;
+        ChecktableForm checktableForm; //추가
         //ChiefMenuForm chidfMenuForm;
         DutyList dutyListForm;
         //LoginForm loginForm;
@@ -37,7 +38,7 @@ namespace NurseDutyManager
         {
             InitializeComponent();
 
-			clientSocket = new ClientSocketTest();
+			clientSocket = new ClientSocket();
         }
 
         //로그인버튼 클릭
@@ -103,7 +104,8 @@ namespace NurseDutyManager
         //시간표확인_chief
         private void buttonChcekSch_chief_Click(object sender, EventArgs e)
         {
-
+            checktableForm = new ChecktableForm(clientSocket);
+            checktableForm.ShowDialog(this);
         }
         //off신청_chief
         private void buttonApplyOff_chief_Click(object sender, EventArgs e)
@@ -120,7 +122,8 @@ namespace NurseDutyManager
         //표확인_일반
         private void button3_Click(object sender, EventArgs e)
         {
-
+            checktableForm = new ChecktableForm(clientSocket);
+            checktableForm.ShowDialog(this);
         }
         //off신청_일반
         private void button2_Click(object sender, EventArgs e)
