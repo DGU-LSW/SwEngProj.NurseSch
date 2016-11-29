@@ -32,12 +32,14 @@ namespace NurseDutyManager
 			this.currentUserID = currentUserID;
         }
 
+		// 휴일 버튼 클릭시
 		private void rbtnOff_CheckedChanged(object sender, EventArgs e)
 		{
 			radiobuttonSelected = true;
 			selectedRadioButton = false;
 		}
 
+		// 휴가 버튼 클릭시
 		private void rbtnHoliday_CheckedChanged(object sender, EventArgs e)
 		{
 			radiobuttonSelected = true;
@@ -52,8 +54,22 @@ namespace NurseDutyManager
 			if(radiobuttonSelected)
 			{
 				DateTime date = monthCalendar1.SelectionStart;
+				// selectedOff는 선택한 날짜, twinOff는 selectedOff와 휴일인지 휴가인지만 다른 날짜.
+				
+				for(int i=0;i<lboxHoliday.Items.Count;i++)
+				{
+					if (((Off)lboxHoliday.Items[i]).Date.Equals(date))
+					{
+						MessageBox.Show("이미 선택한 날짜입니다!");
 
-				lboxHoliday.Items.Add(new Off(date, selectedRadioButton, currentUserID));
+						return;
+					}
+				}
+
+				Off selectedOff = new Off(date, selectedRadioButton, currentUserID);
+				Off twinOff = new Off(date, !selectedRadioButton, currentUserID);
+
+				lboxHoliday.Items.Add(selectedOff);
 			}
 			
 		}
