@@ -36,6 +36,7 @@ namespace NurseDutyManager
             {
                 nurseList.Add(new Nurse(line)); //line 당 간호사 load
             }
+            sr.Close();
         }
         //HDD에 저장된 offList를 불러온다.
         private void loadOff()
@@ -47,6 +48,7 @@ namespace NurseDutyManager
             {
                 offList.Add(new Off(line)); //line 당 off load
             }
+            sr.Close();
         }
         //메모리 상의 nurseList를 HDD에 save한다.
         private void saveNurse()
@@ -61,6 +63,7 @@ namespace NurseDutyManager
             {
                 File.WriteAllLines(pathNurse,str);
             }
+            fi = null;
         }
         //메모리 상의 offList를 HDD에 save한다.
         private void saveOff()
@@ -75,6 +78,7 @@ namespace NurseDutyManager
             {
                 File.WriteAllLines(pathOff, str);
             }
+            fi = null;
         }
         //메모리 상의 nurseList에서 ID, PW 검사
         //chief는 1, general은 2, 실패는 0
@@ -154,6 +158,7 @@ namespace NurseDutyManager
             {
                 //result = new Option(line);
             }
+            sr.Close();
             return result;
         }
         //매개변수의 option을 save한다.
@@ -165,6 +170,7 @@ namespace NurseDutyManager
             {
                 File.WriteAllText(pathOption, str);
             }
+            fi = null;
             return true;
         }
 
