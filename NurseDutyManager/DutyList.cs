@@ -105,13 +105,16 @@ namespace NurseDutyManager
 
 			pBarMakeDutyList.Value++;
 
+			scheduler = new Scheduler(clientsocket);
+
 			// 프로그레스바 pBarMakeDutyList는 getNurseList가 끝나면 1, 간호사 근무표가 한줄 완성될때마다 1씩 늘어난다.
 			// 완전히 다 늘어나면 표의 visible=true을 한다
 
 			// 표 생성 버튼을 누르면 scheduler 객체의 메소드 MakeSchedule()를 호출하고,
 			// 이 클래스의 멤버 monthSchedule에 참조를 저장한다. 그리고 텍스트박스에 tostring값을 저장한다.
-			// monthSchedule = scheduler.MakeSchedule();
-			// tboxDutyList.Text = monthSchedule.ToString();
+
+			monthSchedule = scheduler.makeSchedule();
+			tboxDutyList.Text = monthSchedule.ToString();
 
 			tboxDutyList.WordWrap = false;
 

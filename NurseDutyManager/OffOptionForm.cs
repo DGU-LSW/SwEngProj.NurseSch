@@ -30,8 +30,6 @@ namespace NurseDutyManager
         {
             clientsocket = _clientsocket;
             loadOption();
-            option = new Option(opt);
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -61,13 +59,20 @@ namespace NurseDutyManager
 
         private void loadOption()
         {
-            option = clientsocket.getOption();
-            opt = option.ToString();
-        }
+			if(clientsocket.getOption() != null)
+			{
+				option = clientsocket.getOption();
+				opt = option.ToString();
+				option = new Option(opt);
+			}
+			else
+			{
+				option = new Option();
+			}
+		}
 
         public void button2_Click(object sender, EventArgs e)
         {
-         
             option.Monday = new int[3];
             option.Tuesday = new int[3];
             option.Wednesday = new int[3];
