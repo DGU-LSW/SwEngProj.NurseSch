@@ -60,7 +60,17 @@ LOC    : 30
             nurse.PhoneNum = textBox6.Text;
             nurse.Group = GROUP.Group3;
 
-            clientsocket.RegisterNurse(nurse);
+            bool result = clientsocket.RegisterNurse(nurse);
+
+            if (result)
+            {
+                MessageBox.Show("등록완료");
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("등록실패");
+            }
         }
     }
 }
