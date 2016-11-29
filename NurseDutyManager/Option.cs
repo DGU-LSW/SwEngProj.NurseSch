@@ -20,9 +20,10 @@ namespace NurseDutyManager
         int[] weekend = null;  //주말
         int[] holiday = null;  //공휴일
 
-        int group1 = 0; //그룹1_나이트근무
-        int group2 = 0; //그룹2_나이트근무
-        int group3 = 0; //그룹3_나이트근무
+        int group1; //그룹1_나이트근무
+        int group2; //그룹2_나이트근무
+        int group3; //그룹3_나이트근무
+
         public Option() { }
         public Option(string option):this()
         {
@@ -34,6 +35,10 @@ namespace NurseDutyManager
             friday = new int[3];
             weekend = new int[3];
             holiday = new int[3];
+
+            group1 = 0;
+            group2 = 0;
+            group3 = 0;
 
             for(int i = 0; i < 3; i++)
             {
@@ -47,39 +52,39 @@ namespace NurseDutyManager
 
             }
             
-           
-                String[] str = option.Split(',');
-                monday[0] = int.Parse(str[0]);
-                monday[1] = int.Parse(str[1]);
-                monday[2] = int.Parse(str[2]);
+            String[] str = option.Split(',');
 
-                tuesday[0] = int.Parse(str[3]);
-                tuesday[1] = int.Parse(str[4]);
-                tuesday[2] = int.Parse(str[5]);
+            monday[0] = int.Parse(str[0]);
+            monday[1] = int.Parse(str[1]);
+            monday[2] = int.Parse(str[2]);
 
-                wednesday[0] = int.Parse(str[6]);
-                wednesday[1] = int.Parse(str[7]);
-                wednesday[2] = int.Parse(str[8]);
+            tuesday[0] = int.Parse(str[3]);
+            tuesday[1] = int.Parse(str[4]);
+            tuesday[2] = int.Parse(str[5]);
 
-                thursday[0] = int.Parse(str[9]);
-                thursday[1] = int.Parse(str[10]);
-                thursday[2] = int.Parse(str[11]);
+            wednesday[0] = int.Parse(str[6]);
+            wednesday[1] = int.Parse(str[7]);
+            wednesday[2] = int.Parse(str[8]);
 
-                friday[0] = int.Parse(str[12]);
-                friday[1] = int.Parse(str[13]);
-                friday[2] = int.Parse(str[14]);
+            thursday[0] = int.Parse(str[9]);
+            thursday[1] = int.Parse(str[10]);
+            thursday[2] = int.Parse(str[11]);
 
-                weekend[0] = int.Parse(str[15]);
-                weekend[1] = int.Parse(str[16]);
-                weekend[2] = int.Parse(str[17]);
+            friday[0] = int.Parse(str[12]);
+            friday[1] = int.Parse(str[13]);
+            friday[2] = int.Parse(str[14]);
 
-                holiday[0] = int.Parse(str[18]);
-                holiday[1] = int.Parse(str[19]);
-                holiday[2] = int.Parse(str[20]);
+            weekend[0] = int.Parse(str[15]);
+            weekend[1] = int.Parse(str[16]);
+            weekend[2] = int.Parse(str[17]);
 
-                group1 = int.Parse(str[21]);
-                group2 = int.Parse(str[22]);
-                group3 = int.Parse(str[23]);
+            holiday[0] = int.Parse(str[18]);
+            holiday[1] = int.Parse(str[19]);
+            holiday[2] = int.Parse(str[20]);
+
+            group1 = int.Parse(str[21]);
+            group2 = int.Parse(str[22]);
+            group3 = int.Parse(str[23]);
             
 
         }
@@ -135,7 +140,14 @@ namespace NurseDutyManager
             result += holiday[1];
             result += ',';
             result += holiday[2];
+            result += ',';
 
+            result += group1;
+            result += ',';
+            result += group2;
+            result += ',';
+            result += group3;
+          
             result = result.ToString();
 
             return result;
