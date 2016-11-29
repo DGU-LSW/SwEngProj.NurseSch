@@ -32,6 +32,7 @@ namespace NurseDutyManager
 
 			nurseList = this.clientsocket.getNurseList();
 			offList = this.clientsocket.getOffList();
+            option = this.clientsocket.getOption();
 		}
 
         public MonthSchedule makeSchedule()
