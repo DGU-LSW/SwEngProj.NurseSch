@@ -16,6 +16,10 @@ namespace NurseDutyManager
         Group2,
         Group3
     };
+    /*
+     * 작성자 : 이신우
+     * 
+     */
     public class Nurse : Object
     {
         string name;    //1
@@ -26,6 +30,7 @@ namespace NurseDutyManager
         string phNum;   //6
         GROUP groupID;  //7
         bool isChief;   //8
+        public Nurse() { }
         public Nurse(string _info)
         {
             string[] str = _info.Split(',');

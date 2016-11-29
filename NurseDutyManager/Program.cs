@@ -22,7 +22,7 @@ namespace NurseDutyManager
             //Application.Run(new DutyList());
             //Application.Run(new LoginForm());
             //Application.Run(new ManageMemberForm());
-            Application.Run(new ModifyInfoForm());
+            //Application.Run(new ModifyInfoForm());
             //Application.Run(new NightShiftForm());
             //Application.Run(new OffOptionForm());
             //Application.Run(new SignupForm());

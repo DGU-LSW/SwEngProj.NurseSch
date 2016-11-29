@@ -61,6 +61,7 @@
       <DependentUpon>ChiefMenuForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ClientSocket.cs" />
+    <Compile Include="ClientSocketTest.cs" />
     <Compile Include="DaySchedule.cs" />
     <Compile Include="DutyList.cs">
       <SubType>Form</SubType>
@@ -93,6 +94,12 @@
     </Compile>
     <Compile Include="ModifyInfoForm.Designer.cs">
       <DependentUpon>ModifyInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModifyPwForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModifyPwForm.Designer.cs">
+      <DependentUpon>ModifyPwForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MonthSchedule.cs" />
     <Compile Include="NightShiftForm.cs">
@@ -147,6 +154,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ModifyInfoForm.resx">
       <DependentUpon>ModifyInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModifyPwForm.resx">
+      <DependentUpon>ModifyPwForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NightShiftForm.resx">
       <DependentUpon>NightShiftForm.cs</DependentUpon>
