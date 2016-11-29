@@ -44,6 +44,8 @@ namespace NurseDutyManager
             if (info != null)
             {
                 modifyPwForm = new ModifyPwForm(clientsocket, info);
+
+				modifyPwForm.ShowDialog();
             }
             else
             {
