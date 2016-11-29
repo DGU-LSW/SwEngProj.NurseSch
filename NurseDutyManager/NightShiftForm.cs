@@ -27,11 +27,17 @@ namespace NurseDutyManager
         public NightShiftForm(ClientSocket _clientsocket) : this()
         {
             clientsocket = _clientsocket;
+            loadOption();
         }
 
         private void Form2_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void loadOption()
+        {
+            option = clientsocket.getOption();
         }
 
         private void button1_Click(object sender, EventArgs e)
