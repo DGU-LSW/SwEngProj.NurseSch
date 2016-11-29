@@ -114,11 +114,11 @@ namespace NurseDutyManager
 			// 이 클래스의 멤버 monthSchedule에 참조를 저장한다. 그리고 텍스트박스에 tostring값을 저장한다.
 
 			monthSchedule = scheduler.makeSchedule();
-			tboxDutyList.Text = monthSchedule.ToString();
+			tboxDutyList.Text = monthSchedule.print();
 
 			tboxDutyList.WordWrap = false;
 
-			SwitchButton(false);			
+			SwitchButton(false);
 		}
 		
 
