@@ -310,7 +310,25 @@ namespace NurseDutyManager
         public virtual Option getOption()
         {
             Option result = null;
-            return result;
+
+			string message = "GETOP|";
+			SendMessage(message);
+
+			Thread.Sleep(3000);
+
+			if (messageReturned == null)
+			{
+				MessageBox.Show("전송시간 초과!");
+
+				return null;
+			}
+
+			if (messageReturned != "FAIL")
+			{
+				result = new Option(message);
+			}
+
+			return result;
         }
         
         //서버에 option을 저장한다.
