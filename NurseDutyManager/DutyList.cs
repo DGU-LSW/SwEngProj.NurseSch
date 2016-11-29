@@ -25,6 +25,7 @@ namespace NurseDutyManager
 
 		// 서버로부터 리턴받을 간호사 리스트. 간호사 전원의 리스트.
 		List<Nurse> nurseList;
+		List<Off> offList;
 		int numbOfNurse; // 간호사의 숫자
 
 		char[,] dutyCharList;
@@ -49,15 +50,17 @@ namespace NurseDutyManager
 			{
 				cboxMonth.Items.Add(i);
 			}
-
-			// 간호사수 배정
-			// 원래 numbOfNurse = nurseList.Count;
-			numbOfNurse = 20;
 		}
 
         public DutyList(ClientSocket _clientsocket) : this()
         {
             clientsocket = _clientsocket;
+
+			// 오프 리스트 불러오고, 간호사 리스트 불러온다!
+			offList = clientsocket.getOffList();
+			nurseList = clientsocket.getNurseList();
+
+			numbOfNurse = nurseList.Count;
 		}
 
 		private void cboxYear_SelectedIndexChanged(object sender, EventArgs e)
