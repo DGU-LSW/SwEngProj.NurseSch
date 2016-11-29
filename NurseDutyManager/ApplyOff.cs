@@ -111,8 +111,6 @@ namespace NurseDutyManager
 			printCalendar(calendar.Year, calendar.Month);
 		}
 
-		// 조교한테 물어볼것
-		// TableLayoutPanel에 동적생성한 panel에 반복문으로 클릭 이벤트를 추가했는데 안되는 경우
 		private void printCalendar(int year, int month)
 		{
 			DateTime thismonth = new DateTime(year, month, 1);
@@ -166,7 +164,7 @@ namespace NurseDutyManager
 			radiobuttonSelected = Color.Blue;
 		}
 
-		#region 신청 취소 버튼
+		#region 신청 / 취소 버튼
 
 		// 신청버튼
 		private void button2_Click(object sender, EventArgs e)
