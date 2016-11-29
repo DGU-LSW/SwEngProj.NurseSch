@@ -12,52 +12,94 @@ namespace NurseDutyManager
 
     public class Option
     {
-        int[] monday;   //월
-        int[] tuesday;  //화
-        int[] wednesday;//수
-        int[] thursday; //목
-        int[] friday;   //금
-        int[] weekend;  //주말
-        int[] holiday;  //공휴일
+        int[] monday = null;   //월
+        int[] tuesday = null;  //화
+        int[] wednesday = null;//수
+        int[] thursday = null; //목
+        int[] friday = null;   //금
+        int[] weekend = null;  //주말
+        int[] holiday = null;  //공휴일
 
-        int group1; //그룹1_나이트근무
-        int group2; //그룹2_나이트근무
-        int group3; //그룹3_나이트근무
-
-        public Option(string option)
+        int group1 = 0; //그룹1_나이트근무
+        int group2 = 0; //그룹2_나이트근무
+        int group3 = 0; //그룹3_나이트근무
+        public Option() { }
+        public Option(string option):this()
         {
-            String[] str = option.Split(',');
-            monday[0] = int.Parse(str[0]);
-            monday[1] = int.Parse(str[1]);
-            monday[2] = int.Parse(str[2]);
 
-            tuesday[0] = int.Parse(str[3]);
-            tuesday[1] = int.Parse(str[4]);
-            tuesday[2] = int.Parse(str[5]);
+            monday = new int[3];
+            tuesday = new int[3];
+            wednesday = new int[3];
+            thursday = new int[3];
+            friday = new int[3];
+            weekend = new int[3];
+            holiday = new int[3];
 
-            wednesday[0] = int.Parse(str[6]);
-            wednesday[1] = int.Parse(str[7]);
-            wednesday[2] = int.Parse(str[8]);
+            for(int i = 0; i < 3; i++)
+            {
+                monday[i] = 0;
+                tuesday[i] = 0;
+                wednesday[i] = 0;
+                thursday[i] = 0;
+                friday[i] = 0;
+                weekend[i] = 0;
+                holiday[i] = 0;
+            }
 
-            thursday[0] = int.Parse(str[9]);
-            thursday[1] = int.Parse(str[10]);
-            thursday[2] = int.Parse(str[11]);
+            String[] str = new String[24];
 
-            friday[0] = int.Parse(str[12]);
-            friday[1] = int.Parse(str[13]);
-            friday[2] = int.Parse(str[14]);
+            /*
+            for(int i = 0; i < 24; i++)
+            {
+               //str[i] = null;
+            }*/
 
-            weekend[0] = int.Parse(str[15]);
-            weekend[1] = int.Parse(str[16]);
-            weekend[2] = int.Parse(str[17]);
+            try
+            {
+                str = option.Split(',');
+            } catch(Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
 
-            holiday[0] = int.Parse(str[18]);
-            holiday[1] = int.Parse(str[19]);
-            holiday[2] = int.Parse(str[20]);
+            try
+            { 
+                monday[0] = int.Parse(str[0]);
+                monday[1] = int.Parse(str[1]);
+                monday[2] = int.Parse(str[2]);
 
-            group1 = int.Parse(str[21]);
-            group2 = int.Parse(str[22]);
-            group3 = int.Parse(str[23]);
+                tuesday[0] = int.Parse(str[3]);
+                tuesday[1] = int.Parse(str[4]);
+                tuesday[2] = int.Parse(str[5]);
+
+                wednesday[0] = int.Parse(str[6]);
+                wednesday[1] = int.Parse(str[7]);
+                wednesday[2] = int.Parse(str[8]);
+
+                thursday[0] = int.Parse(str[9]);
+                thursday[1] = int.Parse(str[10]);
+                thursday[2] = int.Parse(str[11]);
+
+                friday[0] = int.Parse(str[12]);
+                friday[1] = int.Parse(str[13]);
+                friday[2] = int.Parse(str[14]);
+
+                weekend[0] = int.Parse(str[15]);
+                weekend[1] = int.Parse(str[16]);
+                weekend[2] = int.Parse(str[17]);
+
+                holiday[0] = int.Parse(str[18]);
+                holiday[1] = int.Parse(str[19]);
+                holiday[2] = int.Parse(str[20]);
+
+                group1 = int.Parse(str[21]);
+                group2 = int.Parse(str[22]);
+                group3 = int.Parse(str[23]);
+            } catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+
         }
 
         public override string ToString()

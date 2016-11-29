@@ -19,6 +19,8 @@ namespace NurseDutyManager
         ClientSocket clientsocket;
         Option option;
 
+        string opt = null;
+
         public OffOptionForm()
         {
             InitializeComponent();
@@ -28,6 +30,7 @@ namespace NurseDutyManager
         {
             clientsocket = _clientsocket;
             loadOption();
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -58,11 +61,32 @@ namespace NurseDutyManager
         private void loadOption()
         {
             option = clientsocket.getOption();
+            opt = option.ToString();
+            //option = new Option(opt);
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        public void button2_Click(object sender, EventArgs e)
         {
+            option = new Option(opt);
 
+            option.Monday = new int[3];
+            option.Tuesday = new int[3];
+            option.Wednesday = new int[3];
+            option.Thursday = new int[3];
+            option.Friday = new int[3];
+            option.Weekend = new int[3];
+            option.Holiday = new int[3];
+
+            for(int i = 0; i < 3; i++)
+            {
+                option.Monday[i] = 0;
+                option.Tuesday[i] = 0;
+                option.Wednesday[i] = 0;
+                option.Thursday[i] = 0;
+                option.Friday[i] = 0;
+                option.Weekend[i] = 0;
+                option.Holiday[i] = 0;
+            }
 
             option.Holiday[0] = int.Parse(numericUpDown2.Value.ToString());
             option.Holiday[1] = int.Parse(numericUpDown1.Value.ToString());
@@ -91,18 +115,14 @@ namespace NurseDutyManager
             option.Friday[0] = int.Parse(numericUpDown21.Value.ToString());
             option.Friday[1] = int.Parse(numericUpDown20.Value.ToString());
             option.Friday[2] = int.Parse(numericUpDown19.Value.ToString());
+            
+                clientsocket.setOption(option);
+                
 
-            bool result = clientsocket.setOption(option);
-            if (!result) { MessageBox.Show("설정 실패"); }
-            else
-            {
-                MessageBox.Show("설정 완료");
-            }
 
-            loadOption();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void button1_Click(object sender, EventArgs e)
         {
             NightShiftForm f1 = new NightShiftForm();
             f1.Owner = this;
