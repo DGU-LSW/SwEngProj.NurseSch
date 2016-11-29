@@ -53,7 +53,19 @@ namespace NurseDutyManager
 			{
 				DateTime date = monthCalendar1.SelectionStart;
 
-				lboxHoliday.Items.Add(new Off(date, selectedRadioButton, currentUserID));
+				for(int i=0;i<lboxHoliday.Items.Count;i++)
+				{
+					if(((Off)lboxHoliday.Items[i]).Date.Equals(date))
+					{
+						MessageBox.Show("이미 선택한 날짜입니다!");
+
+						return;
+					}
+				}
+
+				Off newOff = new Off(date, selectedRadioButton, currentUserID);
+
+				lboxHoliday.Items.Add(newOff);
 			}
 			
 		}
