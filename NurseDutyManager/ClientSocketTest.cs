@@ -23,6 +23,8 @@ namespace NurseDutyManager
         {
             nurseList = new List<Nurse>();
             offList = new List<Off>();
+            loadNurse();
+            loadOff();
         }
         //HDD에 저장된 nurseList를 불러온다.
         private void loadNurse()
