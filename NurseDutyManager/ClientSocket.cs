@@ -176,7 +176,7 @@ namespace NurseDutyManager
 		//0은 실패, 1은 chief, 2는 general
 		public virtual int logIn(string ID, string PW)
         {
-			SendMessage("LOGIN," + ID + ',' + PW);
+			SendMessage("LOGIN|" + ID + '|' + PW);
 
 			//int i = 0;
 
@@ -209,15 +209,16 @@ namespace NurseDutyManager
 
         //신청할 off를 서버로 보낸다.
         //성공이면 true 실패면 false
+		//각 offlist의 요소들은 |로 연결한다.
         public virtual bool sendOff(List<Off> offList)
         {
-			string message = "OFF,";
-			message += offList[0];
+			string message = "OFF|";
+			message += offList[0].ToString();
 			int i = 1;
 
 			while(i < offList.Count)
 			{
-				message += "," + offList[i];
+				message += "|" + offList[i].ToString();
 
 				i++;
 			}

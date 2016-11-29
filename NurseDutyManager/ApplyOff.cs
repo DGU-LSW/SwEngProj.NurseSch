@@ -15,12 +15,6 @@ namespace NurseDutyManager
 	// LOC		: 
 	public partial class ApplyOff : Form
 	{
-		enum Color
-		{
-			RED,
-			BLUE
-		}
-
 		Color radiobuttonSelected;
 
 		DateTime today = DateTime.Today;
@@ -29,6 +23,10 @@ namespace NurseDutyManager
 		Panel[] panelList;
 
         ClientSocket clientsocket;
+
+		List<Off> offList;
+
+		string currentUserID;
 
 		public ApplyOff()
 		{
@@ -58,11 +56,16 @@ namespace NurseDutyManager
 			label8.Text = "목";
 			label9.Text = "금";
 			label10.Text = "토";
+
+			// test
+			currentUserID = "1";
+			clientsocket = new ClientSocket();
 		}
 
-        public ApplyOff(ClientSocket _clientsocket) : this()
+        public ApplyOff(ClientSocket clientsocket, string currentUserID) : this()
         {
-            clientsocket = _clientsocket;
+            this.clientsocket = clientsocket;
+			this.currentUserID = currentUserID;
         }
 
 		// 연도 바꿀때.
@@ -108,19 +111,6 @@ namespace NurseDutyManager
 			printCalendar(calendar.Year, calendar.Month);
 		}
 
-		// 신청버튼
-		private void button2_Click(object sender, EventArgs e)
-		{
-
-		}
-
-		// 취소버튼
-		private void button3_Click(object sender, EventArgs e)
-		{
-
-		}
-
-
 		// 조교한테 물어볼것
 		// TableLayoutPanel에 동적생성한 panel에 반복문으로 클릭 이벤트를 추가했는데 안되는 경우
 		private void printCalendar(int year, int month)
@@ -135,9 +125,12 @@ namespace NurseDutyManager
 			
 			while (date <= DateTime.DaysInMonth(year, month))
 			{
-				tableLayoutPanel1.Controls.Add(panelList[date-1] = new Panel(), day, row);
+				panelList[date - 1] = new Panel();
 				panelList[date - 1].Controls.Add(new Label() { Text = date.ToString() });
-				this.panelList[date - 1].Click += panelClick;
+				panelList[date - 1].BackColor = Color.Empty;
+				panelList[date - 1].Click += panelClick;
+
+				tableLayoutPanel1.Controls.Add(panelList[date-1], day, row);
 				day++;
 				date++;
 
@@ -147,15 +140,17 @@ namespace NurseDutyManager
 					row++;
 				}
 			}
+
+			tableLayoutPanel1.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
 		}
 
 		private void panelClick(object sender, EventArgs e)
 		{
-			if(radiobuttonSelected == Color.RED)
+			if(radiobuttonSelected == Color.Red)
 			{
 				((Panel)sender).BackColor = System.Drawing.Color.Red;
 			}
-			else if(radiobuttonSelected == Color.BLUE)
+			else if(radiobuttonSelected == Color.Blue)
 			{
 				((Panel)sender).BackColor = System.Drawing.Color.Blue;
 			}
@@ -163,12 +158,45 @@ namespace NurseDutyManager
 
 		private void radioButton1_CheckedChanged(object sender, EventArgs e)
 		{
-			radiobuttonSelected = Color.RED;
+			radiobuttonSelected = Color.Red;
 		}
 
 		private void radioButton2_CheckedChanged(object sender, EventArgs e)
 		{
-			radiobuttonSelected = Color.BLUE;
+			radiobuttonSelected = Color.Blue;
 		}
+
+		#region 신청 취소 버튼
+
+		// 신청버튼
+		private void button2_Click(object sender, EventArgs e)
+		{
+			offList = new List<Off>();
+
+			for (int i=0;i<panelList.Length;i++)
+			{
+				if(panelList[i].BackColor == Color.Red)
+				{
+					offList.Add(new Off(thisyear.ToString() + "," + thismonth + "," + (i+1).ToString() + ",True," + currentUserID));
+				}
+				else if(panelList[i].BackColor == Color.Blue)
+				{
+					offList.Add(new Off(thisyear.ToString() + "," + thismonth + "," + (i + 1).ToString() + ",False," + currentUserID));
+				}
+			}
+
+			if(offList.Count != 0)
+			{
+				clientsocket.sendOff(offList);
+			}
+		}
+
+		// 취소버튼
+		private void button3_Click(object sender, EventArgs e)
+		{
+			this.Close();
+		}
+
+		#endregion
 	}
 }
