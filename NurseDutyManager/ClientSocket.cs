@@ -172,6 +172,8 @@ namespace NurseDutyManager
 		 * 오프신청			: REGOFF|ID|날짜|날짜|날짜|요소수
 		 * 오프리스트요구		: CALLOFFLIST|
 		 * 간호사리스트요구	: CALLNURSELIST|
+		 * 옵션 요구			: GETOP|
+		 * 옵션 저장			: SAVEOP|
 		 * 월계획 보내기		: SAVESCH|월계획 toString()|요소수
 		 */
 
@@ -300,6 +302,7 @@ namespace NurseDutyManager
         public virtual bool modifyNurse(string ID, Nurse nurse)
         {
             bool result = false;
+
             return result;
         }
         
@@ -315,7 +318,26 @@ namespace NurseDutyManager
         public virtual bool setOption(Option option)
         {
             bool result = false;
-            return result;
+
+			string message = "SAVEOP|" + option.ToString();
+
+			SendMessage(message);
+
+			Thread.Sleep(3000);
+
+			if (messageReturned == null)
+			{
+				MessageBox.Show("전송시간 초과!");
+
+				return false;
+			}
+
+			if(messageReturned == "SUCCESS")
+			{
+				result = true;
+			}
+
+			return result;
         }
 
 		//서버에 schedule을 보낸다.
