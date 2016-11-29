@@ -193,6 +193,8 @@ namespace NurseDutyManager
 			if(messageReturned.Equals("FAIL"))
 			{
 				MessageBox.Show("로그인 실패!");
+
+				return 0;
 			}
 
 			Nurse returnMessage = new Nurse(messageReturned);
@@ -223,7 +225,7 @@ namespace NurseDutyManager
 
 				i++;
 			}
-
+			
 			SendMessage(message);
 
 			int j = 0;
@@ -318,16 +320,11 @@ namespace NurseDutyManager
 		//id찾기에 답을 돌려줄 함수
 		public virtual Nurse ReturnInfo(string name, string lisenceNumber)
 		{
-			SendMessage("FINDID," + name + ',' + lisenceNumber);
+			SendMessage("FINDID|" + name + '|' + lisenceNumber);
+			
+			Thread.Sleep(3000);
 
-			int i = 0;
-
-			while(messageReturned == null && i < 1000)
-			{
-				i++;
-			}
-
-			if(messageReturned == null)
+			if (messageReturned == null)
 			{
 				MessageBox.Show("전송시간 초과!");
 
@@ -342,9 +339,8 @@ namespace NurseDutyManager
 		//비밀번호 찾기에 답을 들려줄 함수
 		public virtual Nurse ReturnInfo(string id, string name, string lisenceNumber)
 		{
-			SendMessage("FINDPW," + id + ',' + name + ',' + lisenceNumber);
-
-			int i = 0;
+			SendMessage("FINDPW|" + id + '|' + name + '|' + lisenceNumber);
+			
 
 			Thread.Sleep(5000);
 

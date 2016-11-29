@@ -14,6 +14,14 @@ namespace NurseDutyManager
         DateTime date;
         bool isHolidayOff;
         string nurseID;
+
+		public Off(DateTime date, bool isHolidayOff, string nurseID)
+		{
+			this.date = date;
+			this.isHolidayOff = isHolidayOff;
+			this.nurseID = nurseID;
+		}
+
         public Off(string _info)
         {
             string[] str = _info.Split(',');
