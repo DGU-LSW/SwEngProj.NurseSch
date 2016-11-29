@@ -87,6 +87,47 @@ namespace NurseDutyManager
             }
             #endregion
         }
+        public MonthSchedule(string _info)
+        {
+            dayList = new List<DaySchedule>();
+            nurseList = new List<Nurse>();
+            string[] tmp = _info.Split('~');
+            string[] day = tmp[0].Split('-');
+            string[] nurse = tmp[1].Split('-');
+
+            for(int i =0;i<day.Count(); i++)
+            {
+                if (day[i].Equals(""))  //마지막 string이 공백일 경우
+                {
+                    break;
+                }
+                dayList.Add(new DaySchedule(day[i]));
+            }
+            for(int i = 0; i < nurse.Count(); i++)
+            {
+                if (nurse[i].Equals(""))    //마지막 string이 공백일 경우
+                {
+                    break;
+                }
+                nurseList.Add(new Nurse(nurse[i]));
+            }
+        }
+        public override string ToString()
+        {
+            string result = null;
+            for(int i = 0; i < dayList.Count; i++)
+            {
+                result += dayList[i].ToString();
+                result += "-";
+            }
+            result += "~";  //daylist와nurselist 구분자
+            for(int i =0;i < nurseList.Count; i++)
+            {
+                result += nurseList.ToString();
+                result += "-";
+            }
+            return result;
+        }
         public string print()
         {
             string result = null;
