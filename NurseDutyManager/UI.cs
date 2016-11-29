@@ -37,7 +37,7 @@ namespace NurseDutyManager
         {
             InitializeComponent();
 
-			clientSocket = new ClientSocketTest();
+			clientSocket = new ClientSocket();
         }
 
         //로그인버튼 클릭
@@ -59,18 +59,20 @@ namespace NurseDutyManager
                     currentID = id;
                     textBoxID.Text = "";
                     textBoxID.Text = "";
-                    panelLogin.Visible = false;
-                    panelNurseMenu.Visible = false;
-                    panelChiefMenu.Visible = true;
+                    //panelLogin.Visible = false;
+                    //panelNurseMenu.Visible = false;
+                    //panelChiefMenu.Visible = true;
+                    tabControl1.SelectedTab = tabPageChief;
                     break;
                 case 2://general menu
                     MessageBox.Show("일반 간호사 로그인");
                     currentID = id;
                     textBoxID.Text = "";
                     textBoxPW.Text = "";
-                    panelLogin.Visible = false;
-                    panelChiefMenu.Visible = false;
-                    panelNurseMenu.Visible = true;
+                    //panelLogin.Visible = false;
+                    //panelChiefMenu.Visible = false;
+                    //panelNurseMenu.Visible = true;
+                    tabControl1.SelectedTab = tabPageGenaral;
                     break;
             }
         }
@@ -112,7 +114,7 @@ namespace NurseDutyManager
         //off신청_chief
         private void buttonApplyOff_chief_Click(object sender, EventArgs e)
         {
-            applyOffForm = new ApplyOff(clientSocket);
+            applyOffForm = new ApplyOff(clientSocket, currentID);
             applyOffForm.ShowDialog(this);
         }
         //개인정보수정_chief
