@@ -37,7 +37,7 @@ namespace NurseDutyManager
         {
             InitializeComponent();
 
-			clientSocket = new ClientSocket();
+			clientSocket = new ClientSocketTest();
         }
 
         //로그인버튼 클릭
@@ -59,9 +59,6 @@ namespace NurseDutyManager
                     currentID = id;
                     textBoxID.Text = "";
                     textBoxID.Text = "";
-                    //panelLogin.Visible = false;
-                    //panelNurseMenu.Visible = false;
-                    //panelChiefMenu.Visible = true;
                     tabControl1.SelectedTab = tabPageChief;
                     break;
                 case 2://general menu
@@ -69,9 +66,6 @@ namespace NurseDutyManager
                     currentID = id;
                     textBoxID.Text = "";
                     textBoxPW.Text = "";
-                    //panelLogin.Visible = false;
-                    //panelChiefMenu.Visible = false;
-                    //panelNurseMenu.Visible = true;
                     tabControl1.SelectedTab = tabPageGenaral;
                     break;
             }
@@ -131,7 +125,7 @@ namespace NurseDutyManager
         //off신청_일반
         private void button2_Click(object sender, EventArgs e)
         {
-            applyOffForm = new ApplyOff(clientSocket);
+            applyOffForm = new ApplyOff(clientSocket, currentID);
             applyOffForm.ShowDialog(this);
         }
         //개인정보수정_일반

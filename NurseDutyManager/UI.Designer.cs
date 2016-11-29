@@ -49,6 +49,8 @@ namespace NurseDutyManager
         /// </summary>
         private void InitializeComponent()
         {
+            this.tabControl1 = new NurseDutyManager.WizardPages();
+            this.tabPageLogin = new System.Windows.Forms.TabPage();
             this.panelLogin = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -59,6 +61,7 @@ namespace NurseDutyManager
             this.buttonLogin = new System.Windows.Forms.Button();
             this.buttonSearch = new System.Windows.Forms.Button();
             this.buttonRegist = new System.Windows.Forms.Button();
+            this.tabPageChief = new System.Windows.Forms.TabPage();
             this.panelChiefMenu = new System.Windows.Forms.Panel();
             this.buttonModifyInfo_chief = new System.Windows.Forms.Button();
             this.buttonApplyOff_chief = new System.Windows.Forms.Button();
@@ -66,22 +69,42 @@ namespace NurseDutyManager
             this.buttonOpt = new System.Windows.Forms.Button();
             this.buttonMangNur = new System.Windows.Forms.Button();
             this.buttonCreateSch = new System.Windows.Forms.Button();
+            this.tabPageGenaral = new System.Windows.Forms.TabPage();
             this.panelNurseMenu = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.tabControl1 = new NurseDutyManager.WizardPages();
-            this.tabPageLogin = new System.Windows.Forms.TabPage();
-            this.tabPageChief = new System.Windows.Forms.TabPage();
-            this.tabPageGenaral = new System.Windows.Forms.TabPage();
-            this.panelLogin.SuspendLayout();
-            this.panelChiefMenu.SuspendLayout();
-            this.panelNurseMenu.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPageLogin.SuspendLayout();
+            this.panelLogin.SuspendLayout();
             this.tabPageChief.SuspendLayout();
+            this.panelChiefMenu.SuspendLayout();
             this.tabPageGenaral.SuspendLayout();
+            this.panelNurseMenu.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPageLogin);
+            this.tabControl1.Controls.Add(this.tabPageChief);
+            this.tabControl1.Controls.Add(this.tabPageGenaral);
+            this.tabControl1.Location = new System.Drawing.Point(12, 12);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(510, 277);
+            this.tabControl1.TabIndex = 3;
+            this.tabControl1.TabStop = false;
+            // 
+            // tabPageLogin
+            // 
+            this.tabPageLogin.Controls.Add(this.panelLogin);
+            this.tabPageLogin.Location = new System.Drawing.Point(4, 25);
+            this.tabPageLogin.Name = "tabPageLogin";
+            this.tabPageLogin.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageLogin.Size = new System.Drawing.Size(502, 248);
+            this.tabPageLogin.TabIndex = 0;
+            this.tabPageLogin.Text = "tabPageLogin";
+            this.tabPageLogin.UseVisualStyleBackColor = true;
             // 
             // panelLogin
             // 
@@ -192,6 +215,17 @@ namespace NurseDutyManager
             this.buttonRegist.UseVisualStyleBackColor = true;
             this.buttonRegist.Click += new System.EventHandler(this.buttonRegist_Click);
             // 
+            // tabPageChief
+            // 
+            this.tabPageChief.Controls.Add(this.panelChiefMenu);
+            this.tabPageChief.Location = new System.Drawing.Point(4, 25);
+            this.tabPageChief.Name = "tabPageChief";
+            this.tabPageChief.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageChief.Size = new System.Drawing.Size(502, 248);
+            this.tabPageChief.TabIndex = 1;
+            this.tabPageChief.Text = "tabPageChief";
+            this.tabPageChief.UseVisualStyleBackColor = true;
+            // 
             // panelChiefMenu
             // 
             this.panelChiefMenu.Controls.Add(this.buttonModifyInfo_chief);
@@ -206,7 +240,6 @@ namespace NurseDutyManager
             this.panelChiefMenu.Name = "panelChiefMenu";
             this.panelChiefMenu.Size = new System.Drawing.Size(496, 242);
             this.panelChiefMenu.TabIndex = 1;
-            this.panelChiefMenu.Visible = false;
             // 
             // buttonModifyInfo_chief
             // 
@@ -274,6 +307,17 @@ namespace NurseDutyManager
             this.buttonCreateSch.UseVisualStyleBackColor = true;
             this.buttonCreateSch.Click += new System.EventHandler(this.buttonCreateSch_Click);
             // 
+            // tabPageGenaral
+            // 
+            this.tabPageGenaral.Controls.Add(this.panelNurseMenu);
+            this.tabPageGenaral.Location = new System.Drawing.Point(4, 25);
+            this.tabPageGenaral.Name = "tabPageGenaral";
+            this.tabPageGenaral.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageGenaral.Size = new System.Drawing.Size(502, 248);
+            this.tabPageGenaral.TabIndex = 2;
+            this.tabPageGenaral.Text = "tabPageGenaral";
+            this.tabPageGenaral.UseVisualStyleBackColor = true;
+            // 
             // panelNurseMenu
             // 
             this.panelNurseMenu.Controls.Add(this.button1);
@@ -285,7 +329,6 @@ namespace NurseDutyManager
             this.panelNurseMenu.Name = "panelNurseMenu";
             this.panelNurseMenu.Size = new System.Drawing.Size(496, 242);
             this.panelNurseMenu.TabIndex = 2;
-            this.panelNurseMenu.Visible = false;
             // 
             // button1
             // 
@@ -320,50 +363,6 @@ namespace NurseDutyManager
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPageLogin);
-            this.tabControl1.Controls.Add(this.tabPageChief);
-            this.tabControl1.Controls.Add(this.tabPageGenaral);
-            this.tabControl1.Location = new System.Drawing.Point(12, 12);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(510, 277);
-            this.tabControl1.TabIndex = 3;
-            // 
-            // tabPageLogin
-            // 
-            this.tabPageLogin.Controls.Add(this.panelLogin);
-            this.tabPageLogin.Location = new System.Drawing.Point(4, 25);
-            this.tabPageLogin.Name = "tabPageLogin";
-            this.tabPageLogin.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageLogin.Size = new System.Drawing.Size(502, 248);
-            this.tabPageLogin.TabIndex = 0;
-            this.tabPageLogin.Text = "tabPageLogin";
-            this.tabPageLogin.UseVisualStyleBackColor = true;
-            // 
-            // tabPageChief
-            // 
-            this.tabPageChief.Controls.Add(this.panelChiefMenu);
-            this.tabPageChief.Location = new System.Drawing.Point(4, 25);
-            this.tabPageChief.Name = "tabPageChief";
-            this.tabPageChief.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageChief.Size = new System.Drawing.Size(502, 248);
-            this.tabPageChief.TabIndex = 1;
-            this.tabPageChief.Text = "tabPageChief";
-            this.tabPageChief.UseVisualStyleBackColor = true;
-            // 
-            // tabPageGenaral
-            // 
-            this.tabPageGenaral.Controls.Add(this.panelNurseMenu);
-            this.tabPageGenaral.Location = new System.Drawing.Point(4, 25);
-            this.tabPageGenaral.Name = "tabPageGenaral";
-            this.tabPageGenaral.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageGenaral.Size = new System.Drawing.Size(502, 248);
-            this.tabPageGenaral.TabIndex = 2;
-            this.tabPageGenaral.Text = "tabPageGenaral";
-            this.tabPageGenaral.UseVisualStyleBackColor = true;
-            // 
             // UI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -373,14 +372,14 @@ namespace NurseDutyManager
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "UI";
             this.Text = "근무표 자동 생성 프로그램";
-            this.panelLogin.ResumeLayout(false);
-            this.panelLogin.PerformLayout();
-            this.panelChiefMenu.ResumeLayout(false);
-            this.panelNurseMenu.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPageLogin.ResumeLayout(false);
+            this.panelLogin.ResumeLayout(false);
+            this.panelLogin.PerformLayout();
             this.tabPageChief.ResumeLayout(false);
+            this.panelChiefMenu.ResumeLayout(false);
             this.tabPageGenaral.ResumeLayout(false);
+            this.panelNurseMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
