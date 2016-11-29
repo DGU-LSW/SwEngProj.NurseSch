@@ -32,6 +32,8 @@ namespace NurseDutyManager
 		{
 			mfnReceiveHandler = new AsyncCallback(handleDataReceive);
 			mfnSenderHandler = new AsyncCallback(handleDataSend);
+
+			this.ConnectToServer("localhost", 12);
 		}
 
 		public bool Conntected
@@ -64,6 +66,8 @@ namespace NurseDutyManager
 
 				ao.workingSocket = mClientSocket;
 				mClientSocket.BeginReceive(ao.buffer, 0, ao.buffer.Length, SocketFlags.None, mfnReceiveHandler, ao);
+
+				MessageBox.Show("연결에 성공했습니다!");
 			}
 			else
 			{
