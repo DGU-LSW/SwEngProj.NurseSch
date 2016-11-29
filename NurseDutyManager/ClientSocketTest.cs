@@ -156,7 +156,7 @@ namespace NurseDutyManager
             string line;
             while ((line = sr.ReadLine()) != null)
             {
-                //result = new Option(line);
+                result = new Option(line);
             }
             sr.Close();
             return result;
@@ -170,7 +170,7 @@ namespace NurseDutyManager
             {
                 File.WriteAllText(pathOption, str);
             }
-            fi = null;
+            //fi = null;
             return true;
         }
 
