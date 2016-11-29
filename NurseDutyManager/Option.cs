@@ -8,25 +8,52 @@ namespace NurseDutyManager
 {
     // 작성자	: 김수희
     // Module	: Option
-    // LOC		: 
+    // LOC		: 276
 
     public class Option
     {
-        int[] monday;   //월
-        int[] tuesday;  //화
-        int[] wednesday;//수
-        int[] thursday; //목
-        int[] friday;   //금
-        int[] weekend;  //주말
-        int[] holiday;  //공휴일
+        int[] monday = null;   //월
+        int[] tuesday = null;  //화
+        int[] wednesday = null;//수
+        int[] thursday = null; //목
+        int[] friday = null;   //금
+        int[] weekend = null;  //주말
+        int[] holiday = null;  //공휴일
 
         int group1; //그룹1_나이트근무
         int group2; //그룹2_나이트근무
         int group3; //그룹3_나이트근무
 
-        public Option(string option)
+        public Option() { }
+        public Option(string option):this()
         {
+
+            monday = new int[3];
+            tuesday = new int[3];
+            wednesday = new int[3];
+            thursday = new int[3];
+            friday = new int[3];
+            weekend = new int[3];
+            holiday = new int[3];
+
+            group1 = 0;
+            group2 = 0;
+            group3 = 0;
+
+            for(int i = 0; i < 3; i++)
+            {
+                monday[i] = 0;
+                tuesday[i] = 0;
+                wednesday[i] = 0;
+                thursday[i] = 0;
+                friday[i] = 0;
+                weekend[i] = 0;
+                holiday[i] = 0;
+
+            }
+            
             String[] str = option.Split(',');
+
             monday[0] = int.Parse(str[0]);
             monday[1] = int.Parse(str[1]);
             monday[2] = int.Parse(str[2]);
@@ -58,8 +85,10 @@ namespace NurseDutyManager
             group1 = int.Parse(str[21]);
             group2 = int.Parse(str[22]);
             group3 = int.Parse(str[23]);
-        }
+            
 
+        }
+        
         public override string ToString()
         {
             string result = null;
@@ -111,7 +140,14 @@ namespace NurseDutyManager
             result += holiday[1];
             result += ',';
             result += holiday[2];
+            result += ',';
 
+            result += group1;
+            result += ',';
+            result += group2;
+            result += ',';
+            result += group3;
+          
             result = result.ToString();
 
             return result;
@@ -140,6 +176,7 @@ namespace NurseDutyManager
                 tuesday = value;
             }
         }
+
 
         public int[] Wednesday
         {

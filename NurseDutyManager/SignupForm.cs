@@ -20,24 +20,51 @@ LOC    : 30
     {
         ClientSocket clientsocket;
         Nurse nurse = null;
+        bool isEqual_ID = true;      //ID 중복검사를 위한 변수
+        bool isEqual_License = false; //면허번호 중복검사를 위한 변수
 
         public SignupForm()
         {
             InitializeComponent();
-            comboBox1.Items.Add("수간호사");
-            comboBox1.Items.Add("일반간호사");
-            comboBox2.Items.Add("남");
-            comboBox2.Items.Add("여");
+            comboBoxNurse.Items.Add("수간호사");
+            comboBoxNurse.Items.Add("일반간호사");
+            comboBoxSex.Items.Add("남");
+            comboBoxSex.Items.Add("여");
         }
         public SignupForm(ClientSocket _clientsocket) : this()
         {
             clientsocket = _clientsocket;
+            comboBoxNurse.SelectedIndex = 1; //간호사구분 : 일반 간호사 초기화
+            comboBoxSex.SelectedIndex = 1; //성별 : '여'로 초기화
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            #region 면허번호 중복처리
+            isEqual_License = false;
+            List<Nurse> nurse_list = clientsocket.getNurseList();
+            for (int i = 1; i < nurse_list.Count; i++)
+            {
+                isEqual_License = textBoxLicenseNum.Text.Equals(nurse_list[i].LicenseNum);
+                if (isEqual_License == true)
+                {
+                    MessageBox.Show("면허번호가 이미 존재합니다.");
+                    return;
+                }
+            }
+           
+            #endregion
+            
+            //중복확인 클릭 안했을 시 처리
+            if (isEqual_ID)
+            {
+                MessageBox.Show("ID 중복확인을 하지 않았습니다.");
+                return;
+            }
+
+            #region 간호사 데이터 입력처리
             nurse = new Nurse();
-            if (comboBox1.SelectedItem.Equals("수간호사"))
+            if (comboBoxNurse.SelectedItem.Equals("수간호사"))
             {
                 nurse.IsChiefNurse = true;
             }
@@ -45,10 +72,10 @@ LOC    : 30
             {
                 nurse.IsChiefNurse = false;
             }
-            nurse.Name = textBox1.Text;
-            nurse.ID = textBox2.Text;
-            nurse.Password = textBox3.Text;
-            if (comboBox2.SelectedItem.Equals("남"))
+            nurse.Name = textBoxName.Text;
+            nurse.ID = textBoxID.Text;
+            nurse.Password = textBoxPW.Text;
+            if (comboBoxSex.SelectedItem.Equals("남"))
             {
                 nurse.Sex = SEX.Male;
             }
@@ -56,21 +83,57 @@ LOC    : 30
             {
                 nurse.Sex = SEX.Female;
             }
-            nurse.LicenseNum = textBox5.Text;
-            nurse.PhoneNum = textBox6.Text;
+            nurse.LicenseNum = textBoxLicenseNum.Text;
+            nurse.PhoneNum = textBoxPhone.Text;
             nurse.Group = GROUP.Group3;
+            #endregion
 
-            bool result = clientsocket.RegisterNurse(nurse);
+            //비밀번호 및 면허번호 조건 검사
+            if (textBoxPW2.Text.Equals(textBoxPW.Text) && isEqual_License == false)
+            {
+                bool result = clientsocket.RegisterNurse(nurse);
+                if (result)
+                {
+                    MessageBox.Show("등록완료");
+                    this.Close();
+                }
+            }
 
-            if (result)
+            else if (!textBoxPW2.Text.Equals(textBoxPW.Text))
             {
-                MessageBox.Show("등록완료");
-                this.Close();
+                MessageBox.Show("비밀번호가 일치하지 않습니다.");
             }
-            else
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            isEqual_ID = true;
+            List<Nurse> nurse_list = clientsocket.getNurseList();
+            for (int i = 0; i < nurse_list.Count; i++)
             {
-                MessageBox.Show("등록실패");
+                isEqual_ID = textBoxID.Text.Equals(nurse_list[i].ID);
+                if (isEqual_ID == true)
+                {
+                    MessageBox.Show("ID가 이미 존재합니다.");
+                    break;
+                }
             }
+            if (isEqual_ID == false)
+            {
+                MessageBox.Show("사용가능한 ID입니다");
+            }
+        }
+
+        //버튼 클릭 후 ID 변경 예외 처리
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            isEqual_ID = true;
+        }
+
+        //취소버튼
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
