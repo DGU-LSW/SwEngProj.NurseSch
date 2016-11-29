@@ -34,19 +34,19 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.textBoxID = new System.Windows.Forms.TextBox();
+            this.textBoxPW2 = new System.Windows.Forms.TextBox();
+            this.textBoxPW = new System.Windows.Forms.TextBox();
+            this.textBoxLicenseNum = new System.Windows.Forms.TextBox();
+            this.textBoxPhone = new System.Windows.Forms.TextBox();
+            this.textBoxName = new System.Windows.Forms.TextBox();
+            this.buttonComplete = new System.Windows.Forms.Button();
+            this.buttonCancel = new System.Windows.Forms.Button();
+            this.buttonConformID = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBoxNurse = new System.Windows.Forms.ComboBox();
+            this.comboBoxSex = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -104,75 +104,78 @@
             this.label8.TabIndex = 7;
             this.label8.Text = "휴대폰";
             // 
-            // textBox1
+            // textBoxID
             // 
-            this.textBox1.Location = new System.Drawing.Point(90, 58);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 21);
-            this.textBox1.TabIndex = 10;
+            this.textBoxID.Location = new System.Drawing.Point(90, 58);
+            this.textBoxID.Name = "textBoxID";
+            this.textBoxID.Size = new System.Drawing.Size(100, 21);
+            this.textBoxID.TabIndex = 10;
+            this.textBoxID.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // textBox2
+            // textBoxPW2
             // 
-            this.textBox2.Location = new System.Drawing.Point(90, 112);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 21);
-            this.textBox2.TabIndex = 11;
+            this.textBoxPW2.Location = new System.Drawing.Point(90, 112);
+            this.textBoxPW2.Name = "textBoxPW2";
+            this.textBoxPW2.Size = new System.Drawing.Size(100, 21);
+            this.textBoxPW2.TabIndex = 11;
             // 
-            // textBox3
+            // textBoxPW
             // 
-            this.textBox3.Location = new System.Drawing.Point(90, 85);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 21);
-            this.textBox3.TabIndex = 12;
+            this.textBoxPW.Location = new System.Drawing.Point(90, 85);
+            this.textBoxPW.Name = "textBoxPW";
+            this.textBoxPW.Size = new System.Drawing.Size(100, 21);
+            this.textBoxPW.TabIndex = 12;
             // 
-            // textBox4
+            // textBoxLicenseNum
             // 
-            this.textBox4.Location = new System.Drawing.Point(90, 165);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 21);
-            this.textBox4.TabIndex = 13;
+            this.textBoxLicenseNum.Location = new System.Drawing.Point(90, 165);
+            this.textBoxLicenseNum.Name = "textBoxLicenseNum";
+            this.textBoxLicenseNum.Size = new System.Drawing.Size(100, 21);
+            this.textBoxLicenseNum.TabIndex = 13;
             // 
-            // textBox5
+            // textBoxPhone
             // 
-            this.textBox5.Location = new System.Drawing.Point(90, 192);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 21);
-            this.textBox5.TabIndex = 14;
+            this.textBoxPhone.Location = new System.Drawing.Point(90, 192);
+            this.textBoxPhone.Name = "textBoxPhone";
+            this.textBoxPhone.Size = new System.Drawing.Size(100, 21);
+            this.textBoxPhone.TabIndex = 14;
             // 
-            // textBox6
+            // textBoxName
             // 
-            this.textBox6.Location = new System.Drawing.Point(90, 31);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 21);
-            this.textBox6.TabIndex = 15;
+            this.textBoxName.Location = new System.Drawing.Point(90, 31);
+            this.textBoxName.Name = "textBoxName";
+            this.textBoxName.Size = new System.Drawing.Size(100, 21);
+            this.textBoxName.TabIndex = 15;
             // 
-            // button1
+            // buttonComplete
             // 
-            this.button1.Location = new System.Drawing.Point(61, 219);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "가입완료";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonComplete.Location = new System.Drawing.Point(61, 219);
+            this.buttonComplete.Name = "buttonComplete";
+            this.buttonComplete.Size = new System.Drawing.Size(75, 23);
+            this.buttonComplete.TabIndex = 16;
+            this.buttonComplete.Text = "가입완료";
+            this.buttonComplete.UseVisualStyleBackColor = true;
+            this.buttonComplete.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // buttonCancel
             // 
-            this.button2.Location = new System.Drawing.Point(143, 219);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 17;
-            this.button2.Text = "취소";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonCancel.Location = new System.Drawing.Point(143, 219);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(75, 23);
+            this.buttonCancel.TabIndex = 17;
+            this.buttonCancel.Text = "취소";
+            this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
-            // button3
+            // buttonConformID
             // 
-            this.button3.Location = new System.Drawing.Point(197, 56);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 18;
-            this.button3.Text = "중복확인";
-            this.button3.UseVisualStyleBackColor = true;
+            this.buttonConformID.Location = new System.Drawing.Point(197, 56);
+            this.buttonConformID.Name = "buttonConformID";
+            this.buttonConformID.Size = new System.Drawing.Size(75, 23);
+            this.buttonConformID.TabIndex = 18;
+            this.buttonConformID.Text = "중복확인";
+            this.buttonConformID.UseVisualStyleBackColor = true;
+            this.buttonConformID.Click += new System.EventHandler(this.button3_Click);
             // 
             // label1
             // 
@@ -192,21 +195,23 @@
             this.label2.TabIndex = 20;
             this.label2.Text = "성별";
             // 
-            // comboBox1
+            // comboBoxNurse
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(90, 5);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(100, 20);
-            this.comboBox1.TabIndex = 23;
+            this.comboBoxNurse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxNurse.FormattingEnabled = true;
+            this.comboBoxNurse.Location = new System.Drawing.Point(90, 5);
+            this.comboBoxNurse.Name = "comboBoxNurse";
+            this.comboBoxNurse.Size = new System.Drawing.Size(100, 20);
+            this.comboBoxNurse.TabIndex = 23;
             // 
-            // comboBox2
+            // comboBoxSex
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(90, 139);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(100, 20);
-            this.comboBox2.TabIndex = 24;
+            this.comboBoxSex.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSex.FormattingEnabled = true;
+            this.comboBoxSex.Location = new System.Drawing.Point(90, 139);
+            this.comboBoxSex.Name = "comboBoxSex";
+            this.comboBoxSex.Size = new System.Drawing.Size(100, 20);
+            this.comboBoxSex.TabIndex = 24;
             // 
             // label9
             // 
@@ -223,19 +228,19 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.comboBoxSex);
+            this.Controls.Add(this.comboBoxNurse);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.buttonConformID);
+            this.Controls.Add(this.buttonCancel);
+            this.Controls.Add(this.buttonComplete);
+            this.Controls.Add(this.textBoxName);
+            this.Controls.Add(this.textBoxPhone);
+            this.Controls.Add(this.textBoxLicenseNum);
+            this.Controls.Add(this.textBoxPW);
+            this.Controls.Add(this.textBoxPW2);
+            this.Controls.Add(this.textBoxID);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -256,19 +261,19 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox textBoxID;
+        private System.Windows.Forms.TextBox textBoxPW2;
+        private System.Windows.Forms.TextBox textBoxPW;
+        private System.Windows.Forms.TextBox textBoxLicenseNum;
+        private System.Windows.Forms.TextBox textBoxPhone;
+        private System.Windows.Forms.TextBox textBoxName;
+        private System.Windows.Forms.Button buttonComplete;
+        private System.Windows.Forms.Button buttonCancel;
+        private System.Windows.Forms.Button buttonConformID;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBoxNurse;
+        private System.Windows.Forms.ComboBox comboBoxSex;
         private System.Windows.Forms.Label label9;
     }
 }
