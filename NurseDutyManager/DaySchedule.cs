@@ -57,7 +57,7 @@ namespace NurseDutyManager
         }
         public DaySchedule(string _info)
         {
-            string[] str = _info.Split('李');
+            string[] str = _info.Split('+');
             int i = 0;
             for(i = 0; i < str.Count(); i++)
             {
@@ -86,25 +86,25 @@ namespace NurseDutyManager
             }
             switch (str[i + 1])
             {
-                case "月":
+                case "1":
                     week = DayOfWeek.Monday;
                     break;
-                case "火":
+                case "2":
                     week = DayOfWeek.Tuesday;
                     break;
-                case "水":
+                case "3":
                     week = DayOfWeek.Wednesday;
                     break;
-                case "木":
+                case "4":
                     week = DayOfWeek.Thursday;
                     break;
-                case "金":
+                case "5":
                     week = DayOfWeek.Friday;
                     break;
-                case "土":
+                case "6":
                     week = DayOfWeek.Saturday;
                     break;
-                case "日":
+                case "7":
                     week = DayOfWeek.Sunday;
                     break;
             }
@@ -132,30 +132,30 @@ namespace NurseDutyManager
                         result += "V";
                         break;
                 }
-                result += "李";
+                result += "+";
             }
             switch (week)
             {
                 case DayOfWeek.Monday:
-                    result += "月";
+                    result += "1";
                     break;
                 case DayOfWeek.Tuesday:
-                    result += "火";
+                    result += "2";
                     break;
                 case DayOfWeek.Wednesday:
-                    result += "水";
+                    result += "3";
                     break;
                 case DayOfWeek.Thursday:
-                    result += "木";
+                    result += "4";
                     break;
                 case DayOfWeek.Friday:
-                    result += "金";
+                    result += "5";
                     break;
                 case DayOfWeek.Saturday:
-                    result += "土";
+                    result += "6";
                     break;
                 case DayOfWeek.Sunday:
-                    result += "日";
+                    result += "7";
                     break;
             }
                 return result;

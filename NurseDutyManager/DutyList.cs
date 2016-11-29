@@ -158,5 +158,5 @@ namespace NurseDutyManager
 		{
 			this.Close();
 		}
-	}
+    }
 }
