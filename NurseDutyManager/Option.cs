@@ -8,7 +8,7 @@ namespace NurseDutyManager
 {
     // 작성자	: 김수희
     // Module	: Option
-    // LOC		: 
+    // LOC		: 276
 
     public class Option
     {

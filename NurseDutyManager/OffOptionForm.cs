@@ -12,7 +12,7 @@ namespace NurseDutyManager
 {
     // 작성자	: 김수희
     // Module	: OffOptionForm
-    // LOC		: 
+    // LOC		: 136
 
     public partial class OffOptionForm : Form
     {
