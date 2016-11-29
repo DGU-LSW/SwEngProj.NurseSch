@@ -19,7 +19,7 @@ LOC    : 30
     public partial class SignupForm : Form
     {
         ClientSocket clientsocket;
-        Nurse nurse;
+        Nurse nurse = null;
 
         public SignupForm()
         {
@@ -32,25 +32,35 @@ LOC    : 30
         public SignupForm(ClientSocket _clientsocket) : this()
         {
             clientsocket = _clientsocket;
-            if (comboBox1.SelectedItem.Equals("수간호사"))
-                nurse.IsChiefNurse = true;
-            else
-                nurse.IsChiefNurse = false;
-            nurse.Name = textBox1.Text;
-            nurse.ID = textBox2.Text;
-            nurse.Password = textBox3.Text;
-            if (comboBox2.SelectedItem.Equals("남"))
-                nurse.Sex = SEX.Male;
-            else
-                nurse.Sex = SEX.Female;
-            nurse.LicenseNum = textBox5.Text;
-            nurse.PhoneNum = textBox6.Text;
-            nurse.Group = GROUP.Group3;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
+            nurse = new Nurse();
+            if (comboBox1.SelectedItem.Equals("수간호사"))
+            {
+                nurse.IsChiefNurse = true;
+            }
+            else
+            {
+                nurse.IsChiefNurse = false;
+            }
+            nurse.Name = textBox1.Text;
+            nurse.ID = textBox2.Text;
+            nurse.Password = textBox3.Text;
+            if (comboBox2.SelectedItem.Equals("남"))
+            {
+                nurse.Sex = SEX.Male;
+            }
+            else
+            {
+                nurse.Sex = SEX.Female;
+            }
+            nurse.LicenseNum = textBox5.Text;
+            nurse.PhoneNum = textBox6.Text;
+            nurse.Group = GROUP.Group3;
+
+            clientsocket.RegisterNurse(nurse);
         }
     }
 }

@@ -19,10 +19,11 @@ namespace NurseDutyManager
     {
         
         ApplyOff applyOffForm;
-        ChiefMenuForm chidfMenuForm;
+        //ChiefMenuForm chidfMenuForm;
         DutyList dutyListForm;
-        LoginForm loginForm;
+        //LoginForm loginForm;
         ManageMemberForm manageMemberForm;
+        ModifyInfoForm modifyInfoForm;
         NightShiftForm nightShiftForm;
         OffOptionForm offOptionForm;
         SignupForm signupForm;
@@ -58,18 +59,20 @@ namespace NurseDutyManager
                     currentID = id;
                     textBoxID.Text = "";
                     textBoxID.Text = "";
-                    panelLogin.Visible = false;
-                    panelNurseMenu.Visible = false;
-                    panelChiefMenu.Visible = true;
+                    //panelLogin.Visible = false;
+                    //panelNurseMenu.Visible = false;
+                    //panelChiefMenu.Visible = true;
+                    tabControl1.SelectedTab = tabPageChief;
                     break;
                 case 2://general menu
                     MessageBox.Show("일반 간호사 로그인");
                     currentID = id;
                     textBoxID.Text = "";
                     textBoxPW.Text = "";
-                    panelLogin.Visible = false;
-                    panelChiefMenu.Visible = false;
-                    panelNurseMenu.Visible = true;
+                    //panelLogin.Visible = false;
+                    //panelChiefMenu.Visible = false;
+                    //panelNurseMenu.Visible = true;
+                    tabControl1.SelectedTab = tabPageGenaral;
                     break;
             }
         }
@@ -77,31 +80,31 @@ namespace NurseDutyManager
         private void buttonRegist_Click(object sender, EventArgs e)
         {
             signupForm = new SignupForm(clientSocket);
-            this.ShowDialog(signupForm);
+            signupForm.ShowDialog(this);
         }
         //ID,PW 찾기
         private void buttonSearch_Click(object sender, EventArgs e)
         {
             findInfoForm = new Find_Info(clientSocket);
-            this.ShowDialog(findInfoForm);
+            findInfoForm.ShowDialog(this);
         }
         //표생성
         private void buttonCreateSch_Click(object sender, EventArgs e)
         {
             dutyListForm = new DutyList(clientSocket);
-            this.ShowDialog(dutyListForm);
+            dutyListForm.ShowDialog(this);
         }
         //간호사 관리
         private void buttonMangNur_Click(object sender, EventArgs e)
         {
             manageMemberForm = new ManageMemberForm(clientSocket);
-            this.ShowDialog(manageMemberForm);
+            manageMemberForm.ShowDialog(this);
         }
         //옵션
         private void buttonOpt_Click(object sender, EventArgs e)
         {
             offOptionForm = new OffOptionForm(clientSocket);
-            this.ShowDialog(offOptionForm);
+            offOptionForm.ShowDialog(this);
         }
         //시간표확인_chief
         private void buttonChcekSch_chief_Click(object sender, EventArgs e)
@@ -111,12 +114,14 @@ namespace NurseDutyManager
         //off신청_chief
         private void buttonApplyOff_chief_Click(object sender, EventArgs e)
         {
-
+            applyOffForm = new ApplyOff(clientSocket, currentID);
+            applyOffForm.ShowDialog(this);
         }
         //개인정보수정_chief
         private void buttonModifyInfo_chief_Click(object sender, EventArgs e)
         {
-
+            modifyInfoForm = new ModifyInfoForm(clientSocket, currentID);
+            modifyInfoForm.ShowDialog(this);
         }
         //표확인_일반
         private void button3_Click(object sender, EventArgs e)
@@ -126,17 +131,20 @@ namespace NurseDutyManager
         //off신청_일반
         private void button2_Click(object sender, EventArgs e)
         {
-
+            applyOffForm = new ApplyOff(clientSocket);
+            applyOffForm.ShowDialog(this);
         }
         //개인정보수정_일반
         private void button1_Click(object sender, EventArgs e)
         {
-
+            modifyInfoForm = new ModifyInfoForm(clientSocket, currentID);
+            modifyInfoForm.ShowDialog(this);
         }
         //그룹별나이트근무설정
         private void buttonNightShift_Click(object sender, EventArgs e)
         {
-
+            nightShiftForm = new NightShiftForm(clientSocket);
+            nightShiftForm.ShowDialog(this);
         }
     }
 }

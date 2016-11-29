@@ -12,9 +12,9 @@ namespace NurseDutyManager
      */
     class ClientSocketTest : ClientSocket
     {
-        private static string pathNurse = null;
-        private static string pathOff = null;
-        private static string pathOption = null;
+        private static string pathNurse = "Nurse.txt";
+        private static string pathOff = "Off.txt";
+        private static string pathOption = "Option.txt";
         private static string pathSchedule = null;
 
         List<Nurse> nurseList = null;
@@ -228,6 +228,12 @@ namespace NurseDutyManager
                 }
             }
             return null;
+        }
+        public override bool RegisterNurse(Nurse newNurse)
+        {
+            nurseList.Add(newNurse);
+            saveNurse();
+            return true;
         }
     }
 }
