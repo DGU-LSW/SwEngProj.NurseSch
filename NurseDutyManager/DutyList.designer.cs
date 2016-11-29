@@ -28,140 +28,153 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.label3 = new System.Windows.Forms.Label();
-            this.SuspendLayout();
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(10, 10);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(64, 20);
-            this.comboBox1.TabIndex = 0;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(103, 10);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(47, 20);
-            this.comboBox2.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(79, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(17, 12);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "년";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(155, 12);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(17, 12);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "월";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(10, 36);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(151, 50);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "근무표 생성";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(167, 36);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(73, 23);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "저 장";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(167, 63);
-            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(73, 23);
-            this.button3.TabIndex = 6;
-            this.button3.Text = "취 소";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(346, 63);
-            this.progressBar1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(209, 18);
-            this.progressBar1.TabIndex = 7;
-            this.progressBar1.Visible = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(410, 36);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(77, 12);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "생성중입니다";
-            this.label3.Visible = false;
-            // 
-            // DutyList
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(709, 386);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.progressBar1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "DutyList";
-            this.Text = "근무표 생성";
-            this.ResumeLayout(false);
-            this.PerformLayout();
+			this.cboxYear = new System.Windows.Forms.ComboBox();
+			this.cboxMonth = new System.Windows.Forms.ComboBox();
+			this.lblYear = new System.Windows.Forms.Label();
+			this.lblMonth = new System.Windows.Forms.Label();
+			this.btnMakeDutyList = new System.Windows.Forms.Button();
+			this.btnSaveList = new System.Windows.Forms.Button();
+			this.btnCancel = new System.Windows.Forms.Button();
+			this.pBarMakeDutyList = new System.Windows.Forms.ProgressBar();
+			this.lblOnProgress = new System.Windows.Forms.Label();
+			this.tboxDutyList = new System.Windows.Forms.TextBox();
+			this.SuspendLayout();
+			// 
+			// cboxYear
+			// 
+			this.cboxYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.cboxYear.FormattingEnabled = true;
+			this.cboxYear.Location = new System.Drawing.Point(11, 12);
+			this.cboxYear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.cboxYear.Name = "cboxYear";
+			this.cboxYear.Size = new System.Drawing.Size(73, 23);
+			this.cboxYear.TabIndex = 0;
+			this.cboxYear.SelectedIndexChanged += new System.EventHandler(this.cboxYear_SelectedIndexChanged);
+			// 
+			// cboxMonth
+			// 
+			this.cboxMonth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.cboxMonth.FormattingEnabled = true;
+			this.cboxMonth.Location = new System.Drawing.Point(118, 12);
+			this.cboxMonth.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.cboxMonth.Name = "cboxMonth";
+			this.cboxMonth.Size = new System.Drawing.Size(53, 23);
+			this.cboxMonth.TabIndex = 1;
+			// 
+			// lblYear
+			// 
+			this.lblYear.AutoSize = true;
+			this.lblYear.Location = new System.Drawing.Point(90, 15);
+			this.lblYear.Name = "lblYear";
+			this.lblYear.Size = new System.Drawing.Size(22, 15);
+			this.lblYear.TabIndex = 2;
+			this.lblYear.Text = "년";
+			// 
+			// lblMonth
+			// 
+			this.lblMonth.AutoSize = true;
+			this.lblMonth.Location = new System.Drawing.Point(177, 15);
+			this.lblMonth.Name = "lblMonth";
+			this.lblMonth.Size = new System.Drawing.Size(22, 15);
+			this.lblMonth.TabIndex = 3;
+			this.lblMonth.Text = "월";
+			// 
+			// btnMakeDutyList
+			// 
+			this.btnMakeDutyList.Location = new System.Drawing.Point(11, 45);
+			this.btnMakeDutyList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.btnMakeDutyList.Name = "btnMakeDutyList";
+			this.btnMakeDutyList.Size = new System.Drawing.Size(173, 62);
+			this.btnMakeDutyList.TabIndex = 4;
+			this.btnMakeDutyList.Text = "근무표 생성";
+			this.btnMakeDutyList.UseVisualStyleBackColor = true;
+			this.btnMakeDutyList.Click += new System.EventHandler(this.btnMakeDutyList_Click);
+			// 
+			// btnSaveList
+			// 
+			this.btnSaveList.Location = new System.Drawing.Point(191, 45);
+			this.btnSaveList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.btnSaveList.Name = "btnSaveList";
+			this.btnSaveList.Size = new System.Drawing.Size(83, 29);
+			this.btnSaveList.TabIndex = 5;
+			this.btnSaveList.Text = "저 장";
+			this.btnSaveList.UseVisualStyleBackColor = true;
+			this.btnSaveList.Click += new System.EventHandler(this.btnSaveList_Click);
+			// 
+			// btnCancel
+			// 
+			this.btnCancel.Location = new System.Drawing.Point(191, 79);
+			this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.btnCancel.Name = "btnCancel";
+			this.btnCancel.Size = new System.Drawing.Size(83, 29);
+			this.btnCancel.TabIndex = 6;
+			this.btnCancel.Text = "취 소";
+			this.btnCancel.UseVisualStyleBackColor = true;
+			this.btnCancel.Click += new System.EventHandler(this.button3_Click);
+			// 
+			// pBarMakeDutyList
+			// 
+			this.pBarMakeDutyList.Location = new System.Drawing.Point(395, 79);
+			this.pBarMakeDutyList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.pBarMakeDutyList.Name = "pBarMakeDutyList";
+			this.pBarMakeDutyList.Size = new System.Drawing.Size(239, 22);
+			this.pBarMakeDutyList.TabIndex = 7;
+			this.pBarMakeDutyList.Visible = false;
+			// 
+			// lblOnProgress
+			// 
+			this.lblOnProgress.AutoSize = true;
+			this.lblOnProgress.Location = new System.Drawing.Point(469, 45);
+			this.lblOnProgress.Name = "lblOnProgress";
+			this.lblOnProgress.Size = new System.Drawing.Size(97, 15);
+			this.lblOnProgress.TabIndex = 8;
+			this.lblOnProgress.Text = "생성중입니다";
+			this.lblOnProgress.Visible = false;
+			// 
+			// tboxDutyList
+			// 
+			this.tboxDutyList.Location = new System.Drawing.Point(11, 134);
+			this.tboxDutyList.Multiline = true;
+			this.tboxDutyList.Name = "tboxDutyList";
+			this.tboxDutyList.ReadOnly = true;
+			this.tboxDutyList.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+			this.tboxDutyList.Size = new System.Drawing.Size(744, 362);
+			this.tboxDutyList.TabIndex = 9;
+			// 
+			// DutyList
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.ClientSize = new System.Drawing.Size(767, 508);
+			this.Controls.Add(this.tboxDutyList);
+			this.Controls.Add(this.lblOnProgress);
+			this.Controls.Add(this.pBarMakeDutyList);
+			this.Controls.Add(this.btnCancel);
+			this.Controls.Add(this.btnSaveList);
+			this.Controls.Add(this.btnMakeDutyList);
+			this.Controls.Add(this.lblMonth);
+			this.Controls.Add(this.lblYear);
+			this.Controls.Add(this.cboxMonth);
+			this.Controls.Add(this.cboxYear);
+			this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.Name = "DutyList";
+			this.Text = "근무표 생성";
+			this.ResumeLayout(false);
+			this.PerformLayout();
 
 		}
 
 		#endregion
 
-		private System.Windows.Forms.ComboBox comboBox1;
-		private System.Windows.Forms.ComboBox comboBox2;
-		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.Button button1;
-		private System.Windows.Forms.Button button2;
-		private System.Windows.Forms.Button button3;
-		private System.Windows.Forms.ProgressBar progressBar1;
-		private System.Windows.Forms.Label label3;
+		private System.Windows.Forms.ComboBox cboxYear;
+		private System.Windows.Forms.ComboBox cboxMonth;
+		private System.Windows.Forms.Label lblYear;
+		private System.Windows.Forms.Label lblMonth;
+		private System.Windows.Forms.Button btnMakeDutyList;
+		private System.Windows.Forms.Button btnSaveList;
+		private System.Windows.Forms.Button btnCancel;
+		private System.Windows.Forms.ProgressBar pBarMakeDutyList;
+		private System.Windows.Forms.Label lblOnProgress;
+		private System.Windows.Forms.TextBox tboxDutyList;
 	}
 }

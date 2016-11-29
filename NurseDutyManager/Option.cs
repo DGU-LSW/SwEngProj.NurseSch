@@ -88,7 +88,7 @@ namespace NurseDutyManager
             
 
         }
-
+        
         public override string ToString()
         {
             string result = null;
