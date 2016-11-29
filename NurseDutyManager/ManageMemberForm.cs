@@ -63,6 +63,7 @@ namespace NurseDutyManager
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             int index = listBox1.SelectedIndex;
+            if (index < 0) { return; }
             Nurse selectedNurse = list[index];
             if (selectedNurse.Group == GROUP.Group1)
             {
@@ -76,8 +77,8 @@ namespace NurseDutyManager
             {
                 comboBox1.SelectedIndex = 2;
             }
-
-            textBoxID.Text = selectedNurse.Name;
+            textBoxName.Text = selectedNurse.Name;
+            textBoxID.Text = selectedNurse.ID;
             textBoxPW.Text = selectedNurse.Password;
             textBoxSex.Text = selectedNurse.Sex.ToString();
             textBoxLicNum.Text = selectedNurse.LicenseNum;

@@ -28,23 +28,30 @@ namespace NurseDutyManager
         {
             clientsocket = _clientsocket;
             currentNurse = clientsocket.getNurse(_id);
-
-            if (comboBox1.SelectedItem.Equals("수간호사"))
-                currentNurse.IsChiefNurse = true;
-            else
-                currentNurse.IsChiefNurse = false;
-            currentNurse.Name = textBox1.Text;
-            currentNurse.Password = textBox2.Text;
-            if (comboBox2.SelectedItem.Equals("남"))
-                currentNurse.Sex = SEX.Male;
-            else
-                currentNurse.Sex = SEX.Female;
-            currentNurse.LicenseNum = textBox4.Text;
-            currentNurse.PhoneNum = textBox5.Text;
-            currentNurse.Group = GROUP.Group3;
         }
         private void button1_Click(object sender, EventArgs e)
         {
+            if (comboBox1.SelectedItem.Equals("수간호사"))
+            {
+                currentNurse.IsChiefNurse = true;
+            }
+            else
+            {
+                currentNurse.IsChiefNurse = false;
+            }
+            currentNurse.Name = textBox1.Text;
+            currentNurse.Password = textBox2.Text;
+            if (comboBox2.SelectedItem.Equals("남"))
+            {
+                currentNurse.Sex = SEX.Male;
+            }
+            else
+            {
+                currentNurse.Sex = SEX.Female;
+            }
+            currentNurse.LicenseNum = textBox4.Text;
+            currentNurse.PhoneNum = textBox5.Text;
+            currentNurse.Group = GROUP.Group3;
             //MessageBox.Show("수정 완료");
         }
     }
