@@ -27,25 +27,20 @@ namespace NurseDutyManager
         public NightShiftForm(ClientSocket _clientsocket) : this()
         {
             clientsocket = _clientsocket;
-            loadOption();
         }
-
+        
         private void Form2_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void loadOption()
-        {
-            option = clientsocket.getOption();
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
-            option.Group1 = int.Parse(numericUpDown1.Value.ToString());
-            option.Group2 = int.Parse(numericUpDown2.Value.ToString());
-            option.Group3 = int.Parse(numericUpDown3.Value.ToString());
-
+            /*
+            OffOptionForm.option.Group1 = int.Parse(numericUpDown1.Value.ToString());
+            OffOptionForm.option.Group2 = int.Parse(numericUpDown2.Value.ToString());
+            OffOptionForm.option.Group3 = int.Parse(numericUpDown3.Value.ToString());
+            */
             this.Close();
         }
 
