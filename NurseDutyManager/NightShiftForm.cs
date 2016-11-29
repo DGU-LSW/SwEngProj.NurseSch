@@ -23,12 +23,13 @@ namespace NurseDutyManager
         {
             InitializeComponent();
         }
-        
-        public NightShiftForm(ClientSocket _clientsocket) : this()
+
+        public NightShiftForm(ClientSocket _clientsocket, Option _option) : this()
         {
-            clientsocket = _clientsocket;
+            this.option = _option;
+            this.clientsocket = _clientsocket;
         }
-        
+
         private void Form2_Load(object sender, EventArgs e)
         {
 
@@ -36,12 +37,13 @@ namespace NurseDutyManager
 
         private void button1_Click(object sender, EventArgs e)
         {
-            /*
-            OffOptionForm.option.Group1 = int.Parse(numericUpDown1.Value.ToString());
-            OffOptionForm.option.Group2 = int.Parse(numericUpDown2.Value.ToString());
-            OffOptionForm.option.Group3 = int.Parse(numericUpDown3.Value.ToString());
-            */
+            
+            option.Group1 = int.Parse(numericUpDown1.Value.ToString());
+            option.Group2 = int.Parse(numericUpDown2.Value.ToString());
+            option.Group3 = int.Parse(numericUpDown3.Value.ToString());
+
             this.Close();
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
