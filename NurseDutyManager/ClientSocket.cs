@@ -166,11 +166,13 @@ namespace NurseDutyManager
 		 * 요소수 : 코드와 구성요소 갯수의 합. 구성요소 2개라면 3이다.
 		 * 
 		 * 실세 사용
-		 * 로그인 메시지	: LOGIN|ID|PW|요소수
-		 * 오프신청		: REGOFF|ID|날짜|날짜|날짜|요소수
-		 * 아이디찾기	: FINDID|이름|라이센스번호|요소수
-		 * 비밀번호찾기	: FINDPW|아이디|이름|라이센스번호|요소수
-		 * 월계획 보내기	: SAVESCH|월계획 toString()|요소수
+		 * 로그인 메시지		: LOGIN|ID|PW|요소수
+		 * 아이디찾기		: FINDID|이름|라이센스번호|요소수
+		 * 비밀번호찾기		: FINDPW|아이디|이름|라이센스번호|요소수
+		 * 오프신청			: REGOFF|ID|날짜|날짜|날짜|요소수
+		 * 오프리스트요구		: CALLOFFLIST|
+		 * 간호사리스트요구	: CALLNURSELIST|
+		 * 월계획 보내기		: SAVESCH|월계획 toString()|요소수
 		 */
 
 		//ID, PW를 보내서 로그인 시도
@@ -207,7 +209,7 @@ namespace NurseDutyManager
         public virtual List<Off> getOffList()
         {
             List<Off> result = null;
-			string message = "CALLOFF";
+			string message = "CALLOFFLIST|";
 			SendMessage(message);
 
 			Thread.Sleep(3000);
@@ -220,6 +222,7 @@ namespace NurseDutyManager
 			}
 
 			string[] msgArray = messageReturned.Split('|');
+			result = new List<Off>();
 
 			for(int i=0;i<msgArray.Length;i++)
 			{
@@ -267,9 +270,29 @@ namespace NurseDutyManager
         //서버에 있는 nurse 목록을 가지고 온다.
         public virtual List<Nurse> getNurseList()
         {
-            List<Nurse> list = null;
-            return list;
-        }
+			List<Nurse> result = null;
+			string message = "CALLNURSELIST|";
+			SendMessage(message);
+
+			Thread.Sleep(3000);
+
+			if (messageReturned == null)
+			{
+				MessageBox.Show("전송시간 초과!");
+
+				return null;
+			}
+
+			string[] msgArray = messageReturned.Split('|');
+			result = new List<Nurse>();
+
+			for (int i = 0; i < msgArray.Length; i++)
+			{
+				Nurse newOff = new Nurse(msgArray[i]);
+				result.Add(newOff);
+			}
+			return result;
+		}
 
         //개인정보 수정한 것을 서버로 보낸다.
         //성공하면 true 실패하면 false
