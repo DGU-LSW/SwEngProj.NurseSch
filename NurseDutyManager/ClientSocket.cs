@@ -178,17 +178,17 @@ namespace NurseDutyManager
         {
 			SendMessage("LOGIN," + ID + ',' + PW);
 
-			int i = 0;
+			//int i = 0;
 
-			while (messageReturned == null && i < 10000) { i++; }
-
+			Thread.Sleep(3000);
+			
 			if (messageReturned == null)
 			{
 				MessageBox.Show("전송시간 초과!");
 
 				return 0;
 			}
-
+			
 			if(messageReturned.Equals("FAIL"))
 			{
 				MessageBox.Show("로그인 실패!");
