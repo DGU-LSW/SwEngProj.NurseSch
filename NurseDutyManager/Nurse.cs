@@ -6,20 +6,107 @@ using System.Threading.Tasks;
 
 namespace NurseDutyManager
 {
-    enum SEX{
+    public enum SEX{
         Male,
         Female
     };
-    class Nurse
+    public enum GROUP
     {
-        string name;
-        SEX sex;
-        string id;
-        string pw;
-        string licNum;
-        string phNum;
-        bool isChief;
-        private string Name
+        Group1,
+        Group2,
+        Group3
+    };
+    /*
+     * 작성자 : 이신우
+     * 
+     */
+    public class Nurse : Object
+    {
+        string name;    //1
+        SEX sex;        //2
+        string id;      //3
+        string pw;      //4
+        string licNum;  //5
+        string phNum;   //6
+        GROUP groupID;  //7
+        bool isChief;   //8
+        public Nurse(string _info)
+        {
+            string[] str = _info.Split(',');
+            name = str[0];              //1
+            if (str[1].Equals("Male"))  //2
+            {
+                sex = SEX.Male;
+            }
+            else
+            {
+                sex = SEX.Female;
+            }
+            id = str[2];    //3
+            pw = str[3];    //4
+            licNum = str[4];//5
+            phNum = str[5]; //6
+            if (str[6].Equals("1")) //7
+            {
+                groupID = GROUP.Group1;
+            }
+            else if (str[6].Equals("2"))
+            {
+                groupID = GROUP.Group2;
+            }
+            else if (str[6].Equals("3"))
+            {
+                groupID = GROUP.Group3;
+            }
+
+            if (str[7].Equals("True"))  //8
+            {
+                isChief = true;
+            }
+            else
+            {
+                isChief = false;
+            }
+        }
+        public override string ToString()
+        {
+            string result = null;
+            result += name; //1
+            result += ",";
+            if (sex == SEX.Male)    //2
+            {
+                result += "Male";
+            }
+            else
+            {
+                result += "Female";
+            }
+            result += ",";
+            result += id;           //3
+            result += ",";
+            result += pw;           //4
+            result += ",";
+            result += licNum;       //5
+            result += ",";
+            result += phNum;        //6
+            result += ",";
+            if (groupID == GROUP.Group1)        //7
+            {
+                result += "1";
+            }
+            else if(groupID == GROUP.Group2)
+            {
+                result += "2";
+            }
+            else if (groupID == GROUP.Group3)
+            {
+                result += "3";
+            }
+            result += ",";
+            result += isChief.ToString();//8
+            return result;
+        }
+        public string Name
         {
             get
             {
@@ -30,7 +117,7 @@ namespace NurseDutyManager
                 name = value;
             }
         }
-        private SEX Sex
+        public SEX Sex
         {
             get
             {
@@ -41,7 +128,7 @@ namespace NurseDutyManager
                 sex = value;
             }
         }
-        private string ID
+        public string ID
         {
 
             get
@@ -53,7 +140,7 @@ namespace NurseDutyManager
                 id = value;
             }
         }
-        private string Password
+        public string Password
         {
             get
             {
@@ -64,7 +151,7 @@ namespace NurseDutyManager
                 pw = value;
             }
         }
-        private string LicenseNum
+        public string LicenseNum
         {
             get
             {
@@ -75,7 +162,7 @@ namespace NurseDutyManager
                 licNum = value;
             }
         }
-        private string PhoneNum
+        public string PhoneNum
         {
             get
             {
@@ -86,7 +173,18 @@ namespace NurseDutyManager
                 phNum = value;
             }
         }
-        private bool IsChiefNurse
+        public GROUP Group
+        {
+            get
+            {
+                return groupID;
+            }
+            set
+            {
+                groupID = value;
+            }
+        }
+        public bool IsChiefNurse
         {
             get
             {

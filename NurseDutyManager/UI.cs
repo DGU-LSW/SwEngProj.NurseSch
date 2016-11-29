@@ -10,6 +10,11 @@ using System.Windows.Forms;
 
 namespace NurseDutyManager
 {
+    /*
+     * 작성자 : 이신우
+     * Module : 
+     * LOC : 
+     */
     public partial class UI : Form
     {
         
@@ -21,8 +26,11 @@ namespace NurseDutyManager
         NightShiftForm nightShiftForm;
         OffOptionForm offOptionForm;
         SignupForm signupForm;
+        Find_Info findInfoForm;
 
 		ClientSocket clientSocket;
+
+        string currentID;
 
         public UI()
         {
@@ -32,32 +40,66 @@ namespace NurseDutyManager
         //로그인버튼 클릭
         private void buttonLogin_Click(object sender, EventArgs e)
         {
+            string id = textBoxID.Text;
+            string pw = textBoxPW.Text;
 
+            int result = clientSocket.logIn(id, pw);
+
+            switch (result)
+            {
+                case 0://로그인 실패
+                    MessageBox.Show("실패");
+                    textBoxPW.Text = "";
+                    break;
+                case 1://chief menu
+                    MessageBox.Show("수간호사 로그인");
+                    currentID = id;
+                    textBoxID.Text = "";
+                    textBoxID.Text = "";
+                    panelLogin.Visible = false;
+                    panelNurseMenu.Visible = false;
+                    panelChiefMenu.Visible = true;
+                    break;
+                case 2://general menu
+                    MessageBox.Show("일반 간호사 로그인");
+                    currentID = id;
+                    textBoxID.Text = "";
+                    textBoxPW.Text = "";
+                    panelLogin.Visible = false;
+                    panelChiefMenu.Visible = false;
+                    panelNurseMenu.Visible = true;
+                    break;
+            }
         }
         //회원가입
         private void buttonRegist_Click(object sender, EventArgs e)
         {
-
+            signupForm = new SignupForm(clientSocket);
+            this.ShowDialog(signupForm);
         }
         //ID,PW 찾기
         private void buttonSearch_Click(object sender, EventArgs e)
         {
-
+            findInfoForm = new Find_Info(clientSocket);
+            this.ShowDialog(findInfoForm);
         }
         //표생성
         private void buttonCreateSch_Click(object sender, EventArgs e)
         {
-            dutyListForm.ShowDialog();  //매개변경필요
+            dutyListForm = new DutyList(clientSocket);
+            this.ShowDialog(dutyListForm);
         }
         //간호사 관리
         private void buttonMangNur_Click(object sender, EventArgs e)
         {
-
+            manageMemberForm = new ManageMemberForm(clientSocket);
+            this.ShowDialog(manageMemberForm);
         }
         //옵션
         private void buttonOpt_Click(object sender, EventArgs e)
         {
-
+            offOptionForm = new OffOptionForm(clientSocket);
+            this.ShowDialog(offOptionForm);
         }
         //시간표확인_chief
         private void buttonChcekSch_chief_Click(object sender, EventArgs e)

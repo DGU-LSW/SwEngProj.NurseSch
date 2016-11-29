@@ -93,6 +93,7 @@
             this.button1.TabIndex = 4;
             this.button1.Text = "확인";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox2
             // 
@@ -217,7 +218,7 @@
             this.ClientSize = new System.Drawing.Size(284, 261);
             this.Controls.Add(this.tabControl1);
             this.Name = "Find_Info";
-            this.Text = "Find_Info";
+            this.Text = "ID,PW 찾기";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();

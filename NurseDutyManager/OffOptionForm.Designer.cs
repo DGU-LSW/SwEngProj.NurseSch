@@ -90,10 +90,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.label1.Font = new System.Drawing.Font("Gulim", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(93, 9);
+            this.label1.Font = new System.Drawing.Font("Gulim", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label1.Location = new System.Drawing.Point(81, 7);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(143, 19);
+            this.label1.Size = new System.Drawing.Size(107, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "근무자 수 입력";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -101,9 +101,9 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(14, 64);
+            this.label2.Location = new System.Drawing.Point(12, 51);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 15);
+            this.label2.Size = new System.Drawing.Size(29, 12);
             this.label2.TabIndex = 1;
             this.label2.Text = "휴일";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -111,27 +111,27 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(14, 98);
+            this.label3.Location = new System.Drawing.Point(12, 78);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(37, 15);
+            this.label3.Size = new System.Drawing.Size(29, 12);
             this.label3.TabIndex = 2;
             this.label3.Text = "주말";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(21, 132);
+            this.label4.Location = new System.Drawing.Point(18, 106);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(22, 15);
+            this.label4.Size = new System.Drawing.Size(17, 12);
             this.label4.TabIndex = 3;
             this.label4.Text = "월";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(21, 165);
+            this.label5.Location = new System.Drawing.Point(18, 132);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(22, 15);
+            this.label5.Size = new System.Drawing.Size(17, 12);
             this.label5.TabIndex = 4;
             this.label5.Text = "화";
             this.label5.Click += new System.EventHandler(this.label5_Click);
@@ -139,37 +139,37 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(21, 199);
+            this.label6.Location = new System.Drawing.Point(18, 159);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(22, 15);
+            this.label6.Size = new System.Drawing.Size(17, 12);
             this.label6.TabIndex = 5;
             this.label6.Text = "수";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(21, 265);
+            this.label7.Location = new System.Drawing.Point(18, 212);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(22, 15);
+            this.label7.Size = new System.Drawing.Size(17, 12);
             this.label7.TabIndex = 6;
             this.label7.Text = "금";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(21, 231);
+            this.label8.Location = new System.Drawing.Point(18, 185);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(22, 15);
+            this.label8.Size = new System.Drawing.Size(17, 12);
             this.label8.TabIndex = 7;
             this.label8.Text = "목";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Gulim", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label9.Location = new System.Drawing.Point(63, 36);
+            this.label9.Font = new System.Drawing.Font("Gulim", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label9.Location = new System.Drawing.Point(55, 29);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(36, 15);
+            this.label9.Size = new System.Drawing.Size(27, 12);
             this.label9.TabIndex = 8;
             this.label9.Text = "Day";
             this.label9.Click += new System.EventHandler(this.label9_Click);
@@ -177,226 +177,202 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Gulim", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label10.Location = new System.Drawing.Point(139, 36);
+            this.label10.Font = new System.Drawing.Font("Gulim", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label10.Location = new System.Drawing.Point(122, 29);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(66, 15);
+            this.label10.Size = new System.Drawing.Size(50, 12);
             this.label10.TabIndex = 9;
             this.label10.Text = "Evening";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Gulim", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label11.Location = new System.Drawing.Point(235, 36);
+            this.label11.Font = new System.Drawing.Font("Gulim", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label11.Location = new System.Drawing.Point(206, 29);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(44, 15);
+            this.label11.Size = new System.Drawing.Size(34, 12);
             this.label11.TabIndex = 10;
             this.label11.Text = "Night";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(85, 300);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button1.Location = new System.Drawing.Point(74, 240);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(157, 31);
+            this.button1.Size = new System.Drawing.Size(137, 25);
             this.button1.TabIndex = 11;
-            this.button1.Text = "그룹 별 나이트 설정";
+            this.button1.Text = "월별 Night 근무 설정";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(85, 334);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button2.Location = new System.Drawing.Point(74, 267);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(77, 28);
+            this.button2.Size = new System.Drawing.Size(67, 22);
             this.button2.TabIndex = 12;
             this.button2.Text = "확인";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(168, 334);
-            this.button3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button3.Location = new System.Drawing.Point(147, 267);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(73, 28);
+            this.button3.Size = new System.Drawing.Size(64, 22);
             this.button3.TabIndex = 13;
             this.button3.Text = "취소";
             this.button3.UseVisualStyleBackColor = true;
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(141, 59);
-            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.numericUpDown1.Location = new System.Drawing.Point(123, 47);
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(63, 25);
+            this.numericUpDown1.Size = new System.Drawing.Size(55, 21);
             this.numericUpDown1.TabIndex = 15;
             // 
             // numericUpDown2
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(54, 59);
-            this.numericUpDown2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.numericUpDown2.Location = new System.Drawing.Point(47, 47);
             this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(63, 25);
+            this.numericUpDown2.Size = new System.Drawing.Size(55, 21);
             this.numericUpDown2.TabIndex = 16;
             // 
             // numericUpDown3
             // 
-            this.numericUpDown3.Location = new System.Drawing.Point(229, 59);
-            this.numericUpDown3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.numericUpDown3.Location = new System.Drawing.Point(200, 47);
             this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(63, 25);
+            this.numericUpDown3.Size = new System.Drawing.Size(55, 21);
             this.numericUpDown3.TabIndex = 17;
             // 
             // numericUpDown4
             // 
-            this.numericUpDown4.Location = new System.Drawing.Point(54, 92);
-            this.numericUpDown4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.numericUpDown4.Location = new System.Drawing.Point(47, 74);
             this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(63, 25);
+            this.numericUpDown4.Size = new System.Drawing.Size(55, 21);
             this.numericUpDown4.TabIndex = 18;
             // 
             // numericUpDown5
             // 
-            this.numericUpDown5.Location = new System.Drawing.Point(141, 92);
-            this.numericUpDown5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.numericUpDown5.Location = new System.Drawing.Point(123, 74);
             this.numericUpDown5.Name = "numericUpDown5";
-            this.numericUpDown5.Size = new System.Drawing.Size(63, 25);
+            this.numericUpDown5.Size = new System.Drawing.Size(55, 21);
             this.numericUpDown5.TabIndex = 19;
             // 
             // numericUpDown6
             // 
-            this.numericUpDown6.Location = new System.Drawing.Point(229, 92);
-            this.numericUpDown6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.numericUpDown6.Location = new System.Drawing.Point(200, 74);
             this.numericUpDown6.Name = "numericUpDown6";
-            this.numericUpDown6.Size = new System.Drawing.Size(63, 25);
+            this.numericUpDown6.Size = new System.Drawing.Size(55, 21);
             this.numericUpDown6.TabIndex = 20;
             // 
             // numericUpDown7
             // 
-            this.numericUpDown7.Location = new System.Drawing.Point(229, 160);
-            this.numericUpDown7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.numericUpDown7.Location = new System.Drawing.Point(200, 128);
             this.numericUpDown7.Name = "numericUpDown7";
-            this.numericUpDown7.Size = new System.Drawing.Size(63, 25);
+            this.numericUpDown7.Size = new System.Drawing.Size(55, 21);
             this.numericUpDown7.TabIndex = 26;
             // 
             // numericUpDown8
             // 
-            this.numericUpDown8.Location = new System.Drawing.Point(141, 160);
-            this.numericUpDown8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.numericUpDown8.Location = new System.Drawing.Point(123, 128);
             this.numericUpDown8.Name = "numericUpDown8";
-            this.numericUpDown8.Size = new System.Drawing.Size(63, 25);
+            this.numericUpDown8.Size = new System.Drawing.Size(55, 21);
             this.numericUpDown8.TabIndex = 25;
             // 
             // numericUpDown9
             // 
-            this.numericUpDown9.Location = new System.Drawing.Point(54, 160);
-            this.numericUpDown9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.numericUpDown9.Location = new System.Drawing.Point(47, 128);
             this.numericUpDown9.Name = "numericUpDown9";
-            this.numericUpDown9.Size = new System.Drawing.Size(63, 25);
+            this.numericUpDown9.Size = new System.Drawing.Size(55, 21);
             this.numericUpDown9.TabIndex = 24;
             // 
             // numericUpDown10
             // 
-            this.numericUpDown10.Location = new System.Drawing.Point(229, 126);
-            this.numericUpDown10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.numericUpDown10.Location = new System.Drawing.Point(200, 101);
             this.numericUpDown10.Name = "numericUpDown10";
-            this.numericUpDown10.Size = new System.Drawing.Size(63, 25);
+            this.numericUpDown10.Size = new System.Drawing.Size(55, 21);
             this.numericUpDown10.TabIndex = 23;
             // 
             // numericUpDown11
             // 
-            this.numericUpDown11.Location = new System.Drawing.Point(54, 126);
-            this.numericUpDown11.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.numericUpDown11.Location = new System.Drawing.Point(47, 101);
             this.numericUpDown11.Name = "numericUpDown11";
-            this.numericUpDown11.Size = new System.Drawing.Size(63, 25);
+            this.numericUpDown11.Size = new System.Drawing.Size(55, 21);
             this.numericUpDown11.TabIndex = 22;
             // 
             // numericUpDown12
             // 
-            this.numericUpDown12.Location = new System.Drawing.Point(141, 126);
-            this.numericUpDown12.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.numericUpDown12.Location = new System.Drawing.Point(123, 101);
             this.numericUpDown12.Name = "numericUpDown12";
-            this.numericUpDown12.Size = new System.Drawing.Size(63, 25);
+            this.numericUpDown12.Size = new System.Drawing.Size(55, 21);
             this.numericUpDown12.TabIndex = 21;
             // 
             // numericUpDown13
             // 
-            this.numericUpDown13.Location = new System.Drawing.Point(229, 226);
-            this.numericUpDown13.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.numericUpDown13.Location = new System.Drawing.Point(200, 181);
             this.numericUpDown13.Name = "numericUpDown13";
-            this.numericUpDown13.Size = new System.Drawing.Size(63, 25);
+            this.numericUpDown13.Size = new System.Drawing.Size(55, 21);
             this.numericUpDown13.TabIndex = 32;
             // 
             // numericUpDown14
             // 
-            this.numericUpDown14.Location = new System.Drawing.Point(141, 226);
-            this.numericUpDown14.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.numericUpDown14.Location = new System.Drawing.Point(123, 181);
             this.numericUpDown14.Name = "numericUpDown14";
-            this.numericUpDown14.Size = new System.Drawing.Size(63, 25);
+            this.numericUpDown14.Size = new System.Drawing.Size(55, 21);
             this.numericUpDown14.TabIndex = 31;
             // 
             // numericUpDown15
             // 
-            this.numericUpDown15.Location = new System.Drawing.Point(54, 226);
-            this.numericUpDown15.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.numericUpDown15.Location = new System.Drawing.Point(47, 181);
             this.numericUpDown15.Name = "numericUpDown15";
-            this.numericUpDown15.Size = new System.Drawing.Size(63, 25);
+            this.numericUpDown15.Size = new System.Drawing.Size(55, 21);
             this.numericUpDown15.TabIndex = 30;
             // 
             // numericUpDown16
             // 
-            this.numericUpDown16.Location = new System.Drawing.Point(229, 192);
-            this.numericUpDown16.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.numericUpDown16.Location = new System.Drawing.Point(200, 154);
             this.numericUpDown16.Name = "numericUpDown16";
-            this.numericUpDown16.Size = new System.Drawing.Size(63, 25);
+            this.numericUpDown16.Size = new System.Drawing.Size(55, 21);
             this.numericUpDown16.TabIndex = 29;
             // 
             // numericUpDown17
             // 
-            this.numericUpDown17.Location = new System.Drawing.Point(54, 192);
-            this.numericUpDown17.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.numericUpDown17.Location = new System.Drawing.Point(47, 154);
             this.numericUpDown17.Name = "numericUpDown17";
-            this.numericUpDown17.Size = new System.Drawing.Size(63, 25);
+            this.numericUpDown17.Size = new System.Drawing.Size(55, 21);
             this.numericUpDown17.TabIndex = 28;
             // 
             // numericUpDown18
             // 
-            this.numericUpDown18.Location = new System.Drawing.Point(141, 192);
-            this.numericUpDown18.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.numericUpDown18.Location = new System.Drawing.Point(123, 154);
             this.numericUpDown18.Name = "numericUpDown18";
-            this.numericUpDown18.Size = new System.Drawing.Size(63, 25);
+            this.numericUpDown18.Size = new System.Drawing.Size(55, 21);
             this.numericUpDown18.TabIndex = 27;
             // 
             // numericUpDown19
             // 
-            this.numericUpDown19.Location = new System.Drawing.Point(229, 260);
-            this.numericUpDown19.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.numericUpDown19.Location = new System.Drawing.Point(200, 208);
             this.numericUpDown19.Name = "numericUpDown19";
-            this.numericUpDown19.Size = new System.Drawing.Size(63, 25);
+            this.numericUpDown19.Size = new System.Drawing.Size(55, 21);
             this.numericUpDown19.TabIndex = 35;
             // 
             // numericUpDown20
             // 
-            this.numericUpDown20.Location = new System.Drawing.Point(141, 260);
-            this.numericUpDown20.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.numericUpDown20.Location = new System.Drawing.Point(123, 208);
             this.numericUpDown20.Name = "numericUpDown20";
-            this.numericUpDown20.Size = new System.Drawing.Size(63, 25);
+            this.numericUpDown20.Size = new System.Drawing.Size(55, 21);
             this.numericUpDown20.TabIndex = 34;
             // 
             // numericUpDown21
             // 
-            this.numericUpDown21.Location = new System.Drawing.Point(54, 260);
-            this.numericUpDown21.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.numericUpDown21.Location = new System.Drawing.Point(47, 208);
             this.numericUpDown21.Name = "numericUpDown21";
-            this.numericUpDown21.Size = new System.Drawing.Size(63, 25);
+            this.numericUpDown21.Size = new System.Drawing.Size(55, 21);
             this.numericUpDown21.TabIndex = 33;
             // 
             // OffOptionForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(325, 372);
+            this.ClientSize = new System.Drawing.Size(284, 298);
             this.Controls.Add(this.numericUpDown19);
             this.Controls.Add(this.numericUpDown20);
             this.Controls.Add(this.numericUpDown21);
@@ -432,9 +408,8 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "OffOptionForm";
-            this.Text = "OFF 설정";
+            this.Text = "옵션";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();

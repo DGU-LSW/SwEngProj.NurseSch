@@ -8,20 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
 namespace NurseDutyManager
 {
-    /*
-작성자 : 정창훈
-Module : SignupForm
-LOC    : 30
-*/
-    public partial class SignupForm : Form
+    public partial class ModifyInfoForm : Form
     {
         ClientSocket clientsocket;
-        Nurse nurse;
+        Nurse currentNurse;
 
-        public SignupForm()
+        public ModifyInfoForm()
         {
             InitializeComponent();
             comboBox1.Items.Add("수간호사");
@@ -29,28 +23,28 @@ LOC    : 30
             comboBox2.Items.Add("남");
             comboBox2.Items.Add("여");
         }
-        public SignupForm(ClientSocket _clientsocket) : this()
+        public ModifyInfoForm(ClientSocket _clientsocket, string _id)
         {
             clientsocket = _clientsocket;
-            if (comboBox1.SelectedItem.Equals("수간호사"))
-                nurse.IsChiefNurse = true;
-            else
-                nurse.IsChiefNurse = false;
-            nurse.Name = textBox1.Text;
-            nurse.ID = textBox2.Text;
-            nurse.Password = textBox3.Text;
-            if (comboBox2.SelectedItem.Equals("남"))
-                nurse.Sex = SEX.Male;
-            else
-                nurse.Sex = SEX.Female;
-            nurse.LicenseNum = textBox5.Text;
-            nurse.PhoneNum = textBox6.Text;
-            nurse.Group = GROUP.Group3;
-        }
+            currentNurse = clientsocket.getNurse(_id);
 
+            if (comboBox1.SelectedItem.Equals("수간호사"))
+                currentNurse.IsChiefNurse = true;
+            else
+                currentNurse.IsChiefNurse = false;
+            currentNurse.Name = textBox1.Text;
+            currentNurse.Password = textBox2.Text;
+            if (comboBox2.SelectedItem.Equals("남"))
+                currentNurse.Sex = SEX.Male;
+            else
+                currentNurse.Sex = SEX.Female;
+            currentNurse.LicenseNum = textBox4.Text;
+            currentNurse.PhoneNum = textBox5.Text;
+            currentNurse.Group = GROUP.Group3;
+        }
         private void button1_Click(object sender, EventArgs e)
         {
-           
+            //MessageBox.Show("수정 완료");
         }
     }
 }

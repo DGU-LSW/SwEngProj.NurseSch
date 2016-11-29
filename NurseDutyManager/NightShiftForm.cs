@@ -12,11 +12,15 @@ namespace NurseDutyManager
 {
     public partial class NightShiftForm : Form
     {
+        ClientSocket clientsocket;
         public NightShiftForm()
         {
             InitializeComponent();
         }
-
+        public NightShiftForm(ClientSocket _clientsocket) : this()
+        {
+            clientsocket = _clientsocket;
+        }
         private void Form2_Load(object sender, EventArgs e)
         {
 

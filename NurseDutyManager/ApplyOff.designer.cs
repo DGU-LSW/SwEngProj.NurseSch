@@ -30,7 +30,6 @@
 		{
 			this.comboBox1 = new System.Windows.Forms.ComboBox();
 			this.comboBox2 = new System.Windows.Forms.ComboBox();
-			this.label1 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.button1 = new System.Windows.Forms.Button();
@@ -54,6 +53,7 @@
 			this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.comboBox1.FormattingEnabled = true;
 			this.comboBox1.Location = new System.Drawing.Point(17, 54);
+			this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.comboBox1.Name = "comboBox1";
 			this.comboBox1.Size = new System.Drawing.Size(62, 23);
 			this.comboBox1.TabIndex = 2;
@@ -64,24 +64,15 @@
 			this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.comboBox2.FormattingEnabled = true;
 			this.comboBox2.Location = new System.Drawing.Point(113, 54);
+			this.comboBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.comboBox2.Name = "comboBox2";
-			this.comboBox2.Size = new System.Drawing.Size(56, 23);
+			this.comboBox2.Size = new System.Drawing.Size(57, 23);
 			this.comboBox2.TabIndex = 3;
-			// 
-			// label1
-			// 
-			this.label1.AutoSize = true;
-			this.label1.Font = new System.Drawing.Font("굴림", 15F);
-			this.label1.Location = new System.Drawing.Point(12, 9);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(105, 25);
-			this.label1.TabIndex = 4;
-			this.label1.Text = "Off 신청";
 			// 
 			// label3
 			// 
 			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(175, 57);
+			this.label3.Location = new System.Drawing.Point(175, 58);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(22, 15);
 			this.label3.TabIndex = 5;
@@ -90,7 +81,7 @@
 			// label2
 			// 
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(85, 57);
+			this.label2.Location = new System.Drawing.Point(85, 58);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(22, 15);
 			this.label2.TabIndex = 6;
@@ -98,9 +89,10 @@
 			// 
 			// button1
 			// 
-			this.button1.Location = new System.Drawing.Point(203, 53);
+			this.button1.Location = new System.Drawing.Point(203, 52);
+			this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(75, 23);
+			this.button1.Size = new System.Drawing.Size(83, 26);
 			this.button1.TabIndex = 7;
 			this.button1.Text = "조회";
 			this.button1.UseVisualStyleBackColor = true;
@@ -110,25 +102,29 @@
 			// 
 			this.radioButton1.AutoSize = true;
 			this.radioButton1.ForeColor = System.Drawing.Color.Red;
-			this.radioButton1.Location = new System.Drawing.Point(315, 55);
+			this.radioButton1.Location = new System.Drawing.Point(304, 55);
+			this.radioButton1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.radioButton1.Name = "radioButton1";
 			this.radioButton1.Size = new System.Drawing.Size(58, 19);
 			this.radioButton1.TabIndex = 8;
 			this.radioButton1.TabStop = true;
 			this.radioButton1.Text = "휴일";
 			this.radioButton1.UseVisualStyleBackColor = true;
+			this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
 			// 
 			// radioButton2
 			// 
 			this.radioButton2.AutoSize = true;
 			this.radioButton2.ForeColor = System.Drawing.Color.Blue;
-			this.radioButton2.Location = new System.Drawing.Point(379, 55);
+			this.radioButton2.Location = new System.Drawing.Point(365, 55);
+			this.radioButton2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.radioButton2.Name = "radioButton2";
 			this.radioButton2.Size = new System.Drawing.Size(58, 19);
 			this.radioButton2.TabIndex = 9;
 			this.radioButton2.TabStop = true;
 			this.radioButton2.Text = "휴가";
 			this.radioButton2.UseVisualStyleBackColor = true;
+			this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
 			// 
 			// tableLayoutPanel1
 			// 
@@ -140,14 +136,15 @@
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-			this.tableLayoutPanel1.Controls.Add(this.label4, 0, 0);
 			this.tableLayoutPanel1.Controls.Add(this.label5, 1, 0);
 			this.tableLayoutPanel1.Controls.Add(this.label6, 2, 0);
 			this.tableLayoutPanel1.Controls.Add(this.label7, 3, 0);
 			this.tableLayoutPanel1.Controls.Add(this.label8, 4, 0);
 			this.tableLayoutPanel1.Controls.Add(this.label9, 5, 0);
 			this.tableLayoutPanel1.Controls.Add(this.label10, 6, 0);
-			this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 113);
+			this.tableLayoutPanel1.Controls.Add(this.label4, 0, 0);
+			this.tableLayoutPanel1.Location = new System.Drawing.Point(11, 112);
+			this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
 			this.tableLayoutPanel1.RowCount = 2;
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
@@ -225,9 +222,10 @@
 			// 
 			// button2
 			// 
-			this.button2.Location = new System.Drawing.Point(267, 473);
+			this.button2.Location = new System.Drawing.Point(304, 455);
+			this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(75, 23);
+			this.button2.Size = new System.Drawing.Size(97, 40);
 			this.button2.TabIndex = 11;
 			this.button2.Text = "신청";
 			this.button2.UseVisualStyleBackColor = true;
@@ -235,9 +233,10 @@
 			// 
 			// button3
 			// 
-			this.button3.Location = new System.Drawing.Point(462, 473);
+			this.button3.Location = new System.Drawing.Point(413, 455);
+			this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.button3.Name = "button3";
-			this.button3.Size = new System.Drawing.Size(75, 23);
+			this.button3.Size = new System.Drawing.Size(103, 40);
 			this.button3.TabIndex = 12;
 			this.button3.Text = "취소";
 			this.button3.UseVisualStyleBackColor = true;
@@ -256,12 +255,12 @@
 			this.Controls.Add(this.button1);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.label3);
-			this.Controls.Add(this.label1);
 			this.Controls.Add(this.comboBox2);
 			this.Controls.Add(this.comboBox1);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+			this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.Name = "ApplyOff";
-			this.Text = "Nurse Duty Manager";
+			this.Text = "근무표확인";
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();
 			this.ResumeLayout(false);
@@ -272,7 +271,6 @@
 		#endregion
 		private System.Windows.Forms.ComboBox comboBox1;
 		private System.Windows.Forms.ComboBox comboBox2;
-		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Button button1;

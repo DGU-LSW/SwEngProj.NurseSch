@@ -88,6 +88,12 @@
     <Compile Include="ManageMemberForm.Designer.cs">
       <DependentUpon>ManageMemberForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModifyInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModifyInfoForm.Designer.cs">
+      <DependentUpon>ModifyInfoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MonthSchedule.cs" />
     <Compile Include="NightShiftForm.cs">
       <SubType>Form</SubType>
@@ -138,6 +144,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ManageMemberForm.resx">
       <DependentUpon>ManageMemberForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModifyInfoForm.resx">
+      <DependentUpon>ModifyInfoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NightShiftForm.resx">
       <DependentUpon>NightShiftForm.cs</DependentUpon>
