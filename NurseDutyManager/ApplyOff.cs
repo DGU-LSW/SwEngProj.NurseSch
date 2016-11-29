@@ -29,7 +29,7 @@ namespace NurseDutyManager
 		Panel[] panelList;
 
         ClientSocket clientsocket;
-
+        string currentID;
 		public ApplyOff()
 		{
 			InitializeComponent();
@@ -64,7 +64,11 @@ namespace NurseDutyManager
         {
             clientsocket = _clientsocket;
         }
-
+        public ApplyOff(ClientSocket _clientsocket, string _currentID) : this()
+        {
+            clientsocket = _clientsocket;
+            currentID = _currentID;
+        }
 		// 연도 바꿀때.
 		private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
 		{

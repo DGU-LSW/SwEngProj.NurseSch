@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace NurseDutyManager
 {
+    /*
+     * 작성자 : 이신우
+     */
     public partial class ModifyPwForm : Form
     {
         ClientSocket clientSocket = null;
@@ -32,6 +35,7 @@ namespace NurseDutyManager
             }
             else
             {
+                textBoxPW.Text.Replace(',',' ');//,를 지운다.
                 target.Password = textBoxPW.Text;
                 bool result = clientSocket.modifyNurse(target.ID, target);
                 if (result)
