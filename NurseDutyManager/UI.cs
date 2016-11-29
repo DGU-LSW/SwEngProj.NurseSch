@@ -125,7 +125,7 @@ namespace NurseDutyManager
         //off신청_일반
         private void button2_Click(object sender, EventArgs e)
         {
-            applyOffForm = new ApplyOff(clientSocket);
+            applyOffForm = new ApplyOff(clientSocket, currentID);
             applyOffForm.ShowDialog(this);
         }
         //개인정보수정_일반
