@@ -44,26 +44,11 @@ namespace NurseDutyManager
                 friday[i] = 0;
                 weekend[i] = 0;
                 holiday[i] = 0;
+
             }
-
-            String[] str = new String[24];
-
-            /*
-            for(int i = 0; i < 24; i++)
-            {
-               //str[i] = null;
-            }*/
-
-            try
-            {
-                str = option.Split(',');
-            } catch(Exception e)
-            {
-                Console.WriteLine(e.ToString());
-            }
-
-            try
-            { 
+            
+           
+                String[] str = option.Split(',');
                 monday[0] = int.Parse(str[0]);
                 monday[1] = int.Parse(str[1]);
                 monday[2] = int.Parse(str[2]);
@@ -95,10 +80,7 @@ namespace NurseDutyManager
                 group1 = int.Parse(str[21]);
                 group2 = int.Parse(str[22]);
                 group3 = int.Parse(str[23]);
-            } catch (Exception e)
-            {
-                Console.WriteLine(e.ToString());
-            }
+            
 
         }
         
