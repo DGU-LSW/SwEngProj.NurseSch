@@ -32,6 +32,8 @@ namespace NurseDutyManager
 		{
 			mfnReceiveHandler = new AsyncCallback(handleDataReceive);
 			mfnSenderHandler = new AsyncCallback(handleDataSend);
+
+			this.ConnectToServer("localhost", 12);
 		}
 
 		public bool Conntected
@@ -64,6 +66,8 @@ namespace NurseDutyManager
 
 				ao.workingSocket = mClientSocket;
 				mClientSocket.BeginReceive(ao.buffer, 0, ao.buffer.Length, SocketFlags.None, mfnReceiveHandler, ao);
+
+				MessageBox.Show("연결에 성공했습니다!");
 			}
 			else
 			{
@@ -154,16 +158,17 @@ namespace NurseDutyManager
 		#endregion
 
 		#region 만든 부분
-		
+
+		#region 서버와 통신하는 메소드를 다루는 부분
 		/* 서버와 Message 통신방식 : 코드,구성요소,구성요소,요소수
 		 * 코드 : 무슨 내용인지, 써야하는 함수를 파악하기위한 코드번호
 		 * 요소수 : 코드와 구성요소 갯수의 합. 구성요소 2개라면 3이다.
 		 * 
 		 * 실세 사용
-		 * 로그인 메시지 : LOGIN,ID,PW,요소수
-		 * 오프신청 : OFF,ID,날짜,날짜,날짜,요소수
-		 * 아이디찾기 : FINDID,이름,라이센스번호,요소수
-		 * 비밀번호찾기 : FINDPW,아이디,이름,라이센스번호,요소수
+		 * 로그인 메시지	: LOGIN,ID,PW,요소수
+		 * 오프신청		: OFF,ID,날짜,날짜,날짜,요소수
+		 * 아이디찾기	: FINDID,이름,라이센스번호,요소수
+		 * 비밀번호찾기	: FINDPW,아이디,이름,라이센스번호,요소수
 		 */
 
 		//ID, PW를 보내서 로그인 시도
@@ -174,10 +179,7 @@ namespace NurseDutyManager
 
 			int i = 0;
 
-			while (messageReturned == null && i < 1000)
-			{
-				i++;
-			}
+			while (messageReturned == null && i < 10000) { i++; }
 
 			if (messageReturned == null)
 			{
@@ -186,16 +188,15 @@ namespace NurseDutyManager
 				return 0;
 			}
 
+			if(messageReturned.Equals("FAIL"))
+			{
+				MessageBox.Show("로그인 실패!");
+			}
+
 			Nurse returnMessage = new Nurse(messageReturned);
 
-			if(returnMessage.IsChiefNurse)
-			{
-				return 1;
-			}
-			else
-			{
-				return 2;
-			}
+			if(returnMessage.IsChiefNurse) { return 1; }
+			else { return 2; }
         }
 
         //서버에 저장된 Off 목록을 가지고 온다.
@@ -340,6 +341,7 @@ namespace NurseDutyManager
 
 			return result;
 		}
+		#endregion
 
 		#endregion
 	}
