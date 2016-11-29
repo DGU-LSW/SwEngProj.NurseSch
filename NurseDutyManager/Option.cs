@@ -59,7 +59,7 @@ namespace NurseDutyManager
             group2 = int.Parse(str[22]);
             group3 = int.Parse(str[23]);
         }
-
+        
         public override string ToString()
         {
             string result = null;
