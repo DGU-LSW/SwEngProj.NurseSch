@@ -133,10 +133,5 @@ namespace NurseDutyManager
         {
 
         }
-        //그룹별나이트근무설정
-        private void buttonNightShift_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
