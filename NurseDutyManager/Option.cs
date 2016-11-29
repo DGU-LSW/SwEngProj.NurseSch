@@ -177,6 +177,7 @@ namespace NurseDutyManager
             }
         }
 
+
         public int[] Wednesday
         {
             get
