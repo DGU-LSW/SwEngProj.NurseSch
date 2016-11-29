@@ -223,7 +223,7 @@ namespace NurseDutyManager
 
 				i++;
 			}
-
+			
 			SendMessage(message);
 
 			int j = 0;
