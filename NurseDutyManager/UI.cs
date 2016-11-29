@@ -134,11 +134,6 @@ namespace NurseDutyManager
             modifyInfoForm = new ModifyInfoForm(clientSocket, currentID);
             modifyInfoForm.ShowDialog(this);
         }
-        //그룹별나이트근무설정
-        private void buttonNightShift_Click(object sender, EventArgs e)
-        {
-            nightShiftForm = new NightShiftForm(clientSocket);
-            nightShiftForm.ShowDialog(this);
-        }
+        
     }
 }

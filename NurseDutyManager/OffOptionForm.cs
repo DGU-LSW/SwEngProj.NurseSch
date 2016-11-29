@@ -30,7 +30,8 @@ namespace NurseDutyManager
         {
             clientsocket = _clientsocket;
             loadOption();
-            
+            option = new Option(opt);
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -62,13 +63,11 @@ namespace NurseDutyManager
         {
             option = clientsocket.getOption();
             opt = option.ToString();
-            //option = new Option(opt);
         }
 
         public void button2_Click(object sender, EventArgs e)
         {
-            option = new Option(opt);
-
+         
             option.Monday = new int[3];
             option.Tuesday = new int[3];
             option.Wednesday = new int[3];
@@ -116,15 +115,15 @@ namespace NurseDutyManager
             option.Friday[1] = int.Parse(numericUpDown20.Value.ToString());
             option.Friday[2] = int.Parse(numericUpDown19.Value.ToString());
             
-                clientsocket.setOption(option);
-                
+            clientsocket.setOption(option);
 
-
+            this.Close();
+            
         }
 
         public void button1_Click(object sender, EventArgs e)
         {
-            NightShiftForm f1 = new NightShiftForm();
+            NightShiftForm f1 = new NightShiftForm(clientsocket, option);
             f1.Owner = this;
             f1.Show();
         }
