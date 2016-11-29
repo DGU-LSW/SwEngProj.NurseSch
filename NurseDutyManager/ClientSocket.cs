@@ -166,17 +166,18 @@ namespace NurseDutyManager
 		 * 요소수 : 코드와 구성요소 갯수의 합. 구성요소 2개라면 3이다.
 		 * 
 		 * 실세 사용
-		 * 로그인 메시지	: LOGIN,ID,PW,요소수
-		 * 오프신청		: OFF,ID,날짜,날짜,날짜,요소수
-		 * 아이디찾기	: FINDID,이름,라이센스번호,요소수
-		 * 비밀번호찾기	: FINDPW,아이디,이름,라이센스번호,요소수
+		 * 로그인 메시지	: LOGIN|ID|PW|요소수
+		 * 오프신청		: OFF|ID|날짜|날짜|날짜|요소수
+		 * 아이디찾기	: FINDID|이름|라이센스번호|요소수
+		 * 비밀번호찾기	: FINDPW|아이디|이름|라이센스번호|요소수
+		 * 월계획 보내기	: SAVESCH|월계획 toString()|요소수
 		 */
 
 		//ID, PW를 보내서 로그인 시도
 		//0은 실패, 1은 chief, 2는 general
 		public virtual int logIn(string ID, string PW)
         {
-			SendMessage("LOGIN|" + ID + '|' + PW);
+			SendMessage("LOGIN|" + ID + '|' + PW + '|' + 3);
 
 			//int i = 0;
 
@@ -225,11 +226,11 @@ namespace NurseDutyManager
 
 			SendMessage(message);
 
-			i = 0;
+			int j = 0;
 
-			while (messageReturned == null && i < 1000)
+			while (messageReturned == null && j < 1000)
 			{
-				i++;
+				j++;
 			}
 
 			if (messageReturned == null)
@@ -273,13 +274,31 @@ namespace NurseDutyManager
             return result;
         }
 
-        //서버에 schedule을 보낸다.
-        //성공하면 true 실패하면 false
-        public virtual bool sendMonthSchedule(MonthSchedule schedule)
+		//서버에 schedule을 보낸다.
+		//성공하면 true 실패하면 false
+		public virtual bool sendMonthSchedule(MonthSchedule schedule)
         {
-            bool result = false;
-            return result;
-        }
+			string message = "SAVESCH|";
+			message += schedule.ToString();
+
+			SendMessage(message);
+
+			int i = 0;
+
+			while (messageReturned == null && i < 1000)
+			{
+				i++;
+			}
+
+			if (messageReturned == null)
+			{
+				MessageBox.Show("전송시간 초과!");
+
+				return false;
+			}
+
+			return true;
+		}
 
         //서버에 있는 schedule를 가지고 온다.
         //ex) year = 2016 month = 03
