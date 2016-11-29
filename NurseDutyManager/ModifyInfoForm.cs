@@ -22,6 +22,7 @@ namespace NurseDutyManager
             comboBox1.Items.Add("일반간호사");
             comboBox2.Items.Add("남");
             comboBox2.Items.Add("여");
+            currentNurse = new Nurse();
         }
         public ModifyInfoForm(ClientSocket _clientsocket, string _id)
         {
