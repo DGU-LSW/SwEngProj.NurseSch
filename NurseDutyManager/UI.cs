@@ -37,7 +37,7 @@ namespace NurseDutyManager
         {
             InitializeComponent();
 
-			clientSocket = new ClientSocketTest();
+			clientSocket = new ClientSocket();
         }
 
         //로그인버튼 클릭

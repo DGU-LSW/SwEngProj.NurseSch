@@ -6,7 +6,29 @@ using System.Threading.Tasks;
 
 namespace NurseDutyManager
 {
+    public enum WORK
+    {
+        D,  //day
+        E,  //even
+        N,  //night
+        O,  //off
+        V   //vacum
+    };
+    /*
+     * 작성자 : 이신우
+     */
     public class Scheduler
     {
+        ClientSocket clientsocket;
+        List<Nurse> nurseList = null;
+        List<Off> offList = null;
+        Option option = null;
+        DayOfWeek startWeek;
+        int monthLen; //month의 길이
+        private MonthSchedule makeSchedule()
+        {
+            MonthSchedule result = new MonthSchedule(nurseList, offList, option, startWeek, monthLen);
+            return result;
+        }
     }
 }

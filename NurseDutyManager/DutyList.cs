@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,12 +16,18 @@ namespace NurseDutyManager
 		DateTime today = DateTime.Today;
 		int thisyear;
 		int thismonth;
-		int timerCount=0;
         ClientSocket clientsocket;
-		#region 프로그레스바 테스트
-		// 프로그레스바 테스트용 임시변수
-		Timer timer;
-		#endregion
+
+		Scheduler scheduler;
+		MonthSchedule monthSchedule;
+
+		string message;
+
+		// 서버로부터 리턴받을 간호사 리스트. 간호사 전원의 리스트.
+		List<Nurse> nurseList;
+		int numbOfNurse; // 간호사의 숫자
+
+		char[,] dutyCharList;
 
 		public DutyList()
 		{
@@ -31,99 +38,125 @@ namespace NurseDutyManager
 
 			for (int i = 0; i < 3; i++)
 			{
-				comboBox1.Items.Add(thisyear + i);
+				cboxYear.Items.Add(thisyear + i);
 			}
 
-			comboBox1.SelectedIndex = comboBox1.Items.IndexOf(thisyear);
+			cboxYear.SelectedIndex = cboxYear.Items.IndexOf(thisyear);
 
-			comboBox2.Items.Clear();
+			cboxMonth.Items.Clear();
 
 			for (int i = thismonth; i <= 12; i++)
 			{
-				comboBox2.Items.Add(i);
+				cboxMonth.Items.Add(i);
 			}
 
-			#region 프로그레스 바 테스트용
-
-			// 프로그레스바 테스트용 임시변수
-			timer = new Timer();
-
-			timer.Interval = 500;
-			timer.Tick += new EventHandler(timer_Tick);
-
-			#endregion
+			// 간호사수 배정
+			// 원래 numbOfNurse = nurseList.Count;
+			numbOfNurse = 20;
 		}
+
         public DutyList(ClientSocket _clientsocket) : this()
         {
             clientsocket = _clientsocket;
-        }
-		private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+		}
+
+		private void cboxYear_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			if (comboBox1.SelectedIndex != 0)
+			if (cboxYear.SelectedIndex != 0)
 			{
-				comboBox2.Items.Clear();
+				cboxMonth.Items.Clear();
 
 				for (int i = 1; i <= 12; i++)
 				{
-					comboBox2.Items.Add(i);
+					cboxMonth.Items.Add(i);
 				}
 			}
 
 			else
 			{
-				comboBox2.Items.Clear();
+				cboxMonth.Items.Clear();
 
 				for (int i = thismonth; i <= 12; i++)
 				{
-					comboBox2.Items.Add(i);
+					cboxMonth.Items.Add(i);
 				}
 			}
 		}
 
-		private void button1_Click(object sender, EventArgs e)
+		private void btnMakeDutyList_Click(object sender, EventArgs e)
 		{
-			if(comboBox2.SelectedItem == null)
+			if(cboxMonth.SelectedItem == null)
 			{
 				MessageBox.Show("몇월 근무표를 만들지 선택해주십시오!", "알림");
+
+				return;
+			}
+
+			SwitchButton(true);
+
+
+			//clientsocket = new ClientSocket();
+
+			//nurseList = clientsocket.getNurseList();
+
+
+			pBarMakeDutyList.Value++;
+
+			// 프로그레스바 pBarMakeDutyList는 getNurseList가 끝나면 1, 간호사 근무표가 한줄 완성될때마다 1씩 늘어난다.
+			// 완전히 다 늘어나면 표의 visible=true을 한다
+
+			// 표 생성 버튼을 누르면 scheduler 객체의 메소드 MakeSchedule()를 호출하고,
+			// 이 클래스의 멤버 monthSchedule에 참조를 저장한다. 그리고 텍스트박스에 tostring값을 저장한다.
+			// monthSchedule = scheduler.MakeSchedule();
+			// tboxDutyList.Text = monthSchedule.ToString();
+
+			tboxDutyList.WordWrap = false;
+
+			SwitchButton(false);			
+		}
+		
+
+		// 제작누르면 true, 완성되면 false를 집어넣어 버튼활성화를 바꾸는 함수
+		void SwitchButton(bool making)
+		{
+			if(making)
+			{
+				lblOnProgress.Visible = true;
+				pBarMakeDutyList.Visible = true;
+
+				btnMakeDutyList.Enabled = false;
+				btnSaveList.Enabled = false;
+				btnCancel.Enabled = false;
 			}
 			else
 			{
-				label3.Visible = true;
-				progressBar1.Visible = true;
+				lblOnProgress.Visible = false;
+				pBarMakeDutyList.Visible = false;
 
-				button1.Enabled = false;
-				button2.Enabled = false;
-				button3.Enabled = false;
-
-				timer.Start();
+				btnMakeDutyList.Enabled = true;
+				btnSaveList.Enabled = true;
+				btnCancel.Enabled = true;
 			}
 		}
 
-		#region 프로그레스바 테스트3
-		//프로그레스바 테스트용
-		void timer_Tick(object sender, EventArgs e)
+		// 서버에 저장
+		// monthSchedule에 저장된 참조값을 서버로 보낸다.
+		private void btnSaveList_Click(object sender, EventArgs e)
 		{
-			// 한 스텝 이동
-			progressBar1.PerformStep();
-
-			// 타이머 중지 조건
-			if (++timerCount == 10)
+			if(clientsocket.sendMonthSchedule(monthSchedule))
 			{
-				timer.Stop();
+				MessageBox.Show("서버에 저장 성공!");
 			}
-		}
-		#endregion
-
-		// 엑셀 파일로 저장
-		private void button2_Click(object sender, EventArgs e)
-		{
-
+			else
+			{
+				MessageBox.Show("서버저장 실패!");
+			}
 		}
 
 		// 취소
 		private void button3_Click(object sender, EventArgs e)
 		{
-
+			this.Close();
 		}
 	}
 }
