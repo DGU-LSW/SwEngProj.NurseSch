@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace NurseDutyManager
 {
+    /*
+     * 작성자 : 이신우
+     */
     public class MonthSchedule : System.Object
     {
         List<DaySchedule> dayList;
@@ -84,7 +87,7 @@ namespace NurseDutyManager
             }
             #endregion
         }
-        public override string ToString()
+        public string print()
         {
             string result = null;
             for(int i = 0; i < nurseList.Count; i++)    //간호사 라인
