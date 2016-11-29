@@ -23,7 +23,8 @@ namespace NurseDutyManager
         {
             clientsocket = _clientsocket;
             currentNurse = clientsocket.getNurse(_id);
-            if (currentNurse.IsChiefNurse == true)
+            #region 콤보박스 셋팅
+            if (currentNurse.IsChiefNurse == true)  //수간호사 일 경우
             {
                 comboBoxType.SelectedIndex = 0;
             }
@@ -32,12 +33,12 @@ namespace NurseDutyManager
                 comboBoxType.SelectedIndex = 1;
             }
 
-            if (currentNurse.Sex == SEX.Male)
+            if (currentNurse.Sex == SEX.Male)   //남자일 경우
             {
                 comboBoxSex.SelectedIndex = 0;
             }
             else
-            {
+            {//여자일 경우
                 comboBoxSex.SelectedIndex = 1;
             }
             textBoxName.Text = currentNurse.Name;
@@ -45,15 +46,31 @@ namespace NurseDutyManager
             textBoxPW.Text = textBoxPW2.Text = currentNurse.Password;
             textBoxLic.Text = currentNurse.LicenseNum;
             textBoxPh.Text = currentNurse.PhoneNum;
+            #endregion
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            if(!textBoxPW.Text.Equals(textBoxPW2.Text))
+            #region 비일번호 일치 검사
+            if (!textBoxPW.Text.Equals(textBoxPW2.Text))     //비밀번호 일치 검사
             {
                 MessageBox.Show("비밀번호가 일치하지 않습니다.");
                 return;
             }
+            #endregion
+            #region 기존의 라이센스 검사
+            List<Nurse> list = clientsocket.getNurseList();
+            for (int i = 0; i < list.Count; i++)    //라이센스 번호 검사
+            {
+                if (textBoxLic.Text.Equals(list[i].LicenseNum) &&
+                    !textBoxID.Text.Equals(list[i].ID))
+                {
+                    MessageBox.Show("라이센스 번호가 이미 존재합니다.");
+                    return;
+                }
+            }
+            #endregion
             //string 입력은 , << 제거 처리
+            #region 정보 입력
             if (comboBoxType.SelectedIndex == 0)    //수간호사 선택
             {
                 currentNurse.IsChiefNurse = true;
@@ -76,6 +93,8 @@ namespace NurseDutyManager
             }
             currentNurse.LicenseNum = textBoxLic.Text;
             currentNurse.PhoneNum = textBoxPh.Text;
+            #endregion
+            #region 서버에 저장
             bool result = clientsocket.modifyNurse(currentNurse.ID, currentNurse);
             if (result)
             {
@@ -85,6 +104,7 @@ namespace NurseDutyManager
             {
                 MessageBox.Show("수정실패");
             }
+            #endregion
             this.Close();
         }
 
