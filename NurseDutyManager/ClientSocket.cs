@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace NurseDutyManager
@@ -325,10 +326,7 @@ namespace NurseDutyManager
 
 			int i = 0;
 
-			while (messageReturned == null && i < 1000)
-			{
-				i++;
-			}
+			Thread.Sleep(5000);
 
 			if (messageReturned == null)
 			{
@@ -341,6 +339,12 @@ namespace NurseDutyManager
 
 			return result;
 		}
+
+		public virtual bool RegisterNurse(Nurse newNurse)
+		{
+			return false;
+		}
+
 		#endregion
 
 		#endregion
