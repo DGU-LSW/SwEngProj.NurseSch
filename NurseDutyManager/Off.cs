@@ -64,5 +64,16 @@ namespace NurseDutyManager
                 isHolidayOff = value;
             }
         }
+        public string NurseID
+        {
+            get
+            {
+                return nurseID;
+            }
+            set
+            {
+                nurseID = value;
+            }
+        }
     }
 }
