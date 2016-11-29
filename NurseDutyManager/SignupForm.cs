@@ -59,7 +59,8 @@ LOC    : 30
             nurse.LicenseNum = textBox5.Text;
             nurse.PhoneNum = textBox6.Text;
             nurse.Group = GROUP.Group3;
-            clientsocket
+
+            clientsocket.RegisterNurse(nurse);
         }
     }
 }
