@@ -127,7 +127,7 @@ namespace NurseDutyManager
 			catch(Exception ex)
 			{
 				MessageBox.Show("자료 수신 대기 도중 오류 발생! 메시지:{0}", ex.Message);
-
+				
 				return;
 			}
 		}
@@ -167,7 +167,7 @@ namespace NurseDutyManager
 		 * 
 		 * 실세 사용
 		 * 로그인 메시지	: LOGIN|ID|PW|요소수
-		 * 오프신청		: OFF|ID|날짜|날짜|날짜|요소수
+		 * 오프신청		: REGOFF|ID|날짜|날짜|날짜|요소수
 		 * 아이디찾기	: FINDID|이름|라이센스번호|요소수
 		 * 비밀번호찾기	: FINDPW|아이디|이름|라이센스번호|요소수
 		 * 월계획 보내기	: SAVESCH|월계획 toString()|요소수
@@ -207,15 +207,34 @@ namespace NurseDutyManager
         public virtual List<Off> getOffList()
         {
             List<Off> result = null;
-            return result;
+			string message = "CALLOFF";
+			SendMessage(message);
+
+			Thread.Sleep(3000);
+
+			if (messageReturned == null)
+			{
+				MessageBox.Show("전송시간 초과!");
+
+				return null;
+			}
+
+			string[] msgArray = messageReturned.Split('|');
+
+			for(int i=0;i<msgArray.Length;i++)
+			{
+				Off newOff = new Off(msgArray[i]);
+				result.Add(newOff);
+			}
+			return result;
         }
 
-        //신청할 off를 서버로 보낸다.
-        //성공이면 true 실패면 false
-		//각 offlist의 요소들은 |로 연결한다.
+        // 신청할 off를 서버로 보낸다.
+        // 성공이면 true 실패면 false
+		// 각 offlist의 요소들은 |로 연결한다.
         public virtual bool sendOff(List<Off> offList)
         {
-			string message = "OFF|";
+			string message = "REGOFF|";
 			message += offList[0].ToString();
 			int i = 1;
 
