@@ -25,7 +25,16 @@ namespace NurseDutyManager
         Option option = null;
         DayOfWeek startWeek;
         int monthLen; //month의 길이
-        private MonthSchedule makeSchedule()
+
+		public Scheduler(ClientSocket clientSocket)
+		{
+			this.clientsocket = clientSocket;
+
+			nurseList = this.clientsocket.getNurseList();
+			offList = this.clientsocket.getOffList();
+		}
+
+        public MonthSchedule makeSchedule()
         {
             MonthSchedule result = new MonthSchedule(nurseList, offList, option, startWeek, monthLen);
             return result;
