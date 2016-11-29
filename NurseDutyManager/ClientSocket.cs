@@ -172,7 +172,7 @@ namespace NurseDutyManager
 
 		//ID, PW를 보내서 로그인 시도
 		//0은 실패, 1은 chief, 2는 general
-		public int logIn(string ID, string PW)
+		public virtual int logIn(string ID, string PW)
         {
 			SendMessage("LOGIN," + ID + ',' + PW);
 
@@ -203,7 +203,7 @@ namespace NurseDutyManager
         }
 
         //서버에 저장된 Off 목록을 가지고 온다.
-        public List<Off> getOffList()
+        public virtual List<Off> getOffList()
         {
             List<Off> result = null;
             return result;
@@ -211,7 +211,7 @@ namespace NurseDutyManager
 
         //신청할 off를 서버로 보낸다.
         //성공이면 true 실패면 false
-        public bool sendOff(List<Off> offList)
+        public virtual bool sendOff(List<Off> offList)
         {
 			string message = "OFF,";
 			message += offList[0];
@@ -244,7 +244,7 @@ namespace NurseDutyManager
         }
 
         //서버에 있는 nurse 목록을 가지고 온다.
-        public List<Nurse> getNurseList()
+        public virtual List<Nurse> getNurseList()
         {
             List<Nurse> list = null;
             return list;
@@ -253,14 +253,14 @@ namespace NurseDutyManager
         //개인정보 수정한 것을 서버로 보낸다.
         //성공하면 true 실패하면 false
 		// id는 개인정보를 수정할 간호사의 id, nurse는 수정된 개인정보
-        public bool modifyNurse(string ID, Nurse nurse)
+        public virtual bool modifyNurse(string ID, Nurse nurse)
         {
             bool result = false;
             return result;
         }
         
         //서버에 있는 option을 가지고 온다.
-        public Option getOption()
+        public virtual Option getOption()
         {
             Option result = null;
             return result;
@@ -268,7 +268,7 @@ namespace NurseDutyManager
         
         //서버에 option을 저장한다.
         //성공하면 true 실패하면 false
-        public bool setOption(Option option)
+        public virtual bool setOption(Option option)
         {
             bool result = false;
             return result;
@@ -276,7 +276,7 @@ namespace NurseDutyManager
 
         //서버에 schedule을 보낸다.
         //성공하면 true 실패하면 false
-        public bool sendMonthSchedule(MonthSchedule schedule)
+        public virtual bool sendMonthSchedule(MonthSchedule schedule)
         {
             bool result = false;
             return result;
@@ -284,21 +284,21 @@ namespace NurseDutyManager
 
         //서버에 있는 schedule를 가지고 온다.
         //ex) year = 2016 month = 03
-        public MonthSchedule getMonthSchedule(string year, string month)
+        public virtual MonthSchedule getMonthSchedule(string year, string month)
         {
             MonthSchedule result = null;
             return result;
 		}
 
 		//ID에 해당하는 nurse 정보를 가지고 온다.
-		public Nurse getNurse(string ID)
+		public virtual Nurse getNurse(string ID)
 		{
 			Nurse result = null;
 			return result;
 		}
 
 		//id찾기에 답을 돌려줄 함수
-		public Nurse ReturnInfo(string name, string lisenceNumber)
+		public virtual Nurse ReturnInfo(string name, string lisenceNumber)
 		{
 			SendMessage("FINDID," + name + ',' + lisenceNumber);
 
@@ -322,7 +322,7 @@ namespace NurseDutyManager
 		}
 
 		//비밀번호 찾기에 답을 들려줄 함수
-		public Nurse ReturnInfo(string id, string name, string lisenceNumber)
+		public virtual Nurse ReturnInfo(string id, string name, string lisenceNumber)
 		{
 			SendMessage("FINDPW," + id + ',' + name + ',' + lisenceNumber);
 
