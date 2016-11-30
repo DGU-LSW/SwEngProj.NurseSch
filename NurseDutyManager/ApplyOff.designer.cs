@@ -1,4 +1,9 @@
-﻿namespace NurseDutyManager
+﻿/*
+ * 작성: 임제희
+ * Module: ApplyOff
+ * LOC: 150
+ */
+namespace NurseDutyManager
 {
 	partial class ApplyOff
 	{
@@ -143,4 +148,3 @@
 		private System.Windows.Forms.Button btnAdd;
 	}
 }
-

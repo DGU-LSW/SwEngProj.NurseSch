@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-
+/*
+ * 작성: 이신우
+ * Module: Scheduler
+ * LOC: 46
+ */
 namespace NurseDutyManager
 {
     public enum WORK
@@ -11,9 +15,6 @@ namespace NurseDutyManager
         O,  //off
         V   //vacum
     };
-    /*
-     * 작성자 : 이신우
-     */
     public class Scheduler
     {
         ClientSocket clientsocket;

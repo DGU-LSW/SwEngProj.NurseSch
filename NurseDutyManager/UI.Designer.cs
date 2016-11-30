@@ -1,5 +1,10 @@
 ﻿using System.Windows.Forms;
 using System;
+/*
+ * 작성: 정창훈, 이신우, 김수희, 임제희 
+ * Module: UI
+ * LOC: 422
+ */
 namespace NurseDutyManager
 {
     //http://stackoverflow.com/questions/2340566/creating-wizards-for-windows-forms-in-c-sharp/2342320#2342320
