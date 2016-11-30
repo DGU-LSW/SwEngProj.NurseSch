@@ -60,14 +60,7 @@
     <Compile Include="CheckTableForm.Designer.cs">
       <DependentUpon>CheckTableForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ChiefMenuForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ChiefMenuForm.Designer.cs">
-      <DependentUpon>ChiefMenuForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="ClientSocket.cs" />
-    <Compile Include="ClientSocketTest.cs" />
     <Compile Include="DaySchedule.cs" />
     <Compile Include="DutyList.cs">
       <SubType>Form</SubType>
@@ -82,12 +75,6 @@
     </Compile>
     <Compile Include="Find_Info.designer.cs">
       <DependentUpon>Find_Info.cs</DependentUpon>
-    </Compile>
-    <Compile Include="LoginForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="LoginForm.Designer.cs">
-      <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ManageMemberForm.cs">
       <SubType>Form</SubType>
@@ -145,18 +132,12 @@
     <EmbeddedResource Include="ChecktableForm.resx">
       <DependentUpon>CheckTableForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ChiefMenuForm.resx">
-      <DependentUpon>ChiefMenuForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="DutyList.resx">
       <DependentUpon>DutyList.cs</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Find_Info.resx">
       <DependentUpon>Find_Info.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="LoginForm.resx">
-      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ManageMemberForm.resx">
       <DependentUpon>ManageMemberForm.cs</DependentUpon>
