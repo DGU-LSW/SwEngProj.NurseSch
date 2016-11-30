@@ -34,7 +34,6 @@ namespace NurseDutyManager
 		AsyncCallback mfnReceiveHandler;
 		AsyncCallback mfnSenderHandler;
 
-
 		public ClientSocket()
 		{
 			mfnReceiveHandler = new AsyncCallback(handleDataReceive);
@@ -164,9 +163,8 @@ namespace NurseDutyManager
 
 		#endregion
 
-		#region 만든 부분
+		#region 만든 부분 : 서버와 통신하는 메소드
 
-		#region 서버와 통신하는 메소드를 다루는 부분
 		/* 서버와 Message 통신방식 : 코드,구성요소,구성요소,요소수
 		 * 코드 : 무슨 내용인지, 써야하는 함수를 파악하기위한 코드번호
 		 * 요소수 : 코드와 구성요소 갯수의 합. 구성요소 2개라면 3이다.
@@ -179,8 +177,9 @@ namespace NurseDutyManager
 		 * 오프리스트요구		: CALLOFFLIST|
 		 * 간호사리스트요구	: CALLNURSELIST|
 		 * 옵션 요구			: GETOP|
-		 * 옵션 저장			: SAVEOP|
-		 * 월계획 보내기		: SAVESCH|월계획 toString()|요소수
+		 * 옵션 저장			: SAVEOP|option.tostring
+		 * 개인정보 수정		: MODIF|nurse.tostring|...
+		 * 월계획 저장하기	: SAVESCH|월계획 toString()|요소수
 		 */
 
 		//ID, PW를 보내서 로그인 시도
@@ -213,8 +212,82 @@ namespace NurseDutyManager
 			else { return 2; }
         }
 
-        //서버에 저장된 Off 목록을 가지고 온다.
-        public virtual List<Off> getOffList()
+		//id찾기에 답을 돌려줄 함수
+		public virtual Nurse ReturnInfo(string name, string lisenceNumber)
+		{
+			SendMessage("FINDID|" + name + '|' + lisenceNumber);
+
+			Thread.Sleep(3000);
+
+			if (messageReturned == null)
+			{
+				MessageBox.Show("전송시간 초과!");
+
+				return null;
+			}
+
+			Nurse result = new Nurse(messageReturned);
+
+			return result;
+		}
+
+		//비밀번호 찾기에 답을 들려줄 함수
+		public virtual Nurse ReturnInfo(string id, string name, string lisenceNumber)
+		{
+			SendMessage("FINDPW|" + id + '|' + name + '|' + lisenceNumber);
+
+
+			Thread.Sleep(5000);
+
+			if (messageReturned == null)
+			{
+				MessageBox.Show("전송시간 초과!");
+
+				return null;
+			}
+
+			Nurse result = new Nurse(messageReturned);
+
+			return result;
+		}
+
+		// 신청할 off를 서버로 보낸다.
+		// 성공이면 true 실패면 false
+		// 각 offlist의 요소들은 |로 연결한다.
+		public virtual bool sendOff(List<Off> offList)
+		{
+			string message = "REGOFF|";
+			message += offList[0].ToString();
+			int i = 1;
+
+			while (i < offList.Count)
+			{
+				message += "|" + offList[i].ToString();
+
+				i++;
+			}
+
+			SendMessage(message);
+
+			int j = 0;
+
+			while (messageReturned == null && j < 1000)
+			{
+				j++;
+			}
+
+			if (messageReturned == null)
+			{
+				MessageBox.Show("전송시간 초과!");
+
+				return false;
+			}
+
+			return true;
+		}
+
+		//서버에 저장된 Off 목록을 가지고 온다.
+		public virtual List<Off> getOffList()
         {
             List<Off> result = null;
 			string message = "CALLOFFLIST|";
@@ -238,41 +311,6 @@ namespace NurseDutyManager
 				result.Add(newOff);
 			}
 			return result;
-        }
-
-        // 신청할 off를 서버로 보낸다.
-        // 성공이면 true 실패면 false
-		// 각 offlist의 요소들은 |로 연결한다.
-        public virtual bool sendOff(List<Off> offList)
-        {
-			string message = "REGOFF|";
-			message += offList[0].ToString();
-			int i = 1;
-
-			while(i < offList.Count)
-			{
-				message += "|" + offList[i].ToString();
-
-				i++;
-			}
-			
-			SendMessage(message);
-
-			int j = 0;
-
-			while (messageReturned == null && j < 1000)
-			{
-				j++;
-			}
-
-			if (messageReturned == null)
-			{
-				MessageBox.Show("전송시간 초과!");
-
-				return false;
-			}
-
-			return true;
         }
 
         //서버에 있는 nurse 목록을 가지고 온다.
@@ -301,16 +339,6 @@ namespace NurseDutyManager
 			}
 			return result;
 		}
-
-        //개인정보 수정한 것을 서버로 보낸다.
-        //성공하면 true 실패하면 false
-		// id는 개인정보를 수정할 간호사의 id, nurse는 수정된 개인정보
-        public virtual bool modifyNurse(string ID, Nurse nurse)
-        {
-            bool result = false;
-
-            return result;
-        }
         
         //서버에 있는 option을 가지고 온다.
         public virtual Option getOption()
@@ -364,6 +392,55 @@ namespace NurseDutyManager
 			return result;
         }
 
+		//개인정보 수정한 것을 서버로 보낸다.
+		//성공하면 true 실패하면 false
+		// id는 개인정보를 수정할 간호사의 id, nurse는 수정된 개인정보
+		public virtual bool modifyNurse(string ID, Nurse nurse, List<Nurse> nurseList)
+		{
+			bool result = false;
+
+			string message = "MODIF|";
+
+			for(int i=0;i<nurseList.Count;i++)
+			{
+				if(nurseList[i].ID == nurse.ID)
+				{
+					nurseList[i].Password = nurse.Password;
+					nurseList[i].LicenseNum = nurse.LicenseNum;
+					nurseList[i].PhoneNum = nurse.PhoneNum;
+					nurseList[i].Group = nurse.Group;
+					nurseList[i].IsChiefNurse = nurse.IsChiefNurse;
+
+					break;
+				}
+			}
+
+			message += nurseList[0].ToString();
+
+			for (int i = 1; i < nurseList.Count; i++)
+			{
+				message += "|" + nurseList[i].ToString();
+			}
+
+			SendMessage(message);
+
+			Thread.Sleep(3000);
+
+			if (messageReturned == null)
+			{
+				MessageBox.Show("전송시간 초과!");
+
+				result = false;
+			}
+
+			if(messageReturned == "SUCCESS")
+			{
+				result = true;
+			}
+
+			return result;
+		}
+
 		//서버에 schedule을 보낸다.
 		//성공하면 true 실패하면 false
 		public virtual bool sendMonthSchedule(MonthSchedule schedule)
@@ -404,52 +481,10 @@ namespace NurseDutyManager
 			Nurse result = null;
 			return result;
 		}
-
-		//id찾기에 답을 돌려줄 함수
-		public virtual Nurse ReturnInfo(string name, string lisenceNumber)
-		{
-			SendMessage("FINDID|" + name + '|' + lisenceNumber);
-			
-			Thread.Sleep(3000);
-
-			if (messageReturned == null)
-			{
-				MessageBox.Show("전송시간 초과!");
-
-				return null;
-			}
-
-			Nurse result = new Nurse(messageReturned);
-
-			return result;
-		}
-
-		//비밀번호 찾기에 답을 들려줄 함수
-		public virtual Nurse ReturnInfo(string id, string name, string lisenceNumber)
-		{
-			SendMessage("FINDPW|" + id + '|' + name + '|' + lisenceNumber);
-			
-
-			Thread.Sleep(5000);
-
-			if (messageReturned == null)
-			{
-				MessageBox.Show("전송시간 초과!");
-
-				return null;
-			}
-
-			Nurse result = new Nurse(messageReturned);
-
-			return result;
-		}
-
 		public virtual bool RegisterNurse(Nurse newNurse)
 		{
 			return false;
 		}
-
-		#endregion
 
 		#endregion
 	}
