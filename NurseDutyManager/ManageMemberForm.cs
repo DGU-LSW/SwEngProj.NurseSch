@@ -25,6 +25,7 @@ namespace NurseDutyManager
         {
             list = clientsocket.getNurseList();
             listBox1.Items.Clear();
+
             for (int i = 0; i < list.Count; i++)
             {
                 listBox1.Items.Add(list[i].Name);
@@ -33,7 +34,9 @@ namespace NurseDutyManager
         private void buttonSave_Click(object sender, EventArgs e)
         {
             int index = listBox1.SelectedIndex; //선택된 간호사의 index
+
             Nurse newInfo = list[index];
+
             if(comboBox1.SelectedIndex == 0)
             {
                 newInfo.Group = GROUP.Group1;
