@@ -1,6 +1,12 @@
 ﻿using System.IO;
 using System.Windows.Forms;
 
+/*
+ * 작성: 임제희
+ * Module: DutyList 폼
+ * LOC:
+ */
+
 namespace NurseDutyManager
 {
     public partial class CheckTableForm : Form
