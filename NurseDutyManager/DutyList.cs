@@ -139,7 +139,8 @@ namespace NurseDutyManager
 		{
 			if(tboxDutyList.Text != null)
 			{
-				string savePath = thisyear + "-" + thismonth + ".txt";
+				
+				string savePath = cboxYear.Text + "-" + cboxMonth.Text + ".txt";
 				File.WriteAllText(savePath, tboxDutyList.Text, Encoding.Default);
 			}
 		}

@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+ * 원본: http://slaner.tistory.com/52
+ * 수정: 임제희
+ * Module: ClientSocket
+ * LOC:
+ */
+
+using System;
 using System.Text;
 using System.Net;
 using System.Net.Sockets;
