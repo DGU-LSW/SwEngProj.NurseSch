@@ -130,6 +130,10 @@ namespace NurseDutyManager
             modifyInfoForm = new ModifyInfoForm(clientSocket, currentID);
             modifyInfoForm.ShowDialog(this);
         }
-        
-    }
+
+		private void UI_FormClosing(object sender, FormClosingEventArgs e)
+		{
+			clientSocket.StopClient();
+		}
+	}
 }

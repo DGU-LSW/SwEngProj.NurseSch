@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Text;
 using System.Windows.Forms;
 
 /*
@@ -132,17 +134,13 @@ namespace NurseDutyManager
 			}
 		}
 
-		// 서버에 저장
-		// monthSchedule에 저장된 참조값을 서버로 보낸다.
+		// 텍스트파일로 저장
 		private void btnSaveList_Click(object sender, EventArgs e)
 		{
-			if(clientsocket.sendMonthSchedule(monthSchedule))
+			if(tboxDutyList.Text != null)
 			{
-				MessageBox.Show("서버에 저장 성공!");
-			}
-			else
-			{
-				MessageBox.Show("서버저장 실패!");
+				string savePath = thisyear + "-" + thismonth + ".txt";
+				File.WriteAllText(savePath, tboxDutyList.Text, Encoding.Default);
 			}
 		}
 
