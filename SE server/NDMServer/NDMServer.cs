@@ -291,13 +291,13 @@ namespace NurseManagerServer
 				case "REGOFF":
 					offList = new List<NurseDutyManager.Off>();
 
-					for (int i = 0; i < msgArray.Length - 1; i++)
+					for (int i = 1; i < msgArray.Length; i++)
 					{
-						NurseDutyManager.Off newOff = new NurseDutyManager.Off(msgArray[i+1]);
+						NurseDutyManager.Off newOff = new NurseDutyManager.Off(msgArray[i]);
 						offList.Add(newOff);
 					}
 
-					savePath = @"Data/offList.txt";
+					savePath = @"Data\offList.txt";
 
 					for (int i = 0; i < offList.Count; i++)
 					{

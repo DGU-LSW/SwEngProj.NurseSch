@@ -26,9 +26,9 @@ namespace NurseDutyManager
         private void button1_Click(object sender, EventArgs e)
         {
             
-            option.Group1 = int.Parse(numericUpDown1.Value.ToString());
-            option.Group2 = int.Parse(numericUpDown2.Value.ToString());
-            option.Group3 = int.Parse(numericUpDown3.Value.ToString());
+            option.Group1 = (int)numericUpDown1.Value;
+            option.Group2 = (int)numericUpDown2.Value;
+            option.Group3 = (int)numericUpDown3.Value;
 
             this.Close();
             
