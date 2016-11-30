@@ -12,7 +12,7 @@ namespace NurseDutyManager
     {
         
         ApplyOff applyOffForm;
-        ChecktableForm checktableForm; //추가
+        CheckTableForm checktableForm; //추가
         //ChiefMenuForm chidfMenuForm;
         DutyList dutyListForm;
         //LoginForm loginForm;
@@ -97,7 +97,7 @@ namespace NurseDutyManager
         //시간표확인_chief
         private void buttonChcekSch_chief_Click(object sender, EventArgs e)
         {
-            checktableForm = new ChecktableForm(clientSocket);
+            checktableForm = new CheckTableForm(clientSocket);
             checktableForm.ShowDialog(this);
         }
         //off신청_chief
@@ -115,7 +115,7 @@ namespace NurseDutyManager
         //표확인_일반
         private void button3_Click(object sender, EventArgs e)
         {
-            checktableForm = new ChecktableForm(clientSocket);
+            checktableForm = new CheckTableForm(clientSocket);
             checktableForm.ShowDialog(this);
         }
         //off신청_일반

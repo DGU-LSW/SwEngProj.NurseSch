@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NurseDutyManager
 {
-    public enum SEX{
+    public enum SEX
+	{
         Male,
         Female
     };
@@ -68,6 +65,17 @@ namespace NurseDutyManager
             {
                 isChief = false;
             }
+        }
+        public Nurse(Nurse _nurse)
+        {
+            name = _nurse.name;
+            sex = _nurse.sex;
+            id = _nurse.id;
+            pw = _nurse.pw;
+            licNum = _nurse.licNum;
+            phNum = _nurse.phNum;
+            groupID = _nurse.groupID;
+            isChief = _nurse.isChief;
         }
         public override string ToString()
         {

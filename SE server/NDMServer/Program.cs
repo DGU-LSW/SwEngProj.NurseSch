@@ -1,10 +1,7 @@
 ﻿/*
- * Created by SharpDevelop.
- * User: Administrator
- * Date: 2014-09-28
- * Time: 오전 10:18
- * 
- * To change this template use Tools | Options | Coding | Edit Standard Headers.
+ * 원본: http://slaner.tistory.com/52
+ * Module: ClientSocket
+ * LOC:
  */
 using System;
 
