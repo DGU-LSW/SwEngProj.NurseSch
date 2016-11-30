@@ -352,7 +352,7 @@ namespace NurseManagerServer
 					break;
 
 				case "SAVEOP":
-					savePath = @"Data/option.txt";
+					savePath = @"Data\option.txt";
 
 					File.WriteAllText(savePath, msgArray[1], Encoding.Unicode);
 					
@@ -360,7 +360,7 @@ namespace NurseManagerServer
 					break;
 
 				case "MODIF":
-					savePath = @"Data/nurse.txt";
+					savePath = @"Data\nurse.txt";
 
 					fileReadOrWrite = null;
 
@@ -374,6 +374,36 @@ namespace NurseManagerServer
 					File.WriteAllText(savePath, fileReadOrWrite, Encoding.Unicode);
 
 					result = "SUCCESS";
+
+					break;
+
+				case "GETNURSE":
+					savePath = @"Data\nurse.txt";
+					readFile = new StreamReader(savePath);
+
+					nurseList = new List<NurseDutyManager.Nurse>();
+
+					while ((fileReadOrWrite = readFile.ReadLine()) != null)
+					{
+						NurseDutyManager.Nurse newNurse = new NurseDutyManager.Nurse(fileReadOrWrite);
+						nurseList.Add(newNurse);
+					}
+
+					readFile.Close();
+
+					for (int i = 0; i < nurseList.Count; i++)
+					{
+						if (nurseList[i].ID == msgArray[1])
+						{
+							result = nurseList[i].ToString();
+
+							break;
+						}
+						else
+						{
+							result = "FAIL";
+						}
+					}
 
 					break;
 			}

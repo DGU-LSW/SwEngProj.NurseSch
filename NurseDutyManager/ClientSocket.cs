@@ -180,6 +180,7 @@ namespace NurseDutyManager
 		 * 옵션 저장			: SAVEOP|option.tostring
 		 * 개인정보 수정		: MODIF|nurse.tostring|...
 		 * 월계획 저장하기	: SAVESCH|월계획 toString()|요소수
+		 * 간호사정보가져오기	: GETNURSE|id
 		 */
 
 		//ID, PW를 보내서 로그인 시도
@@ -478,8 +479,22 @@ namespace NurseDutyManager
 		//ID에 해당하는 nurse 정보를 가지고 온다.
 		public virtual Nurse getNurse(string ID)
 		{
-			Nurse result = null;
-			return result;
+			string message = "GETNURSE|" + ID;
+
+			SendMessage(message);
+
+			Thread.Sleep(3000);
+
+			if(messageReturned == null)
+			{
+				MessageBox.Show("전송시간 초과!");
+
+				return null;
+			}
+
+			Nurse newNurse = new Nurse(messageReturned);
+
+			return newNurse;
 		}
 		public virtual bool RegisterNurse(Nurse newNurse)
 		{
