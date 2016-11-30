@@ -1,10 +1,11 @@
 ﻿using System;
-
+/*
+ * 작성: 이신우
+ * Module: Off
+ * LOC: 84
+ */
 namespace NurseDutyManager
 {
-    /*
-     * 작성자 : 이신우
-     */
     public class Off : Object
     {
         DateTime date;

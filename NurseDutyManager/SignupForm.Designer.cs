@@ -1,4 +1,9 @@
-﻿namespace NurseDutyManager
+﻿/*
+ * 작성: 정창훈
+ * Module: SignupForm
+ * LOC: 279 
+ */
+namespace NurseDutyManager
 {
     partial class SignupForm
 	{

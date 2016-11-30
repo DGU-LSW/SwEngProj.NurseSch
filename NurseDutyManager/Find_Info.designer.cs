@@ -1,4 +1,9 @@
-﻿namespace NurseDutyManager
+﻿/*
+ * 작성: 정창훈
+ * Module: FindInfo
+ * LOC: 272
+ */
+namespace NurseDutyManager
 {
     partial class Find_Info
     {

@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Linq;
-
+/*
+ * 작성: 이신우
+ * Module: Dayschedule
+ * LOC: 162
+ */
 namespace NurseDutyManager
 {
-    /*
-     * 작성자 : 이신우
-     */
     public class DaySchedule : Object
     {
         WORK[] work;

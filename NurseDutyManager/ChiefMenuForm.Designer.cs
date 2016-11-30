@@ -1,4 +1,9 @@
-﻿namespace NurseDutyManager
+﻿/*
+ * 작성: 이신우
+ * Module: ChiefMenuForm
+ * LOC: 132
+ */
+namespace NurseDutyManager
 {
     partial class ChiefMenuForm
     {
