@@ -293,8 +293,6 @@ namespace NurseDutyManager
 			for(int i=1;i<offList.Count;i++)
 			{
 				message += "|" + offList[i].ToString();
-
-				i++;
 			}
 
 			SendMessage(message);
