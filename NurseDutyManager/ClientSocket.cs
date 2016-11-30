@@ -611,7 +611,7 @@ namespace NurseDutyManager
 
 			Nurse newNurse;
 
-			if (messageReturned == "SUCCESS")
+			if (messageReturned != "FAIL")
 			{
 				newNurse = new Nurse(messageReturned);
 			}
@@ -621,6 +621,8 @@ namespace NurseDutyManager
 
 				newNurse = null;
 			}
+
+			messageReturned = null;
 
 			return newNurse;
 		}
