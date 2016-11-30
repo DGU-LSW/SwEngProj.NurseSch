@@ -8,6 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+/*
+ * 작성: 이신우
+ * Module: ModifyPwForm
+ * LOC: 67
+ */
 namespace NurseDutyManager
 {
     /*

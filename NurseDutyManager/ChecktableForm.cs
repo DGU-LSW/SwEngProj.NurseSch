@@ -3,9 +3,9 @@ using System.Text;
 using System.Windows.Forms;
 
 /*
- * 작성: 임제희
- * Module: DutyList 폼
- * LOC:118
+ * 작성: 정창훈, 임제희
+ * Module: CheckTableForm
+ * LOC: 43
  */
 
 namespace NurseDutyManager

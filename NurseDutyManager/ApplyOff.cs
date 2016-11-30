@@ -6,7 +6,7 @@ namespace NurseDutyManager
 {
 	// 작성자	: 임제희
 	// Module	: ApplyOff
-	// LOC		: 247
+	// LOC		: 101
 	public partial class ApplyOff : Form
 	{
 		// radio버튼을 눌렀는지
