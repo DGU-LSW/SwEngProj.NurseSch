@@ -54,11 +54,11 @@
       <DependentUpon>ApplyOff.cs</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="ChecktableForm.cs">
+    <Compile Include="CheckTableForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ChecktableForm.Designer.cs">
-      <DependentUpon>ChecktableForm.cs</DependentUpon>
+    <Compile Include="CheckTableForm.Designer.cs">
+      <DependentUpon>CheckTableForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ChiefMenuForm.cs">
       <SubType>Form</SubType>
@@ -141,6 +141,9 @@
     <EmbeddedResource Include="ApplyOff.resx">
       <DependentUpon>ApplyOff.cs</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChecktableForm.resx">
+      <DependentUpon>CheckTableForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ChiefMenuForm.resx">
       <DependentUpon>ChiefMenuForm.cs</DependentUpon>

@@ -135,7 +135,7 @@ namespace NurseDutyManager
             return nurseList;
         }
         //메모리 상의 nurseList에서 ID에 해당하는 nurse를 _nurse로 바꾸고 save한다.
-        public override bool modifyNurse(string ID, Nurse _nurse)
+        public override bool modifyNurse(string ID, Nurse _nurse, List<Nurse> nurseList)
         {
             for (int i = 0; i < nurseList.Count; i++)
             {

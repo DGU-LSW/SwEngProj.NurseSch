@@ -1,20 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NurseDutyManager
 {
     /*
      * 작성자 : 이신우
      */
-    public class DaySchedule : System.Object
+    public class DaySchedule : Object
     {
         WORK[] work;
         DayOfWeek week;
-        public DaySchedule() { }
-        public DaySchedule(int numNurse, int  _week):this()
+
+        public DaySchedule(int numNurse, int  _week)
         {
             work = new WORK[numNurse];
             for(int i = 0; i < work.Count(); i++)
