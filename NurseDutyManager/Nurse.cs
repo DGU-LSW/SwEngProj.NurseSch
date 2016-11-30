@@ -1,5 +1,9 @@
 ﻿using System;
-
+/*
+ * 작성: 이신우
+ * Module: Nurse
+ * LOC: 208
+ */
 namespace NurseDutyManager
 {
     public enum SEX
@@ -13,10 +17,6 @@ namespace NurseDutyManager
         Group2,
         Group3
     };
-    /*
-     * 작성자 : 이신우
-     * 
-     */
     public class Nurse : Object
     {
         string name;    //1

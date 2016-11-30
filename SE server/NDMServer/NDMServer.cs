@@ -184,6 +184,21 @@ namespace NurseManagerServer
 			string savePath;
 			StreamReader readFile;
 
+
+			/* 메시지 규격
+			 * 로그인				: LOGIN|ID|PW
+			 * 아이디찾기			: FINDID|ID|LicenseNumber
+			 * 비밀번호찾기			: FINDPW|name|ID|LicenseNumber
+			 * OFF 신청				: REGOFF|Off.toString()...
+			 * OFF리스트 불러오기		: CALLOFFLIST|
+			 * 간호사리스트 블러오기	: CALLNURSELIST|
+			 * 옵션 가져오기			: GETOP|
+			 * 옵션 저장하기			: SAVEOP|option.tostring()
+			 * 개인정보 수정하기		: MODIF|
+			 * 간호사 찾기			: GETNURSE|ID
+			 * 간호사 등록			: REGNURSE|nurse.tostring()
+			 */
+
 			switch (msgArray[0])
 			{
 				case "LOGIN":
@@ -246,7 +261,7 @@ namespace NurseManagerServer
 
 				case "FINDPW":
 					savePath = @"Data\nurse.txt";
-					readFile = new System.IO.StreamReader(savePath);
+					readFile = new StreamReader(savePath);
 
 					nurseList = new List<NurseDutyManager.Nurse>();
 
@@ -304,7 +319,7 @@ namespace NurseManagerServer
 					while ((fileReadOrWrite = readFile.ReadLine()) != null)
 					{
 						NurseDutyManager.Off newOff = new NurseDutyManager.Off(fileReadOrWrite);
-						Console.WriteLine(newOff.ToString());
+						
 						offList.Add(newOff);
 					}
 
@@ -316,6 +331,7 @@ namespace NurseManagerServer
 					{
 						result += '|' + offList[i].ToString();
 					}
+
 					break;
 
 				case "CALLNURSELIST":
@@ -325,6 +341,9 @@ namespace NurseManagerServer
 					nurseList = new List<NurseDutyManager.Nurse>();
 
 					Console.WriteLine("Nurse String to send");
+
+					
+
 					while ((fileReadOrWrite = readFile.ReadLine()) != null)
 					{
 						NurseDutyManager.Nurse newNurse = new NurseDutyManager.Nurse(fileReadOrWrite);
@@ -404,6 +423,15 @@ namespace NurseManagerServer
 							result = "FAIL";
 						}
 					}
+
+					break;
+
+				case "REGNURSE":
+					savePath = @"Data\nurse.txt";
+
+					File.AppendAllText(savePath, msgArray[1] + "\r\n", Encoding.Unicode);
+
+					result = "SUCCESS";
 
 					break;
 			}

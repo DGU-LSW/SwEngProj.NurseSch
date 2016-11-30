@@ -1,9 +1,10 @@
-﻿namespace NurseDutyManager
+﻿/*
+ * 작성: 김수희
+ * Module: Option
+ * LOC: 270
+ */
+namespace NurseDutyManager
 {
-    // 작성자	: 김수희
-    // Module	: Option
-    // LOC		: 276
-
     public class Option
     {
         int[] monday = null;   //월

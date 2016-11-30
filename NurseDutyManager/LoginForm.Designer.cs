@@ -1,4 +1,9 @@
-﻿namespace NurseDutyManager
+﻿/*
+ * 작성: 정창훈
+ * Module: LoginForm
+ * LOC: 165
+ */
+namespace NurseDutyManager
 {
     partial class LoginForm
     {
@@ -158,4 +163,3 @@
         private System.Windows.Forms.Label label4;
     }
 }
-

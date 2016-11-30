@@ -1,4 +1,9 @@
-﻿namespace NurseDutyManager
+﻿/*
+ * 작성: 김수희 
+ * Module: OffOption
+ * LOC: 482
+ */
+namespace NurseDutyManager
 {
     partial class OffOptionForm
     {
@@ -475,4 +480,3 @@
         private System.Windows.Forms.NumericUpDown numericUpDown21;
     }
 }
-
