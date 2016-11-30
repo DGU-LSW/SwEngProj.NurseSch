@@ -325,6 +325,9 @@ namespace NurseManagerServer
 					nurseList = new List<NurseDutyManager.Nurse>();
 
 					Console.WriteLine("Nurse String to send");
+
+					
+
 					while ((fileReadOrWrite = readFile.ReadLine()) != null)
 					{
 						NurseDutyManager.Nurse newNurse = new NurseDutyManager.Nurse(fileReadOrWrite);
@@ -404,6 +407,15 @@ namespace NurseManagerServer
 							result = "FAIL";
 						}
 					}
+
+					break;
+
+				case "REGNURSE":
+					savePath = @"Data\nurse.txt";
+
+					File.AppendAllText(savePath, msgArray[1] + "\r\n", Encoding.Unicode);
+
+					result = "SUCCESS";
 
 					break;
 			}

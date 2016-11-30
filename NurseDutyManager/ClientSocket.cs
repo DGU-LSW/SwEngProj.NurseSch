@@ -180,7 +180,9 @@ namespace NurseDutyManager
 		 * 옵션 저장			: SAVEOP|option.tostring
 		 * 개인정보 수정		: MODIF|nurse.tostring|...
 		 * 월계획 저장하기	: SAVESCH|월계획 toString()|요소수
+		 * 월계획 가져오기	: GETSCH|
 		 * 간호사정보가져오기	: GETNURSE|id
+		 * 간호사 등록		: REGNURSE|nurse.tostring|
 		 */
 
 		//ID, PW를 보내서 로그인 시도
@@ -188,19 +190,17 @@ namespace NurseDutyManager
 		public virtual int logIn(string ID, string PW)
         {
 			SendMessage("LOGIN|" + ID + '|' + PW + '|' + 3);
-
-			//int i = 0;
-
-			Thread.Sleep(3000);
 			
+			while(true) { if(messageReturned != null) { break; } }
+
 			if (messageReturned == null)
 			{
 				MessageBox.Show("전송시간 초과!");
 
 				return 0;
 			}
-			
-			if(messageReturned.Equals("FAIL"))
+
+			if (messageReturned.Equals("FAIL"))
 			{
 				MessageBox.Show("로그인 실패!");
 
@@ -218,11 +218,18 @@ namespace NurseDutyManager
 		{
 			SendMessage("FINDID|" + name + '|' + lisenceNumber);
 
-			Thread.Sleep(3000);
+			while (true) { if (messageReturned != null) { break; } }
 
 			if (messageReturned == null)
 			{
 				MessageBox.Show("전송시간 초과!");
+
+				return null;
+			}
+
+			if (messageReturned.Equals("FAIL"))
+			{
+				MessageBox.Show("잘못 입력하셨습니다!");
 
 				return null;
 			}
@@ -237,12 +244,18 @@ namespace NurseDutyManager
 		{
 			SendMessage("FINDPW|" + id + '|' + name + '|' + lisenceNumber);
 
-
-			Thread.Sleep(5000);
+			while (true) { if (messageReturned != null) { break; } }
 
 			if (messageReturned == null)
 			{
 				MessageBox.Show("전송시간 초과!");
+
+				return null;
+			}
+
+			if (messageReturned.Equals("FAIL"))
+			{
+				MessageBox.Show("잘못 입력하셨습니다!");
 
 				return null;
 			}
@@ -258,10 +271,10 @@ namespace NurseDutyManager
 		public virtual bool sendOff(List<Off> offList)
 		{
 			string message = "REGOFF|";
-			message += offList[0].ToString();
-			int i = 1;
 
-			while (i < offList.Count)
+			message += offList[0].ToString();
+
+			for(int i=1;i<offList.Count;i++)
 			{
 				message += "|" + offList[i].ToString();
 
@@ -270,16 +283,18 @@ namespace NurseDutyManager
 
 			SendMessage(message);
 
-			int j = 0;
-
-			while (messageReturned == null && j < 1000)
-			{
-				j++;
-			}
+			while (true) { if (messageReturned != null) { break; } }
 
 			if (messageReturned == null)
 			{
 				MessageBox.Show("전송시간 초과!");
+
+				return false;
+			}
+
+			if (messageReturned.Equals("FAIL"))
+			{
+				MessageBox.Show("잘못 입력하셨습니다!");
 
 				return false;
 			}
@@ -290,11 +305,11 @@ namespace NurseDutyManager
 		//서버에 저장된 Off 목록을 가지고 온다.
 		public virtual List<Off> getOffList()
         {
-            List<Off> result = null;
 			string message = "CALLOFFLIST|";
+
 			SendMessage(message);
 
-			Thread.Sleep(3000);
+			while (true) { if (messageReturned != null) { break; } }
 
 			if (messageReturned == null)
 			{
@@ -303,25 +318,34 @@ namespace NurseDutyManager
 				return null;
 			}
 
+			if (messageReturned.Equals("FAIL"))
+			{
+				MessageBox.Show("잘못 입력하셨습니다!");
+
+				return null;
+			}
+
 			string[] msgArray = messageReturned.Split('|');
-			result = new List<Off>();
+
+			List<Off> result = new List<Off>();
 
 			for(int i=0;i<msgArray.Length;i++)
 			{
 				Off newOff = new Off(msgArray[i]);
 				result.Add(newOff);
 			}
+
 			return result;
         }
 
         //서버에 있는 nurse 목록을 가지고 온다.
         public virtual List<Nurse> getNurseList()
         {
-			List<Nurse> result = null;
 			string message = "CALLNURSELIST|";
+
 			SendMessage(message);
 
-			Thread.Sleep(3000);
+			while (true) { if (messageReturned != null) { break; } }
 
 			if (messageReturned == null)
 			{
@@ -330,26 +354,35 @@ namespace NurseDutyManager
 				return null;
 			}
 
+			if (messageReturned.Equals("FAIL"))
+			{
+				MessageBox.Show("잘못 입력하셨습니다!");
+
+				return null;
+			}
+
 			string[] msgArray = messageReturned.Split('|');
-			result = new List<Nurse>();
+
+			List<Nurse> result = new List<Nurse>();
 
 			for (int i = 0; i < msgArray.Length; i++)
 			{
 				Nurse newOff = new Nurse(msgArray[i]);
+
 				result.Add(newOff);
 			}
+
 			return result;
 		}
         
         //서버에 있는 option을 가지고 온다.
         public virtual Option getOption()
         {
-            Option result = null;
-
 			string message = "GETOP|";
+
 			SendMessage(message);
 
-			Thread.Sleep(3000);
+			while (true) { if (messageReturned != null) { break; } }
 
 			if (messageReturned == null)
 			{
@@ -357,6 +390,15 @@ namespace NurseDutyManager
 
 				return null;
 			}
+
+			if (messageReturned.Equals("FAIL"))
+			{
+				MessageBox.Show("잘못 입력하셨습니다!");
+
+				return null;
+			}
+
+			Option result = null;
 
 			if (messageReturned != "FAIL")
 			{
@@ -370,13 +412,11 @@ namespace NurseDutyManager
         //성공하면 true 실패하면 false
         public virtual bool setOption(Option option)
         {
-            bool result = false;
-
 			string message = "SAVEOP|" + option.ToString();
 
 			SendMessage(message);
 
-			Thread.Sleep(3000);
+			while (true) { if (messageReturned != null) { break; } }
 
 			if (messageReturned == null)
 			{
@@ -385,12 +425,13 @@ namespace NurseDutyManager
 				return false;
 			}
 
-			if(messageReturned == "SUCCESS")
+			if (messageReturned == "SUCCESS") { return true; }
+			else
 			{
-				result = true;
-			}
+				MessageBox.Show("잘못 입력하셨습니다!");
 
-			return result;
+				return false;
+			}
         }
 
 		//개인정보 수정한 것을 서버로 보낸다.
@@ -398,8 +439,6 @@ namespace NurseDutyManager
 		// id는 개인정보를 수정할 간호사의 id, nurse는 수정된 개인정보
 		public virtual bool modifyNurse(string ID, Nurse nurse, List<Nurse> nurseList)
 		{
-			bool result = false;
-
 			string message = "MODIF|";
 
 			for(int i=0;i<nurseList.Count;i++)
@@ -425,21 +464,25 @@ namespace NurseDutyManager
 
 			SendMessage(message);
 
-			Thread.Sleep(3000);
+			while (true) { if (messageReturned != null) { break; } }
 
 			if (messageReturned == null)
 			{
 				MessageBox.Show("전송시간 초과!");
 
-				result = false;
+				return false;
 			}
 
 			if(messageReturned == "SUCCESS")
 			{
-				result = true;
+				return true;
 			}
+			else
+			{
+				MessageBox.Show("작업 실패!");
 
-			return result;
+				return false;
+			}
 		}
 
 		//서버에 schedule을 보낸다.
@@ -451,12 +494,7 @@ namespace NurseDutyManager
 
 			SendMessage(message);
 
-			int i = 0;
-
-			while (messageReturned == null && i < 1000)
-			{
-				i++;
-			}
+			while (true) { if (messageReturned != null) { break; } }
 
 			if (messageReturned == null)
 			{
@@ -465,15 +503,47 @@ namespace NurseDutyManager
 				return false;
 			}
 
-			return true;
+			if (messageReturned == "SUCCESS")
+			{
+				return true;
+			}
+			else
+			{
+				MessageBox.Show("작업 실패!");
+
+				return false;
+			}
 		}
 
         //서버에 있는 schedule를 가지고 온다.
         //ex) year = 2016 month = 03
         public virtual MonthSchedule getMonthSchedule(string year, string month)
         {
-            MonthSchedule result = null;
-            return result;
+			string message = "GETSCH|";
+
+			SendMessage(message);
+
+			while (true) { if (messageReturned != null) { break; } }
+
+			if (messageReturned == null)
+			{
+				MessageBox.Show("전송시간 초과!");
+
+				return null;
+			}
+
+			if (messageReturned == "SUCCESS")
+			{
+				MonthSchedule result = new MonthSchedule(messageReturned);
+
+				return result;
+			}
+			else
+			{
+				MessageBox.Show("작업 실패!");
+
+				return null;
+			}
 		}
 
 		//ID에 해당하는 nurse 정보를 가지고 온다.
@@ -483,22 +553,57 @@ namespace NurseDutyManager
 
 			SendMessage(message);
 
-			Thread.Sleep(3000);
+			while (true) { if (messageReturned != null) { break; } }
 
-			if(messageReturned == null)
+			if (messageReturned == null)
 			{
 				MessageBox.Show("전송시간 초과!");
 
 				return null;
 			}
 
-			Nurse newNurse = new Nurse(messageReturned);
+			if (messageReturned == "SUCCESS")
+			{
+				Nurse newNurse = new Nurse(messageReturned);
 
-			return newNurse;
+				return newNurse;
+			}
+			else
+			{
+				MessageBox.Show("작업 실패!");
+
+				return null;
+			}
 		}
+
+		// 간호사 등록
 		public virtual bool RegisterNurse(Nurse newNurse)
 		{
-			return false;
+			string message = "REGNURSE|" + newNurse.ToString();
+
+			SendMessage(message);
+
+			while (true) { if (messageReturned != null) { break; } }
+
+			if (messageReturned == null)
+			{
+				MessageBox.Show("전송시간 초과!");
+
+				return false;
+			}
+
+			if (messageReturned == "SUCCESS")
+			{
+				MessageBox.Show("전송시간 초과!");
+
+				return true;
+			}
+			else
+			{
+				MessageBox.Show("작업 실패!");
+
+				return false;
+			}
 		}
 
 		#endregion

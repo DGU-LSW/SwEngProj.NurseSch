@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
@@ -22,27 +16,33 @@ LOC    : 30
         Nurse nurse = null;
         bool isEqual_ID = true;      //ID 중복검사를 위한 변수
         bool isEqual_License = false; //면허번호 중복검사를 위한 변수
+		List<Nurse> nurse_list;
 
-        public SignupForm()
+		public SignupForm()
         {
             InitializeComponent();
             comboBoxNurse.Items.Add("수간호사");
             comboBoxNurse.Items.Add("일반간호사");
             comboBoxSex.Items.Add("남");
             comboBoxSex.Items.Add("여");
-        }
+
+		}
         public SignupForm(ClientSocket _clientsocket) : this()
         {
             clientsocket = _clientsocket;
-            comboBoxNurse.SelectedIndex = 1; //간호사구분 : 일반 간호사 초기화
-            comboBoxSex.SelectedIndex = 1; //성별 : '여'로 초기화
-        }
+            comboBoxNurse.SelectedIndex = 1;//간호사구분 : 일반 간호사 초기화
+            comboBoxSex.SelectedIndex = 1;  //성별 : '여'로 초기화
+
+			nurse_list = clientsocket.getNurseList();
+		}
 
         private void button1_Click(object sender, EventArgs e)
         {
             #region 면허번호 중복처리
+
             isEqual_License = false;
-            List<Nurse> nurse_list = clientsocket.getNurseList();
+
+
             for (int i = 1; i < nurse_list.Count; i++)
             {
                 isEqual_License = textBoxLicenseNum.Text.Equals(nurse_list[i].LicenseNum);
@@ -59,6 +59,7 @@ LOC    : 30
             if (isEqual_ID)
             {
                 MessageBox.Show("ID 중복확인을 하지 않았습니다.");
+
                 return;
             }
 
@@ -108,7 +109,7 @@ LOC    : 30
         private void button3_Click(object sender, EventArgs e)
         {
             isEqual_ID = true;
-            List<Nurse> nurse_list = clientsocket.getNurseList();
+
             for (int i = 0; i < nurse_list.Count; i++)
             {
                 isEqual_ID = textBoxID.Text.Equals(nurse_list[i].ID);
