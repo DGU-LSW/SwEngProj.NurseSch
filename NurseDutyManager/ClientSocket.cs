@@ -200,16 +200,20 @@ namespace NurseDutyManager
 				return 0;
 			}
 
-			if (messageReturned.Equals("FAIL"))
+			if (messageReturned == "FAIL")
 			{
 				MessageBox.Show("로그인 실패!");
+
+				messageReturned = null;
 
 				return 0;
 			}
 
 			Nurse returnMessage = new Nurse(messageReturned);
 
-			if(returnMessage.IsChiefNurse) { return 1; }
+			messageReturned = null;
+
+			if(returnMessage.IsChiefNurse){ return 1; }
 			else { return 2; }
         }
 
@@ -224,17 +228,23 @@ namespace NurseDutyManager
 			{
 				MessageBox.Show("전송시간 초과!");
 
+				messageReturned = null;
+
 				return null;
 			}
 
-			if (messageReturned.Equals("FAIL"))
+			if (messageReturned == "FAIL")
 			{
 				MessageBox.Show("잘못 입력하셨습니다!");
+
+				messageReturned = null;
 
 				return null;
 			}
 
 			Nurse result = new Nurse(messageReturned);
+
+			messageReturned = null;
 
 			return result;
 		}
@@ -250,17 +260,23 @@ namespace NurseDutyManager
 			{
 				MessageBox.Show("전송시간 초과!");
 
+				messageReturned = null;
+
 				return null;
 			}
 
-			if (messageReturned.Equals("FAIL"))
+			if (messageReturned == "FAIL")
 			{
 				MessageBox.Show("잘못 입력하셨습니다!");
+
+				messageReturned = null;
 
 				return null;
 			}
 
 			Nurse result = new Nurse(messageReturned);
+
+			messageReturned = null;
 
 			return result;
 		}
@@ -289,6 +305,8 @@ namespace NurseDutyManager
 			{
 				MessageBox.Show("전송시간 초과!");
 
+				messageReturned = null;
+
 				return false;
 			}
 
@@ -296,8 +314,12 @@ namespace NurseDutyManager
 			{
 				MessageBox.Show("잘못 입력하셨습니다!");
 
+				messageReturned = null;
+
 				return false;
 			}
+
+			messageReturned = null;
 
 			return true;
 		}
@@ -314,14 +336,14 @@ namespace NurseDutyManager
 			if (messageReturned == null)
 			{
 				MessageBox.Show("전송시간 초과!");
-
+				messageReturned = null;
 				return null;
 			}
 
 			if (messageReturned.Equals("FAIL"))
 			{
 				MessageBox.Show("잘못 입력하셨습니다!");
-
+				messageReturned = null;
 				return null;
 			}
 
@@ -334,7 +356,7 @@ namespace NurseDutyManager
 				Off newOff = new Off(msgArray[i]);
 				result.Add(newOff);
 			}
-
+			messageReturned = null;
 			return result;
         }
 
@@ -350,14 +372,14 @@ namespace NurseDutyManager
 			if (messageReturned == null)
 			{
 				MessageBox.Show("전송시간 초과!");
-
+				messageReturned = null;
 				return null;
 			}
 
 			if (messageReturned.Equals("FAIL"))
 			{
 				MessageBox.Show("잘못 입력하셨습니다!");
-
+				messageReturned = null;
 				return null;
 			}
 
@@ -371,7 +393,7 @@ namespace NurseDutyManager
 
 				result.Add(newOff);
 			}
-
+			messageReturned = null;
 			return result;
 		}
         
@@ -387,14 +409,14 @@ namespace NurseDutyManager
 			if (messageReturned == null)
 			{
 				MessageBox.Show("전송시간 초과!");
-
+				messageReturned = null;
 				return null;
 			}
 
 			if (messageReturned.Equals("FAIL"))
 			{
 				MessageBox.Show("잘못 입력하셨습니다!");
-
+				messageReturned = null;
 				return null;
 			}
 
@@ -404,7 +426,7 @@ namespace NurseDutyManager
 			{
 				result = new Option(messageReturned);
 			}
-
+			messageReturned = null;
 			return result;
         }
         
@@ -421,18 +443,28 @@ namespace NurseDutyManager
 			if (messageReturned == null)
 			{
 				MessageBox.Show("전송시간 초과!");
-
+				messageReturned = null;
 				return false;
 			}
 
-			if (messageReturned == "SUCCESS") { return true; }
+			bool result;
+
+			if (messageReturned == "SUCCESS")
+			{
+
+				result = true;
+			}
 			else
 			{
 				MessageBox.Show("잘못 입력하셨습니다!");
 
-				return false;
+				result = false;
 			}
-        }
+
+			messageReturned = null;
+
+			return result;
+		}
 
 		//개인정보 수정한 것을 서버로 보낸다.
 		//성공하면 true 실패하면 false
@@ -469,20 +501,25 @@ namespace NurseDutyManager
 			if (messageReturned == null)
 			{
 				MessageBox.Show("전송시간 초과!");
-
+				messageReturned = null;
 				return false;
 			}
 
+			bool result;
+
 			if(messageReturned == "SUCCESS")
 			{
-				return true;
+				result = true;
 			}
 			else
 			{
 				MessageBox.Show("작업 실패!");
 
-				return false;
+				result = false;
 			}
+			messageReturned = null;
+
+			return result;
 		}
 
 		//서버에 schedule을 보낸다.
@@ -499,20 +536,26 @@ namespace NurseDutyManager
 			if (messageReturned == null)
 			{
 				MessageBox.Show("전송시간 초과!");
-
+				messageReturned = null;
 				return false;
 			}
 
+			bool result;
+
 			if (messageReturned == "SUCCESS")
 			{
-				return true;
+				result = true;
 			}
 			else
 			{
 				MessageBox.Show("작업 실패!");
 
-				return false;
+				result = false;
 			}
+
+			messageReturned = null;
+
+			return result;
 		}
 
         //서버에 있는 schedule를 가지고 온다.
@@ -529,21 +572,23 @@ namespace NurseDutyManager
 			{
 				MessageBox.Show("전송시간 초과!");
 
+				messageReturned = null;
+
 				return null;
 			}
-
+			MonthSchedule result;
 			if (messageReturned == "SUCCESS")
 			{
-				MonthSchedule result = new MonthSchedule(messageReturned);
-
-				return result;
+				result = new MonthSchedule(messageReturned);
 			}
 			else
 			{
 				MessageBox.Show("작업 실패!");
 
-				return null;
+				result = null;
 			}
+
+			return result;
 		}
 
 		//ID에 해당하는 nurse 정보를 가지고 온다.
@@ -559,21 +604,25 @@ namespace NurseDutyManager
 			{
 				MessageBox.Show("전송시간 초과!");
 
+				messageReturned = null;
+
 				return null;
 			}
 
+			Nurse newNurse;
+
 			if (messageReturned == "SUCCESS")
 			{
-				Nurse newNurse = new Nurse(messageReturned);
-
-				return newNurse;
+				newNurse = new Nurse(messageReturned);
 			}
 			else
 			{
 				MessageBox.Show("작업 실패!");
 
-				return null;
+				newNurse = null;
 			}
+
+			return newNurse;
 		}
 
 		// 간호사 등록
@@ -589,21 +638,26 @@ namespace NurseDutyManager
 			{
 				MessageBox.Show("전송시간 초과!");
 
+				messageReturned = null;
+
 				return false;
 			}
 
+			bool result;
 			if (messageReturned == "SUCCESS")
 			{
 				MessageBox.Show("전송시간 초과!");
 
-				return true;
+				result = true;
 			}
 			else
 			{
 				MessageBox.Show("작업 실패!");
 
-				return false;
+				result = false;
 			}
+
+			return result;
 		}
 
 		#endregion
