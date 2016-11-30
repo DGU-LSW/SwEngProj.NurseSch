@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-
-namespace NurseDutyManager
-{
-    /*
+/*
 작성자 : 정창훈
 Module : SignupForm
-LOC    : 30
+LOC    : 140
 */
+namespace NurseDutyManager
+{
     public partial class SignupForm : Form
     {
         ClientSocket clientsocket;

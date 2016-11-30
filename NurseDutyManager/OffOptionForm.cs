@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Windows.Forms;
-
+/*
+ * 작성: 김수희 
+ * Module: OffOption
+ * LOC: 109
+ */
 namespace NurseDutyManager
 {
-    // 작성자	: 김수희
-    // Module	: OffOptionForm
-    // LOC		: 136
-
     public partial class OffOptionForm : Form
     {
         ClientSocket clientsocket;

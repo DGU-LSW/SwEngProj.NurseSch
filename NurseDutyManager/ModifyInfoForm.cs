@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 
+/*
+ * 작성: 정창훈
+ * Module: ModifyInfoForm
+ * LOC: 125
+ */
 namespace NurseDutyManager
 {
     public partial class ModifyInfoForm : Form

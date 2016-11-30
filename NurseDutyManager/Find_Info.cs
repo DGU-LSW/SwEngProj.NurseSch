@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Windows.Forms;
-
+/*
+ * 작성: 정창훈
+ * Module: FindInfo
+ * LOC: 67
+ */
 namespace NurseDutyManager
 {
     public partial class Find_Info : Form
