@@ -1,6 +1,6 @@
 ﻿namespace NurseDutyManager
 {
-    partial class ChecktableForm
+    partial class CheckTableForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,11 +28,48 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "ChecktableForm";
+			this.btnOpen = new System.Windows.Forms.Button();
+			this.tboxTable = new System.Windows.Forms.TextBox();
+			this.SuspendLayout();
+			// 
+			// btnOpen
+			// 
+			this.btnOpen.Location = new System.Drawing.Point(12, 12);
+			this.btnOpen.Name = "btnOpen";
+			this.btnOpen.Size = new System.Drawing.Size(131, 47);
+			this.btnOpen.TabIndex = 0;
+			this.btnOpen.Text = "열기";
+			this.btnOpen.UseVisualStyleBackColor = true;
+			this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
+			// 
+			// tboxTable
+			// 
+			this.tboxTable.Location = new System.Drawing.Point(12, 108);
+			this.tboxTable.Multiline = true;
+			this.tboxTable.Name = "tboxTable";
+			this.tboxTable.ReadOnly = true;
+			this.tboxTable.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+			this.tboxTable.Size = new System.Drawing.Size(760, 382);
+			this.tboxTable.TabIndex = 1;
+			this.tboxTable.WordWrap = false;
+			// 
+			// CheckTableForm
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.ClientSize = new System.Drawing.Size(784, 502);
+			this.Controls.Add(this.tboxTable);
+			this.Controls.Add(this.btnOpen);
+			this.Name = "CheckTableForm";
+			this.Text = "ChecktableForm";
+			this.ResumeLayout(false);
+			this.PerformLayout();
+
         }
 
-        #endregion
-    }
+		#endregion
+
+		private System.Windows.Forms.Button btnOpen;
+		private System.Windows.Forms.TextBox tboxTable;
+	}
 }

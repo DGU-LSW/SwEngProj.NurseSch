@@ -96,7 +96,6 @@
             this.label1.Size = new System.Drawing.Size(107, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "근무자 수 입력";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -106,7 +105,6 @@
             this.label2.Size = new System.Drawing.Size(29, 12);
             this.label2.TabIndex = 1;
             this.label2.Text = "휴일";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -134,7 +132,6 @@
             this.label5.Size = new System.Drawing.Size(17, 12);
             this.label5.TabIndex = 4;
             this.label5.Text = "화";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label6
             // 
@@ -172,7 +169,6 @@
             this.label9.Size = new System.Drawing.Size(27, 12);
             this.label9.TabIndex = 8;
             this.label9.Text = "Day";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // label10
             // 
@@ -414,7 +410,6 @@
             this.Controls.Add(this.label1);
             this.Name = "OffOptionForm";
             this.Text = "옵션";
-            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();

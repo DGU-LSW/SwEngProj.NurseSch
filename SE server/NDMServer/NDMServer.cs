@@ -1,13 +1,24 @@
-﻿using System;
+﻿/*
+ * 원본: http://slaner.tistory.com/52
+ * 수정: 임제희
+ * Module: ClientSocket
+ * LOC:
+ */
+
+using System;
 using System.Text;
 using System.Net;
 using System.Net.Sockets;
 using System.Collections.Generic;
+using System.IO;
+
+#region 받은 부분
 
 namespace NurseManagerServer
 {
 	public class NDMServer
 	{
+		
 		public class AsyncObject
 		{
 			public Byte[] Buffer;
@@ -158,6 +169,8 @@ namespace NurseManagerServer
 				Console.WriteLine("메세지 보냄: {0}", Encoding.Unicode.GetString(msgByte));
 			}
 		}
+		#endregion
+
 
 		// 받은 메시지를 기반으로 보낼 메시지 생성
 		private string BuildMessage(string messageReceived)
@@ -167,23 +180,25 @@ namespace NurseManagerServer
 			List<NurseDutyManager.Off> offList;
 			string result = "FAIL";
 			string[] msgArray = messageReceived.Split('|');
-			string fileReadResult;
+			string fileReadOrWrite;
 			string savePath;
-			System.IO.StreamReader readFile;
+			StreamReader readFile;
 
 			switch (msgArray[0])
 			{
 				case "LOGIN":
 					savePath = @"Data\nurse.txt";
-					readFile = new System.IO.StreamReader(savePath);
+					readFile = new StreamReader(savePath);
 
 					nurseList = new List<NurseDutyManager.Nurse>();
 
-					while ((fileReadResult = readFile.ReadLine()) != null)
+					while ((fileReadOrWrite = readFile.ReadLine()) != null)
 					{
-						NurseDutyManager.Nurse newNurse = new NurseDutyManager.Nurse(fileReadResult);
+						NurseDutyManager.Nurse newNurse = new NurseDutyManager.Nurse(fileReadOrWrite);
 						nurseList.Add(newNurse);
 					}
+
+					readFile.Close();
 
 					for (int i = 0; i < nurseList.Count; i++)
 					{
@@ -202,15 +217,17 @@ namespace NurseManagerServer
 
 				case "FINDID":
 					savePath = @"Data\nurse.txt";
-					readFile = new System.IO.StreamReader(savePath);
+					readFile = new StreamReader(savePath);
 
 					nurseList = new List<NurseDutyManager.Nurse>();
 
-					while ((fileReadResult = readFile.ReadLine()) != null)
+					while ((fileReadOrWrite = readFile.ReadLine()) != null)
 					{
-						NurseDutyManager.Nurse newNurse = new NurseDutyManager.Nurse(fileReadResult);
+						NurseDutyManager.Nurse newNurse = new NurseDutyManager.Nurse(fileReadOrWrite);
 						nurseList.Add(newNurse);
 					}
+
+					readFile.Close();
 
 					for (int i = 0; i < nurseList.Count; i++)
 					{
@@ -233,11 +250,13 @@ namespace NurseManagerServer
 
 					nurseList = new List<NurseDutyManager.Nurse>();
 
-					while ((fileReadResult = readFile.ReadLine()) != null)
+					while ((fileReadOrWrite = readFile.ReadLine()) != null)
 					{
-						NurseDutyManager.Nurse newNurse = new NurseDutyManager.Nurse(fileReadResult);
+						NurseDutyManager.Nurse newNurse = new NurseDutyManager.Nurse(fileReadOrWrite);
 						nurseList.Add(newNurse);
 					}
+
+					readFile.Close();
 
 					for (int i = 0; i < nurseList.Count; i++)
 					{
@@ -267,9 +286,7 @@ namespace NurseManagerServer
 
 					for (int i = 0; i < offList.Count; i++)
 					{
-						//writeFile.WriteLine(offList[i].ToString() + "\r\n");
-
-						System.IO.File.AppendAllText(savePath, offList[i].ToString() + "\r\n", Encoding.Unicode);
+						File.AppendAllText(savePath, offList[i].ToString() + "\r\n", Encoding.Unicode);
 					}
 					
 					result = "SUCCESS";
@@ -278,18 +295,20 @@ namespace NurseManagerServer
 
 				case "CALLOFFLIST":
 					savePath = @"Data\offList.txt";
-					readFile = new System.IO.StreamReader(savePath);
+					readFile = new StreamReader(savePath);
 
 					offList = new List<NurseDutyManager.Off>();
 					
 					Console.WriteLine("Off String to send");
 					
-					while ((fileReadResult = readFile.ReadLine()) != null)
+					while ((fileReadOrWrite = readFile.ReadLine()) != null)
 					{
-						NurseDutyManager.Off newOff = new NurseDutyManager.Off(fileReadResult);
+						NurseDutyManager.Off newOff = new NurseDutyManager.Off(fileReadOrWrite);
 						Console.WriteLine(newOff.ToString());
 						offList.Add(newOff);
 					}
+
+					readFile.Close();
 
 					result =  offList[0].ToString();
 
@@ -301,17 +320,19 @@ namespace NurseManagerServer
 
 				case "CALLNURSELIST":
 					savePath = @"Data\nurse.txt";
-					readFile = new System.IO.StreamReader(savePath);
+					readFile = new StreamReader(savePath);
 
 					nurseList = new List<NurseDutyManager.Nurse>();
 
 					Console.WriteLine("Nurse String to send");
-					while ((fileReadResult = readFile.ReadLine()) != null)
+					while ((fileReadOrWrite = readFile.ReadLine()) != null)
 					{
-						NurseDutyManager.Nurse newNurse = new NurseDutyManager.Nurse(fileReadResult);
+						NurseDutyManager.Nurse newNurse = new NurseDutyManager.Nurse(fileReadOrWrite);
 						Console.WriteLine(newNurse.ToString());
 						nurseList.Add(newNurse);
 					}
+
+					readFile.Close();
 
 					result = nurseList[0].ToString();
 
@@ -319,19 +340,71 @@ namespace NurseManagerServer
 					{
 						result += '|' + nurseList[i].ToString();
 					}
+
 					break;
+					
 				case "GETOP":
 					savePath = @"Data\option.txt";
-					readFile = new System.IO.StreamReader(savePath);
+					readFile = new StreamReader(savePath);
 					result = readFile.ReadLine();
+					readFile.Close();
 
 					break;
-				case "SAVEOP":
-					savePath = @"Data/option.txt";
 
-					System.IO.File.WriteAllText(savePath, msgArray[1], Encoding.Unicode);
+				case "SAVEOP":
+					savePath = @"Data\option.txt";
+
+					File.WriteAllText(savePath, msgArray[1], Encoding.Unicode);
 					
 					result = "SUCCESS";
+					break;
+
+				case "MODIF":
+					savePath = @"Data\nurse.txt";
+
+					fileReadOrWrite = null;
+
+					fileReadOrWrite += msgArray[1];
+
+					for (int i=2;i<msgArray.Length;i++)
+					{
+						fileReadOrWrite += "\r\n" + msgArray[i];
+					}
+
+					File.WriteAllText(savePath, fileReadOrWrite, Encoding.Unicode);
+
+					result = "SUCCESS";
+
+					break;
+
+				case "GETNURSE":
+					savePath = @"Data\nurse.txt";
+					readFile = new StreamReader(savePath);
+
+					nurseList = new List<NurseDutyManager.Nurse>();
+
+					while ((fileReadOrWrite = readFile.ReadLine()) != null)
+					{
+						NurseDutyManager.Nurse newNurse = new NurseDutyManager.Nurse(fileReadOrWrite);
+						nurseList.Add(newNurse);
+					}
+
+					readFile.Close();
+
+					for (int i = 0; i < nurseList.Count; i++)
+					{
+						if (nurseList[i].ID == msgArray[1])
+						{
+							result = nurseList[i].ToString();
+
+							break;
+						}
+						else
+						{
+							result = "FAIL";
+						}
+					}
+
 					break;
 			}
 

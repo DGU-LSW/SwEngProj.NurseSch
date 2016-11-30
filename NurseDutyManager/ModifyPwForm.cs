@@ -29,7 +29,9 @@ namespace NurseDutyManager
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (!textBoxPW.Text.Equals(textBoxPW2.Text))
+			List<Nurse> nurseList = clientSocket.getNurseList();
+
+			if (!textBoxPW.Text.Equals(textBoxPW2.Text))
             {
                 MessageBox.Show("비밀번호가 일치하지 않습니다.");
             }
@@ -37,7 +39,7 @@ namespace NurseDutyManager
             {
                 textBoxPW.Text.Replace(',',' ');//,를 지운다.
                 target.Password = textBoxPW.Text;
-                bool result = clientSocket.modifyNurse(target.ID, target);
+                bool result = clientSocket.modifyNurse(target.ID, target, nurseList);
                 if (result)
                 {
                     MessageBox.Show("변경 완료");

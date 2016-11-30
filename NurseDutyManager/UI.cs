@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace NurseDutyManager
@@ -19,7 +12,7 @@ namespace NurseDutyManager
     {
         
         ApplyOff applyOffForm;
-        ChecktableForm checktableForm; //추가
+        CheckTableForm checktableForm; //추가
         //ChiefMenuForm chidfMenuForm;
         DutyList dutyListForm;
         //LoginForm loginForm;
@@ -104,7 +97,7 @@ namespace NurseDutyManager
         //시간표확인_chief
         private void buttonChcekSch_chief_Click(object sender, EventArgs e)
         {
-            checktableForm = new ChecktableForm(clientSocket);
+            checktableForm = new CheckTableForm(clientSocket);
             checktableForm.ShowDialog(this);
         }
         //off신청_chief
@@ -122,7 +115,7 @@ namespace NurseDutyManager
         //표확인_일반
         private void button3_Click(object sender, EventArgs e)
         {
-            checktableForm = new ChecktableForm(clientSocket);
+            checktableForm = new CheckTableForm(clientSocket);
             checktableForm.ShowDialog(this);
         }
         //off신청_일반
@@ -137,6 +130,10 @@ namespace NurseDutyManager
             modifyInfoForm = new ModifyInfoForm(clientSocket, currentID);
             modifyInfoForm.ShowDialog(this);
         }
-        
-    }
+
+		private void UI_FormClosing(object sender, FormClosingEventArgs e)
+		{
+			clientSocket.StopClient();
+		}
+	}
 }

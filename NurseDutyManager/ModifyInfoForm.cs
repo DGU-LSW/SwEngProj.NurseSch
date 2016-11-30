@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace NurseDutyManager
@@ -23,6 +17,7 @@ namespace NurseDutyManager
         {
             clientsocket = _clientsocket;
             currentNurse = clientsocket.getNurse(_id);
+
             #region 콤보박스 셋팅
             if (currentNurse.IsChiefNurse == true)  //수간호사 일 경우
             {
@@ -50,6 +45,8 @@ namespace NurseDutyManager
         }
         private void button1_Click(object sender, EventArgs e)
         {
+			List<Nurse> nurseList = clientsocket.getNurseList();
+
             #region 비일번호 일치 검사
             if (!textBoxPW.Text.Equals(textBoxPW2.Text))     //비밀번호 일치 검사
             {
@@ -95,7 +92,7 @@ namespace NurseDutyManager
             currentNurse.PhoneNum = textBoxPh.Text;
             #endregion
             #region 서버에 저장
-            bool result = clientsocket.modifyNurse(currentNurse.ID, currentNurse);
+            bool result = clientsocket.modifyNurse(currentNurse.ID, currentNurse, nurseList);
             if (result)
             {
                 MessageBox.Show("수정완료");
