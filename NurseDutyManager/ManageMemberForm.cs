@@ -46,7 +46,11 @@ namespace NurseDutyManager
             {
                 newInfo.Group = GROUP.Group3;
             }
-            bool result = clientsocket.modifyNurse(newInfo.ID, newInfo);
+
+			newInfo.Password = textBoxPW.Text;
+			newInfo.PhoneNum = textBoxPhNum.Text;
+
+            bool result = clientsocket.modifyNurse(newInfo.ID, newInfo, list);
             if (!result) { MessageBox.Show("변경 실패"); }
             else {
                 MessageBox.Show("변경 완료");
