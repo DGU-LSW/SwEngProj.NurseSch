@@ -1,4 +1,9 @@
-﻿namespace NurseDutyManager
+﻿/*
+ * 작성: 임제희
+ * Module: Dutylist
+ * LOC: 185
+ */
+namespace NurseDutyManager
 {
 	partial class DutyList
 	{

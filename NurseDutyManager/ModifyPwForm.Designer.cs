@@ -1,4 +1,9 @@
-﻿namespace NurseDutyManager
+﻿/*
+ * 작성: 이신우
+ * Module: ModifyPwForm
+ * LOC: 123
+ */
+namespace NurseDutyManager
 {
     partial class ModifyPwForm
     {

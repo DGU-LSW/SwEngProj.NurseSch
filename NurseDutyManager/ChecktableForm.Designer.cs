@@ -1,4 +1,9 @@
-﻿namespace NurseDutyManager
+﻿/*
+ * 작성: 정창훈, 임제희
+ * Module: CheckTableForm
+ * LOC: 80
+ */
+namespace NurseDutyManager
 {
     partial class CheckTableForm
     {

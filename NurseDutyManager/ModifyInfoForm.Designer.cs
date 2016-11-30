@@ -1,4 +1,9 @@
-﻿namespace NurseDutyManager
+﻿/*
+ * 작성: 정창훈
+ * Module: ModifyInfoForm
+ * LOC: 290
+ */
+namespace NurseDutyManager
 {
     partial class ModifyInfoForm
     {

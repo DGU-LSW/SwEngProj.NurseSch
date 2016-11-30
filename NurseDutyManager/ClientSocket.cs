@@ -9,7 +9,7 @@ using System.Windows.Forms;
  * 원본: http://slaner.tistory.com/52
  * 수정: 임제희
  * Module: ClientSocket
- * LOC: 507
+ * LOC: 506
  */
 namespace NurseDutyManager
 {

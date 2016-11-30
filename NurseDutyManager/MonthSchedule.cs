@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
+/*
+ * 작성: 이신우
+ * Module: MonthSchedule
+ * LOC: 162
+ */
 namespace NurseDutyManager
 {
-    /*
-     * 작성자 : 이신우
-     */
     public class MonthSchedule : Object
     {
         List<DaySchedule> dayList;

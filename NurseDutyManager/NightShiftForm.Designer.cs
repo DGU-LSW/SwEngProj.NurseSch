@@ -1,11 +1,16 @@
-﻿namespace NurseDutyManager
+﻿/*
+ * 작성: 김수희 
+ * Module: NightShiftForm
+ * LOC: 151
+ */
+namespace NurseDutyManager
 {
     partial class NightShiftForm
     {
         /// <summary>
-        /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
+        /// Required designer variable.
 
         /// <summary>
         /// Clean up any resources being used.

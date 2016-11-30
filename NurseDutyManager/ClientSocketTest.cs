@@ -5,11 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 
+/*
+ * 작성: 이신우
+ * Module: clientsockettest
+ * LOC: 249
+ */
 namespace NurseDutyManager
 {
-    /*
-     * 작성자 : 이신우
-     */
     class ClientSocketTest : ClientSocket
     {
         private static string pathNurse = "Nurse.txt";
