@@ -18,7 +18,13 @@ namespace NurseDutyManager
             clientsocket = _clientsocket;
             currentNurse = clientsocket.getNurse(_id);
 
-            #region 콤보박스 셋팅
+			if (currentNurse == null)
+			{
+				MessageBox.Show("getNurse 에러");
+
+				return;
+			}
+			#region 콤보박스 셋팅
             if (currentNurse.IsChiefNurse == true)  //수간호사 일 경우
             {
                 comboBoxType.SelectedIndex = 0;

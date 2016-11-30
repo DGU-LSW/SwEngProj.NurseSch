@@ -145,6 +145,7 @@
 			this.textBoxPW.Location = new System.Drawing.Point(225, 144);
 			this.textBoxPW.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.textBoxPW.Name = "textBoxPW";
+			this.textBoxPW.ReadOnly = true;
 			this.textBoxPW.Size = new System.Drawing.Size(134, 25);
 			this.textBoxPW.TabIndex = 11;
 			// 
@@ -171,6 +172,7 @@
 			this.textBoxPhNum.Location = new System.Drawing.Point(225, 250);
 			this.textBoxPhNum.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.textBoxPhNum.Name = "textBoxPhNum";
+			this.textBoxPhNum.ReadOnly = true;
 			this.textBoxPhNum.Size = new System.Drawing.Size(134, 25);
 			this.textBoxPhNum.TabIndex = 14;
 			// 
