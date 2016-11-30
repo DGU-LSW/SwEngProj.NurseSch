@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace NurseDutyManager
@@ -17,15 +14,6 @@ namespace NurseDutyManager
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new ApplyOff());
-            //Application.Run(new ChiefMenuForm());
-            //Application.Run(new DutyList());
-            //Application.Run(new LoginForm());
-            //Application.Run(new ManageMemberForm());
-            //Application.Run(new ModifyInfoForm());
-            //Application.Run(new NightShiftForm());
-            //Application.Run(new OffOptionForm());
-            //Application.Run(new SignupForm());
 
             Application.Run(new UI());
 		}

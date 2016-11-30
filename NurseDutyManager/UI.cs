@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace NurseDutyManager
@@ -137,6 +130,10 @@ namespace NurseDutyManager
             modifyInfoForm = new ModifyInfoForm(clientSocket, currentID);
             modifyInfoForm.ShowDialog(this);
         }
-        
-    }
+
+		private void UI_FormClosing(object sender, FormClosingEventArgs e)
+		{
+			clientSocket.StopClient();
+		}
+	}
 }

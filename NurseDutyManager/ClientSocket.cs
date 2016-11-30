@@ -5,6 +5,12 @@ using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 
+/*
+ * 원본: http://slaner.tistory.com/52
+ * 수정: 임제희
+ * Module: ClientSocket
+ * LOC:
+ */
 namespace NurseDutyManager
 {
     public class ClientSocket
@@ -34,7 +40,7 @@ namespace NurseDutyManager
 			mfnReceiveHandler = new AsyncCallback(handleDataReceive);
 			mfnSenderHandler = new AsyncCallback(handleDataSend);
 
-			this.ConnectToServer("localhost", 12);
+			ConnectToServer("localhost", 12);
 		}
 
 		public bool Conntected
@@ -325,7 +331,7 @@ namespace NurseDutyManager
 
 			if (messageReturned != "FAIL")
 			{
-				result = new Option(message);
+				result = new Option(messageReturned);
 			}
 
 			return result;

@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NurseDutyManager
 {
@@ -23,16 +20,20 @@ namespace NurseDutyManager
         List<Nurse> nurseList = null;
         List<Off> offList = null;
         Option option = null;
+		DateTime date;
         DayOfWeek startWeek;
         int monthLen; //month의 길이
 
-		public Scheduler(ClientSocket clientSocket)
+		public Scheduler(ClientSocket clientsocket, List<Nurse> nurseList, List<Off> offList, Option option, DateTime date)
 		{
-			this.clientsocket = clientSocket;
+			this.clientsocket = clientsocket;
+			this.nurseList = nurseList;
+			this.offList = offList;
+			this.option = option;
+			this.date = date;
 
-			nurseList = this.clientsocket.getNurseList();
-			offList = this.clientsocket.getOffList();
-            option = this.clientsocket.getOption();
+			startWeek = (new DateTime(date.Year, date.Month, 1)).DayOfWeek;
+			monthLen = DateTime.DaysInMonth(date.Year, date.Month);
 		}
 
         public MonthSchedule makeSchedule()

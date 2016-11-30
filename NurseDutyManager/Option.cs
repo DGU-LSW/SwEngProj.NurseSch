@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace NurseDutyManager
+﻿namespace NurseDutyManager
 {
     // 작성자	: 김수희
     // Module	: Option
@@ -52,7 +46,7 @@ namespace NurseDutyManager
 
             }
             
-            String[] str = option.Split(',');
+            string[] str = option.Split(',');
 
             monday[0] = int.Parse(str[0]);
             monday[1] = int.Parse(str[1]);
@@ -147,8 +141,6 @@ namespace NurseDutyManager
             result += group2;
             result += ',';
             result += group3;
-          
-            result = result.ToString();
 
             return result;
         }
