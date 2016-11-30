@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NurseDutyManager
 {
     /*
      * 작성자 : 이신우
      */
-    public class MonthSchedule : System.Object
+    public class MonthSchedule : Object
     {
         List<DaySchedule> dayList;
         List<Nurse> nurseList;  //그룹순으로 정렬된 list
@@ -18,7 +16,9 @@ namespace NurseDutyManager
         {
             int numNurse = _nurseList.Count; //간호사 수
             int week = 0;
+
             #region week요일 결정
+
             switch (_startWeek)//week 요일 결정
             {
                 case DayOfWeek.Monday:
@@ -43,14 +43,24 @@ namespace NurseDutyManager
                     week = 6;
                     break;
             }
-            #endregion
-            #region dayList 메모리 할당
-            for (int i = 0; i < _monthLength; i++)
+			#endregion
+
+			#region dayList 메모리 할당
+
+			dayList = new List<DaySchedule>();
+
+			for (int i = 0; i < _monthLength; i++)
             {
-                dayList.Add(new DaySchedule(numNurse, week));
+				DaySchedule newDay = new DaySchedule(numNurse, week);
+
+				dayList.Add(newDay);
             }
-            #endregion
-            #region 간호사 정렬
+			#endregion
+
+			#region 간호사 정렬
+
+			nurseList = new List<Nurse>();
+
             for (int i = 0; i < numNurse; i++)//group1 nurse 삽입
             {
                 if(_nurseList[i].Group.Equals(GROUP.Group1))
@@ -72,8 +82,11 @@ namespace NurseDutyManager
                     nurseList.Add(new Nurse(_nurseList[i]));
                 }
             }
+
             #endregion
+
             #region dayList에 offList 요소 삽입
+
             for (int i = 0; i < _offList.Count; i++)
             {
                 for (int j = 0; j < numNurse; j++)
@@ -134,7 +147,7 @@ namespace NurseDutyManager
             for(int i = 0; i < nurseList.Count; i++)    //간호사 라인
             {
                 result += nurseList[i].Name;
-                result += "\u0009" + "/u0009";
+                result += "\u0009" + "\u0009";
                 for(int j = 0; j < dayList.Count; j++)  //한달 순환
                 {
                     result += dayList[j].getWork(i).ToString();

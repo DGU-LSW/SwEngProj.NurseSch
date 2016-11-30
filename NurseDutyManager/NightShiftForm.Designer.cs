@@ -49,7 +49,6 @@
             this.label1.Size = new System.Drawing.Size(45, 12);
             this.label1.TabIndex = 0;
             this.label1.Text = "Group1";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -125,7 +124,6 @@
             this.Controls.Add(this.label1);
             this.Name = "NightShiftForm";
             this.Text = "월별 Night 근무 설정";
-            this.Load += new System.EventHandler(this.Form2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
