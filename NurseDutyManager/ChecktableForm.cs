@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Text;
 using System.Windows.Forms;
 
 /*
@@ -33,7 +34,7 @@ namespace NurseDutyManager
 			{
 				StreamReader sr = new StreamReader(openFileDialog1.FileName);
 
-				tboxTable.Text = sr.ReadToEnd().ToString();
+				tboxTable.Text = sr.ReadToEnd();
 
 				sr.Close();
 			}
