@@ -11,10 +11,8 @@ namespace NurseDutyManager
     {
         
         ApplyOff applyOffForm;
-        CheckTableForm checktableForm; //추가
-        //ChiefMenuForm chidfMenuForm;
+        CheckTableForm checktableForm;
         DutyList dutyListForm;
-        //LoginForm loginForm;
         ManageMemberForm manageMemberForm;
         ModifyInfoForm modifyInfoForm;
         NightShiftForm nightShiftForm;
