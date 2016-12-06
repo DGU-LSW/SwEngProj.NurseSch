@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Windows.Forms;
-
+/*
+ * 작성: 정창훈, 이신우, 김수희, 임제희 
+ * Module: UI
+ * LOC: 138
+ */
 namespace NurseDutyManager
 {
-    /*
-     * 작성자 : 이신우
-     * Module : 
-     * LOC : 
-     */
     public partial class UI : Form
     {
         

@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 
+/*
+ * 작성: 이신우
+ * Module: MemberManageForm
+ * LOC: 91
+ */
 namespace NurseDutyManager
 {
-    /*
-     * 작성자 : 이신우
-     */
     public partial class ManageMemberForm : Form
     {
         ClientSocket clientsocket = null;

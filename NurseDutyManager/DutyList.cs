@@ -6,8 +6,8 @@ using System.Windows.Forms;
 
 /*
  * 작성: 임제희
- * Module: DutyList 폼
- * LOC: 335
+ * Module: Dutylist
+ * LOC: 155
  */
 
 namespace NurseDutyManager

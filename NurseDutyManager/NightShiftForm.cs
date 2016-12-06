@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Windows.Forms;
-
+/*
+ * 작성: 김수희 
+ * Module: NightShiftForm
+ * LOC: 42
+ */
 namespace NurseDutyManager
 {
-    // 작성자	: 김수희
-    // Module	: NightShiftForm
-    // LOC		: 59
-
     public partial class NightShiftForm : Form
     {
         ClientSocket clientsocket;
