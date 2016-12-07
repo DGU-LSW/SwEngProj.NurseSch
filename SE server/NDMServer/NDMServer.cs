@@ -183,6 +183,7 @@ namespace NurseManagerServer
 			string fileReadOrWrite;
 			string savePath;
 			StreamReader readFile;
+			StreamWriter writeFile;
 
 
 			/* 메시지 규격
@@ -373,7 +374,10 @@ namespace NurseManagerServer
 				case "SAVEOP":
 					savePath = @"Data\option.txt";
 
-					File.WriteAllText(savePath, msgArray[1], Encoding.Unicode);
+					writeFile = new StreamWriter(savePath, true, Encoding.Unicode, 4096);
+
+					writeFile.WriteLine(msgArray[1]);
+					writeFile.Close();
 					
 					result = "SUCCESS";
 					break;
@@ -381,16 +385,14 @@ namespace NurseManagerServer
 				case "MODIF":
 					savePath = @"Data\nurse.txt";
 
-					fileReadOrWrite = null;
+					writeFile = new StreamWriter(savePath, true, Encoding.Unicode, 4096);
 
-					fileReadOrWrite += msgArray[1];
-
-					for (int i=2;i<msgArray.Length;i++)
+					for(int i=1;i<msgArray.Length;i++)
 					{
-						fileReadOrWrite += "\r\n" + msgArray[i];
+						writeFile.WriteLine(msgArray[i]);
 					}
 
-					File.WriteAllText(savePath, fileReadOrWrite, Encoding.Unicode);
+					writeFile.Close();
 
 					result = "SUCCESS";
 
@@ -429,7 +431,12 @@ namespace NurseManagerServer
 				case "REGNURSE":
 					savePath = @"Data\nurse.txt";
 
-					File.AppendAllText(savePath, msgArray[1] + "\r\n", Encoding.Unicode);
+
+					writeFile = new StreamWriter(savePath, true, Encoding.Unicode, 4096);
+					
+					writeFile.WriteLine(msgArray[1]);
+
+					writeFile.Close();
 
 					result = "SUCCESS";
 

@@ -631,21 +631,13 @@ namespace NurseDutyManager
 
 			SendMessage(message);
 
-			while (true) { if (messageReturned != null) { break; } }
-
-			if (messageReturned == null)
-			{
-				MessageBox.Show("전송시간 초과!");
-
-				messageReturned = null;
-
-				return false;
-			}
-
+			while (messageReturned == null) ;
+			
 			bool result;
+
 			if (messageReturned == "SUCCESS")
 			{
-				MessageBox.Show("전송시간 초과!");
+				MessageBox.Show("등록 완료!");
 
 				result = true;
 			}
@@ -655,6 +647,8 @@ namespace NurseDutyManager
 
 				result = false;
 			}
+
+			messageReturned = null;
 
 			return result;
 		}
