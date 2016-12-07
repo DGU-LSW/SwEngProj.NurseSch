@@ -189,15 +189,8 @@ namespace NurseDutyManager
 		public virtual int logIn(string ID, string PW)
         {
 			SendMessage("LOGIN|" + ID + '|' + PW + '|' + 3);
-			
-			while(true) { if(messageReturned != null) { break; } }
 
-			if (messageReturned == null)
-			{
-				MessageBox.Show("전송시간 초과!");
-
-				return 0;
-			}
+			while (messageReturned == null);
 
 			if (messageReturned == "FAIL")
 			{
@@ -296,7 +289,7 @@ namespace NurseDutyManager
 
 			SendMessage(message);
 
-			while (true) { if (messageReturned != null) { break; } }
+			while (messageReturned == null) ;
 
 			if (messageReturned == null)
 			{
@@ -328,7 +321,7 @@ namespace NurseDutyManager
 
 			SendMessage(message);
 
-			while (true) { if (messageReturned != null) { break; } }
+			while (messageReturned == null) ;
 
 			if (messageReturned == null)
 			{
@@ -466,7 +459,7 @@ namespace NurseDutyManager
 		//개인정보 수정한 것을 서버로 보낸다.
 		//성공하면 true 실패하면 false
 		// id는 개인정보를 수정할 간호사의 id, nurse는 수정된 개인정보
-		public virtual bool modifyNurse(string ID, Nurse nurse, List<Nurse> nurseList)
+		public bool modifyNurse(string ID, Nurse nurse, List<Nurse> nurseList)
 		{
 			string message = "MODIF|";
 
@@ -493,14 +486,7 @@ namespace NurseDutyManager
 
 			SendMessage(message);
 
-			while (true) { if (messageReturned != null) { break; } }
-
-			if (messageReturned == null)
-			{
-				MessageBox.Show("전송시간 초과!");
-				messageReturned = null;
-				return false;
-			}
+			while (messageReturned == null) ;
 
 			bool result;
 
