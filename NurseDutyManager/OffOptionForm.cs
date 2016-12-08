@@ -30,13 +30,14 @@ namespace NurseDutyManager
 			if(clientsocket.getOption() != null)
 			{
 				option = clientsocket.getOption();
-				opt = option.ToString();
-				option = new Option(opt);
+				MessageBox.Show(option.ToString());
 			}
 			else
 			{
 				option = new Option();
 			}
+
+
 		}
 
         public void button2_Click(object sender, EventArgs e)

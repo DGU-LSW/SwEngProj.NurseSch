@@ -282,10 +282,7 @@ namespace NurseManagerServer
 
 							break;
 						}
-						else
-						{
-							result = "FAIL";
-						}
+						else { result = "FAIL";}
 					}
 					break;
 
@@ -385,7 +382,7 @@ namespace NurseManagerServer
 				case "MODIF":
 					savePath = @"Data\nurse.txt";
 
-					writeFile = new StreamWriter(savePath, true, Encoding.Unicode, 4096);
+					writeFile = new StreamWriter(savePath, false, Encoding.Unicode, 4096);
 
 					for(int i=1;i<msgArray.Length;i++)
 					{
@@ -430,7 +427,6 @@ namespace NurseManagerServer
 
 				case "REGNURSE":
 					savePath = @"Data\nurse.txt";
-
 
 					writeFile = new StreamWriter(savePath, true, Encoding.Unicode, 4096);
 					

@@ -71,8 +71,6 @@ namespace NurseDutyManager
 
 				ao.workingSocket = mClientSocket;
 				mClientSocket.BeginReceive(ao.buffer, 0, ao.buffer.Length, SocketFlags.None, mfnReceiveHandler, ao);
-
-				MessageBox.Show("연결에 성공했습니다!");
 			}
 			else
 			{
@@ -189,15 +187,8 @@ namespace NurseDutyManager
 		public virtual int logIn(string ID, string PW)
         {
 			SendMessage("LOGIN|" + ID + '|' + PW + '|' + 3);
-			
-			while(true) { if(messageReturned != null) { break; } }
 
-			if (messageReturned == null)
-			{
-				MessageBox.Show("전송시간 초과!");
-
-				return 0;
-			}
+			while (messageReturned == null) ;
 
 			if (messageReturned == "FAIL")
 			{
@@ -221,16 +212,7 @@ namespace NurseDutyManager
 		{
 			SendMessage("FINDID|" + name + '|' + lisenceNumber);
 
-			while (true) { if (messageReturned != null) { break; } }
-
-			if (messageReturned == null)
-			{
-				MessageBox.Show("전송시간 초과!");
-
-				messageReturned = null;
-
-				return null;
-			}
+			while (messageReturned == null) ;
 
 			if (messageReturned == "FAIL")
 			{
@@ -253,16 +235,7 @@ namespace NurseDutyManager
 		{
 			SendMessage("FINDPW|" + id + '|' + name + '|' + lisenceNumber);
 
-			while (true) { if (messageReturned != null) { break; } }
-
-			if (messageReturned == null)
-			{
-				MessageBox.Show("전송시간 초과!");
-
-				messageReturned = null;
-
-				return null;
-			}
+			while (messageReturned == null) ;
 
 			if (messageReturned == "FAIL")
 			{
@@ -296,16 +269,7 @@ namespace NurseDutyManager
 
 			SendMessage(message);
 
-			while (true) { if (messageReturned != null) { break; } }
-
-			if (messageReturned == null)
-			{
-				MessageBox.Show("전송시간 초과!");
-
-				messageReturned = null;
-
-				return false;
-			}
+			while (messageReturned == null) ;
 
 			if (messageReturned.Equals("FAIL"))
 			{
@@ -328,14 +292,7 @@ namespace NurseDutyManager
 
 			SendMessage(message);
 
-			while (true) { if (messageReturned != null) { break; } }
-
-			if (messageReturned == null)
-			{
-				MessageBox.Show("전송시간 초과!");
-				messageReturned = null;
-				return null;
-			}
+			while (messageReturned == null) ;
 
 			if (messageReturned.Equals("FAIL"))
 			{
@@ -364,14 +321,7 @@ namespace NurseDutyManager
 
 			SendMessage(message);
 
-			while (true) { if (messageReturned != null) { break; } }
-
-			if (messageReturned == null)
-			{
-				MessageBox.Show("전송시간 초과!");
-				messageReturned = null;
-				return null;
-			}
+			while (messageReturned == null) ;
 
 			if (messageReturned.Equals("FAIL"))
 			{
@@ -401,19 +351,14 @@ namespace NurseDutyManager
 
 			SendMessage(message);
 
-			while (true) { if (messageReturned != null) { break; } }
-
-			if (messageReturned == null)
-			{
-				MessageBox.Show("전송시간 초과!");
-				messageReturned = null;
-				return null;
-			}
+			while (messageReturned == null) ;
 
 			if (messageReturned.Equals("FAIL"))
 			{
 				MessageBox.Show("잘못 입력하셨습니다!");
+
 				messageReturned = null;
+
 				return null;
 			}
 
@@ -423,7 +368,9 @@ namespace NurseDutyManager
 			{
 				result = new Option(messageReturned);
 			}
+
 			messageReturned = null;
+
 			return result;
         }
         
@@ -435,14 +382,7 @@ namespace NurseDutyManager
 
 			SendMessage(message);
 
-			while (true) { if (messageReturned != null) { break; } }
-
-			if (messageReturned == null)
-			{
-				MessageBox.Show("전송시간 초과!");
-				messageReturned = null;
-				return false;
-			}
+			while (messageReturned == null) ;
 
 			bool result;
 
@@ -493,21 +433,11 @@ namespace NurseDutyManager
 
 			SendMessage(message);
 
-			while (true) { if (messageReturned != null) { break; } }
-
-			if (messageReturned == null)
-			{
-				MessageBox.Show("전송시간 초과!");
-				messageReturned = null;
-				return false;
-			}
+			while (messageReturned == null) ;
 
 			bool result;
 
-			if(messageReturned == "SUCCESS")
-			{
-				result = true;
-			}
+			if(messageReturned == "SUCCESS") { result = true;}
 			else
 			{
 				MessageBox.Show("작업 실패!");
@@ -528,14 +458,7 @@ namespace NurseDutyManager
 
 			SendMessage(message);
 
-			while (true) { if (messageReturned != null) { break; } }
-
-			if (messageReturned == null)
-			{
-				MessageBox.Show("전송시간 초과!");
-				messageReturned = null;
-				return false;
-			}
+			while (messageReturned == null) ;
 
 			bool result;
 
@@ -563,17 +486,10 @@ namespace NurseDutyManager
 
 			SendMessage(message);
 
-			while (true) { if (messageReturned != null) { break; } }
+			while (messageReturned == null) ;
 
-			if (messageReturned == null)
-			{
-				MessageBox.Show("전송시간 초과!");
-
-				messageReturned = null;
-
-				return null;
-			}
 			MonthSchedule result;
+
 			if (messageReturned == "SUCCESS")
 			{
 				result = new MonthSchedule(messageReturned);
@@ -595,16 +511,7 @@ namespace NurseDutyManager
 
 			SendMessage(message);
 
-			while (true) { if (messageReturned != null) { break; } }
-
-			if (messageReturned == null)
-			{
-				MessageBox.Show("전송시간 초과!");
-
-				messageReturned = null;
-
-				return null;
-			}
+			while (messageReturned == null) ;
 
 			Nurse newNurse;
 
@@ -637,8 +544,6 @@ namespace NurseDutyManager
 
 			if (messageReturned == "SUCCESS")
 			{
-				MessageBox.Show("등록 완료!");
-
 				result = true;
 			}
 			else
